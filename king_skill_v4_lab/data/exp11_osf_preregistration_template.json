@@ -1,0 +1,24 @@
+{
+  "experiment": "EXP-11",
+  "title": "King-Skill routing + compression vs same LLM without routing (paired tasks)",
+  "primary_hypothesis": "Overall 17-judge rubric score differs between conditions (Wilcoxon signed-rank, alpha=0.05).",
+  "design": {
+    "n_pairs": 50,
+    "conditions": ["A_king_skill", "B_plain_llm_same_model"],
+    "blocking": "paired by task id",
+    "pre_registration_platform": "OSF",
+    "secondary_endpoints": [
+      "output_tokens",
+      "api_cost_usd",
+      "meets_2500_token_minimum",
+      "factual_error_indicator_exp16"
+    ],
+    "multiple_comparisons": "Bonferroni alpha_prime = 0.01 for 5 secondary tests"
+  },
+  "fill_before_data_collection": [
+    "OSF project URL",
+    "exact model ids and temperature",
+    "judge panel version",
+    "randomization seed"
+  ]
+}

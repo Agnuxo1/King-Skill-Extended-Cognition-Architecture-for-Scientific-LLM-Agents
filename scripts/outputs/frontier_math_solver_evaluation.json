@@ -1,0 +1,106 @@
+{
+  "skill": "frontier-math-solver",
+  "version": "6.0",
+  "evaluation_date": "2026-04-11",
+  "metrics": {
+    "skill_file": "E:\\OpenCLAW-4\\papers\\Skills\\Skills-frontier-math-solver.md",
+    "file_size_bytes": 37689,
+    "lines": 846,
+    "token_budget": {
+      "total_cl100k": 11349,
+      "thinking_phase_tokens": 2143,
+      "output_phase_tokens": 5953,
+      "ratio_thinking": 0.18882720944576614
+    },
+    "registry": {
+      "total_problems": 0,
+      "by_domain": {}
+    },
+    "external_apis": {
+      "p2pclaw.com/silicon": {
+        "error": "HTTP Error 403: Forbidden",
+        "accessible": false
+      },
+      "WolframAlpha": {
+        "error": "'charmap' codec can't encode character '\\u2713' in position 25: character maps to <undefined>",
+        "accessible": false
+      },
+      "PARI_GP": {
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>",
+        "accessible": false
+      },
+      "SageMath_cloud": {
+        "error": "HTTP Error 403: Forbidden",
+        "accessible": false
+      },
+      "GAP_online": {
+        "error": "'charmap' codec can't encode character '\\u2713' in position 23: character maps to <undefined>",
+        "accessible": false
+      }
+    },
+    "local_tools": {
+      "numpy": {
+        "available": true,
+        "version": "2.2.2"
+      },
+      "scipy": {
+        "available": true,
+        "version": "1.15.1"
+      },
+      "sympy": {
+        "available": true,
+        "version": "1.13.3"
+      },
+      "z3": {
+        "available": true,
+        "version": "unknown"
+      },
+      "pandas": {
+        "available": true,
+        "version": "2.2.3"
+      },
+      "networkx": {
+        "available": true,
+        "version": "3.4.2"
+      }
+    },
+    "math_verification": {
+      "paley_I_167": {
+        "error": "'charmap' codec can't encode character '\\u2717' in position 21: character maps to <undefined>"
+      },
+      "paley_graph_13": {
+        "error": "'charmap' codec can't encode character '\\u2713' in position 24: character maps to <undefined>"
+      },
+      "williamson_n1": {
+        "search_iterations": 10,
+        "found": true
+      }
+    },
+    "forbidden_actions": {
+      "count": 9,
+      "examples": [
+        "compute eigenvalues of 668×668 matrix mentally",
+        "state a bound without citation",
+        "claim to solve Diophantine undecidable instance",
+        "ignore the 20-minute audit",
+        "implement own number-theoretic library when sympy/PARI exists"
+      ]
+    },
+    "citations": {
+      "count": 71,
+      "samples": [
+        "type",
+        "complexity",
+        "key_structure",
+        "barrier",
+        "type"
+      ]
+    },
+    "cost_comparison": {
+      "baseline_total": 128000,
+      "skill_total": 11349,
+      "cost_overhead": -116651,
+      "overhead_percentage": -0.9113359375
+    }
+  }
+}

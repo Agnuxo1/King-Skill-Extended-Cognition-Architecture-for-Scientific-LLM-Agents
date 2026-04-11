@@ -1,0 +1,17 @@
+{
+  "experiment": "EXP-07",
+  "design": "blind paired paragraphs compressed vs prose",
+  "schema_version": 1,
+  "judge_id": "",
+  "pair_id": "",
+  "randomized_label_map": {"A": "", "B": ""},
+  "scores_1_to_5": {
+    "scientific_accuracy": null,
+    "clarity": null,
+    "readability": null,
+    "notation_appropriateness": null,
+    "overall": null
+  },
+  "preference_winner": "A|B|tie",
+  "notes": ""
+}

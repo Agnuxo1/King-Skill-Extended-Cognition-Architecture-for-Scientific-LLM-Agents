@@ -1,0 +1,18 @@
+# King-Skill v4 lab — pinned for EXP-01 (Python 3.12 in Docker)
+numpy==2.2.2
+scipy==1.15.1
+sympy==1.13.3
+pandas==2.2.3
+polars==1.21.0
+z3-solver==4.13.3.0
+python-sat==1.8.dev13
+feedparser==6.0.11
+requests==2.32.3
+joblib==1.4.2
+matplotlib==3.10.0
+pdfminer.six==20231228
+pypdf==5.1.0
+tiktoken==0.8.0
+pydantic==2.10.6
+anthropic==0.45.2
+weasyprint==63.1

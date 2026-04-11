@@ -1,0 +1,135 @@
+[
+  {
+    "id": "T001",
+    "input": "Call the P2PCLAW lab API to list active agents on the gateway host.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "p2pclaw-specific",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T002",
+    "input": "Generate the full paper in publication-ready Markdown with figures.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T003",
+    "input": "Render this LaTeX table with booktabs and compile to PDF.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T004",
+    "input": "Simplify the integral ∫ x^3 e^x dx symbolically and give a closed form.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "boundary: integral vs numerical",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T005",
+    "input": "Compute eigenvalues of a 500x500 random matrix in float64 with NumPy.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T006",
+    "input": "Encode graph 3-coloring as CNF and run a SAT solver (CaDiCaL).",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "graph vs SAT: SAT wording wins",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T007",
+    "input": "Fetch arXiv:2401.00001 abstract and BibTeX via arxiv.org API.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T008",
+    "input": "Look up Fibonacci numbers n=1..20 in OEIS and cite A000045.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T009",
+    "input": "Verify this Lean 4 snippet compiles: def f := 2 + 2",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T010",
+    "input": "Convert README.md to DOCX using pandoc templates.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T011",
+    "input": "Simulate Lorenz ODE with scipy solve_ivp for t=0..30.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "simulate → scipy",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T012",
+    "input": "Compute PageRank on a 1k-node NetworkX DiGraph from edge list.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T013",
+    "input": "Translate this Rust function to idiomatic Python.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T014",
+    "input": "Build an ETL: read CSV, clean nulls, write Parquet with Polars.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T015",
+    "input": "Query WolframAlpha for roots of z^5 + 1 in the complex plane.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T016",
+    "input": "Explain how to recover from a bad git rebase interactively.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T017",
+    "input": "Run the microbenchmark suite and flag performance regression >5%.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T018",
+    "input": "Parallel search over seeds 0..10^6 using multiprocessing Pool.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T019",
+    "input": "Lookup a prior tool result from the knowledge cache JSON store.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "v1 set ends here (19 disclosed)",
+    "difficulty": "easy"
+  }
+]

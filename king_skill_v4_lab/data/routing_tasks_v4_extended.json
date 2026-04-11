@@ -1,0 +1,492 @@
+[
+  {
+    "id": "T001",
+    "input": "Call the P2PCLAW lab API to list active agents on the gateway host.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "p2pclaw-specific",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T002",
+    "input": "Generate the full paper in publication-ready Markdown with figures.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T003",
+    "input": "Render this LaTeX table with booktabs and compile to PDF.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T004",
+    "input": "Simplify the integral ∫ x^3 e^x dx symbolically and give a closed form.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "boundary: integral vs numerical",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T005",
+    "input": "Compute eigenvalues of a 500x500 random matrix in float64 with NumPy.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T006",
+    "input": "Encode graph 3-coloring as CNF and run a SAT solver (CaDiCaL).",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "graph vs SAT: SAT wording wins",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T007",
+    "input": "Fetch arXiv:2401.00001 abstract and BibTeX via arxiv.org API.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T008",
+    "input": "Look up Fibonacci numbers n=1..20 in OEIS and cite A000045.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T009",
+    "input": "Verify this Lean 4 snippet compiles: def f := 2 + 2",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T010",
+    "input": "Convert README.md to DOCX using pandoc templates.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T011",
+    "input": "Simulate Lorenz ODE with scipy solve_ivp for t=0..30.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "simulate → scipy",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T012",
+    "input": "Compute PageRank on a 1k-node NetworkX DiGraph from edge list.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T013",
+    "input": "Translate this Rust function to idiomatic Python.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T014",
+    "input": "Build an ETL: read CSV, clean nulls, write Parquet with Polars.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T015",
+    "input": "Query WolframAlpha for roots of z^5 + 1 in the complex plane.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T016",
+    "input": "Explain how to recover from a bad git rebase interactively.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T017",
+    "input": "Run the microbenchmark suite and flag performance regression >5%.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T018",
+    "input": "Parallel search over seeds 0..10^6 using multiprocessing Pool.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T019",
+    "input": "Lookup a prior tool result from the knowledge cache JSON store.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "v1 set ends here (19 disclosed)",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T020",
+    "input": "Compress scientific notation in this paragraph to minimize tokens.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "token-compression path",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T021",
+    "input": "simplify the integral ∫x²dx symbolically",
+    "expected_skill": "skill-09-sympy",
+    "notes": "guide boundary wording",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T022",
+    "input": "Simulate a damped harmonic oscillator numerically with scipy ODE.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "simulate + scipy",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T023",
+    "input": "Prove Fermat's Last Theorem in one page.",
+    "expected_skill": "fallback",
+    "notes": "provable overreach → fallback",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "T024",
+    "input": "Graph the social network metrics but only as prose essay.",
+    "expected_skill": "fallback",
+    "notes": "ambiguous: no tool keywords",
+    "difficulty": "ambiguous"
+  },
+  {
+    "id": "T025",
+    "input": "Graph coloring encoded as CNF clauses for n=50 graph.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "SAT dominates graph word",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T026",
+    "input": "Compute FFT of a 2^20 signal using NumPy vectorized.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "",
+    "difficulty": "easy"
+  },
+  {
+    "id": "T027",
+    "input": "Gun.js relay node health check for decentralized sync.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T028",
+    "input": "P2P overlay shortest path experiment with NetworkX.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "p2p topology routing",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "T029",
+    "input": "Hive queen spawner logs show crash — diagnose OpenCLAW gateway.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T030",
+    "input": "What is the meaning of life?",
+    "expected_skill": "fallback",
+    "notes": "no skill",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "T100",
+    "input": "NumPy batched matmul timing float32 (coverage 0).",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T101",
+    "input": "SAT solver on random 3-SAT CNF 200 vars (coverage 0).",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T102",
+    "input": "Download metadata for arXiv:2309.00012 (coverage 0).",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T103",
+    "input": "arxiv.org search API for 'quantum error correction' (coverage 1).",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T104",
+    "input": "OEIS lookup for Catalan numbers (coverage 0).",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T105",
+    "input": "NIST CODATA speed of light 2022 (coverage 1).",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T106",
+    "input": "Typecheck this Lean 4 structure field (coverage 0).",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T107",
+    "input": "Lean4 proof of commutativity of Nat.add (coverage 1).",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T108",
+    "input": "pandoc md to pdf via weasyprint (coverage 0).",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T109",
+    "input": "DOCX template merge with pandoc (coverage 1).",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T110",
+    "input": "solve_ivp stiff Robertson chemical kinetics (coverage 0).",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T111",
+    "input": "NetworkX betweenness on Zachary karate (coverage 0).",
+    "expected_skill": "skill-08-networkx",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T112",
+    "input": "closed form of sum 1/k^2 sympy (coverage 0).",
+    "expected_skill": "skill-09-sympy",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T113",
+    "input": "convert Java to Python asyncio (coverage 0).",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T114",
+    "input": "translate this Rust enum to Python (coverage 1).",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T115",
+    "input": "pdflatex beamer slides compile (coverage 0).",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T116",
+    "input": "Tikz diagram compile latex (coverage 1).",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T117",
+    "input": "pandas groupby aggregation pipeline (coverage 0).",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T118",
+    "input": "polars lazy scan parquet (coverage 1).",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T119",
+    "input": "WolframAlpha integrate sin(x)/x (coverage 0).",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T120",
+    "input": "wolfram query Lambert W (coverage 1).",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T121",
+    "input": "git bisect start binary search (coverage 0).",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T122",
+    "input": "git cherry-pick onto main (coverage 1).",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T123",
+    "input": "token compress equations in prose (coverage 0).",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T124",
+    "input": "notation compress for P2PCLAW output (coverage 1).",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T125",
+    "input": "benchmark suite CI gate (coverage 0).",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T126",
+    "input": "microbenchmark regression detector (coverage 1).",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T127",
+    "input": "multiprocessing brute force keyspace (coverage 0).",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T128",
+    "input": "parallel search over combinatorial seeds (coverage 1).",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T129",
+    "input": "knowledge cache json lookup key (coverage 0).",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T130",
+    "input": "memoize tool result in cache store (coverage 1).",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T131",
+    "input": "write the entire paper section Methods (coverage 0).",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "T132",
+    "input": "publication-ready figure captions generator (coverage 1).",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "coverage to ≥3/skill",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TX063",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX064",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX065",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX066",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX067",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX068",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  },
+  {
+    "id": "TX069",
+    "input": "Discuss epistemology of models without invoking tools.",
+    "expected_skill": "fallback",
+    "notes": "pad to 70",
+    "difficulty": "fallback"
+  }
+]

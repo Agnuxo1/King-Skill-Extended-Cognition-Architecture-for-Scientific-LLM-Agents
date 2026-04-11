@@ -1,0 +1,3502 @@
+[
+  {
+    "id": "S0000",
+    "input": "[v0] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0001",
+    "input": "[v1] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0002",
+    "input": "[v2] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0003",
+    "input": "[v3] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0004",
+    "input": "[v4] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0005",
+    "input": "[v5] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0006",
+    "input": "[v6] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0007",
+    "input": "[v7] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0008",
+    "input": "[v8] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0009",
+    "input": "[v9] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0010",
+    "input": "[v10] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0011",
+    "input": "[v11] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0012",
+    "input": "[v12] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0013",
+    "input": "[v13] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0014",
+    "input": "[v14] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0015",
+    "input": "[v15] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0016",
+    "input": "[v16] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0017",
+    "input": "[v17] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0018",
+    "input": "[v18] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0019",
+    "input": "[v19] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0020",
+    "input": "[v20] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0021",
+    "input": "[v21] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0022",
+    "input": "[v22] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0023",
+    "input": "[v23] SciPy sparse eigen solver ARPACK: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0024",
+    "input": "[v24] NumPy batched matmul timing float32: add technical detail for a controlled trial.",
+    "expected_skill": "skill-01-python-executor",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0025",
+    "input": "[v0] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0026",
+    "input": "[v1] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0027",
+    "input": "[v2] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0028",
+    "input": "[v3] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0029",
+    "input": "[v4] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0030",
+    "input": "[v5] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0031",
+    "input": "[v6] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0032",
+    "input": "[v7] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0033",
+    "input": "[v8] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0034",
+    "input": "[v9] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0035",
+    "input": "[v10] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0036",
+    "input": "[v11] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0037",
+    "input": "[v12] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0038",
+    "input": "[v13] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0039",
+    "input": "[v14] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0040",
+    "input": "[v15] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0041",
+    "input": "[v16] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0042",
+    "input": "[v17] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0043",
+    "input": "[v18] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0044",
+    "input": "[v19] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0045",
+    "input": "[v20] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0046",
+    "input": "[v21] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0047",
+    "input": "[v22] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0048",
+    "input": "[v23] Z3 python-sat cardinality constraints: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0049",
+    "input": "[v24] SAT solver on random 3-SAT CNF 200 vars: add technical detail for a controlled trial.",
+    "expected_skill": "skill-02-sat-solver",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0050",
+    "input": "[v0] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0051",
+    "input": "[v1] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0052",
+    "input": "[v2] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0053",
+    "input": "[v3] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0054",
+    "input": "[v4] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0055",
+    "input": "[v5] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0056",
+    "input": "[v6] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0057",
+    "input": "[v7] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0058",
+    "input": "[v8] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0059",
+    "input": "[v9] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0060",
+    "input": "[v10] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0061",
+    "input": "[v11] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0062",
+    "input": "[v12] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0063",
+    "input": "[v13] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0064",
+    "input": "[v14] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0065",
+    "input": "[v15] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0066",
+    "input": "[v16] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0067",
+    "input": "[v17] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0068",
+    "input": "[v18] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0069",
+    "input": "[v19] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0070",
+    "input": "[v20] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0071",
+    "input": "[v21] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0072",
+    "input": "[v22] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0073",
+    "input": "[v23] arxiv.org search API for 'quantum error correction': add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0074",
+    "input": "[v24] Download metadata for arXiv:2309.00012: add technical detail for a controlled trial.",
+    "expected_skill": "skill-03-arxiv-fetch",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0075",
+    "input": "[v0] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0076",
+    "input": "[v1] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0077",
+    "input": "[v2] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0078",
+    "input": "[v3] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0079",
+    "input": "[v4] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0080",
+    "input": "[v5] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0081",
+    "input": "[v6] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0082",
+    "input": "[v7] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0083",
+    "input": "[v8] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0084",
+    "input": "[v9] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0085",
+    "input": "[v10] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0086",
+    "input": "[v11] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0087",
+    "input": "[v12] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0088",
+    "input": "[v13] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0089",
+    "input": "[v14] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0090",
+    "input": "[v15] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0091",
+    "input": "[v16] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0092",
+    "input": "[v17] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0093",
+    "input": "[v18] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0094",
+    "input": "[v19] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0095",
+    "input": "[v20] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0096",
+    "input": "[v21] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0097",
+    "input": "[v22] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0098",
+    "input": "[v23] NIST CODATA speed of light 2022: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0099",
+    "input": "[v24] OEIS lookup for Catalan numbers: add technical detail for a controlled trial.",
+    "expected_skill": "skill-04-oeis-nist",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0100",
+    "input": "[v0] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0101",
+    "input": "[v1] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0102",
+    "input": "[v2] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0103",
+    "input": "[v3] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0104",
+    "input": "[v4] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0105",
+    "input": "[v5] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0106",
+    "input": "[v6] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0107",
+    "input": "[v7] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0108",
+    "input": "[v8] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0109",
+    "input": "[v9] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0110",
+    "input": "[v10] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0111",
+    "input": "[v11] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0112",
+    "input": "[v12] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0113",
+    "input": "[v13] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0114",
+    "input": "[v14] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0115",
+    "input": "[v15] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0116",
+    "input": "[v16] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0117",
+    "input": "[v17] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0118",
+    "input": "[v18] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0119",
+    "input": "[v19] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0120",
+    "input": "[v20] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0121",
+    "input": "[v21] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0122",
+    "input": "[v22] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0123",
+    "input": "[v23] Lean4 proof of commutativity of Nat.add: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0124",
+    "input": "[v24] Typecheck this Lean 4 structure field: add technical detail for a controlled trial.",
+    "expected_skill": "skill-05-lean4-verify",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0125",
+    "input": "[v0] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0126",
+    "input": "[v1] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0127",
+    "input": "[v2] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0128",
+    "input": "[v3] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0129",
+    "input": "[v4] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0130",
+    "input": "[v5] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0131",
+    "input": "[v6] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0132",
+    "input": "[v7] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0133",
+    "input": "[v8] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0134",
+    "input": "[v9] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0135",
+    "input": "[v10] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0136",
+    "input": "[v11] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0137",
+    "input": "[v12] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0138",
+    "input": "[v13] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0139",
+    "input": "[v14] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0140",
+    "input": "[v15] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0141",
+    "input": "[v16] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0142",
+    "input": "[v17] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0143",
+    "input": "[v18] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0144",
+    "input": "[v19] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0145",
+    "input": "[v20] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0146",
+    "input": "[v21] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0147",
+    "input": "[v22] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0148",
+    "input": "[v23] DOCX template merge with pandoc: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0149",
+    "input": "[v24] pandoc md to pdf via weasyprint: add technical detail for a controlled trial.",
+    "expected_skill": "skill-06-doc-transform",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0150",
+    "input": "[v0] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0151",
+    "input": "[v1] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0152",
+    "input": "[v2] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0153",
+    "input": "[v3] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0154",
+    "input": "[v4] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0155",
+    "input": "[v5] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0156",
+    "input": "[v6] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0157",
+    "input": "[v7] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0158",
+    "input": "[v8] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0159",
+    "input": "[v9] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0160",
+    "input": "[v10] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0161",
+    "input": "[v11] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0162",
+    "input": "[v12] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0163",
+    "input": "[v13] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0164",
+    "input": "[v14] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0165",
+    "input": "[v15] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0166",
+    "input": "[v16] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0167",
+    "input": "[v17] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0168",
+    "input": "[v18] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0169",
+    "input": "[v19] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0170",
+    "input": "[v20] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0171",
+    "input": "[v21] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0172",
+    "input": "[v22] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0173",
+    "input": "[v23] ODE simulation of SIR model scipy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0174",
+    "input": "[v24] solve_ivp stiff Robertson chemical kinetics: add technical detail for a controlled trial.",
+    "expected_skill": "skill-07-scipy-sim",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0175",
+    "input": "[v0] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0176",
+    "input": "[v1] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0177",
+    "input": "[v2] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0178",
+    "input": "[v3] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0179",
+    "input": "[v4] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0180",
+    "input": "[v5] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0181",
+    "input": "[v6] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0182",
+    "input": "[v7] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0183",
+    "input": "[v8] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0184",
+    "input": "[v9] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0185",
+    "input": "[v10] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0186",
+    "input": "[v11] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0187",
+    "input": "[v12] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0188",
+    "input": "[v13] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0189",
+    "input": "[v14] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0190",
+    "input": "[v15] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0191",
+    "input": "[v16] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0192",
+    "input": "[v17] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0193",
+    "input": "[v18] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0194",
+    "input": "[v19] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0195",
+    "input": "[v20] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0196",
+    "input": "[v21] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0197",
+    "input": "[v22] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0198",
+    "input": "[v23] graph diameter random geometric graph: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0199",
+    "input": "[v24] NetworkX betweenness on Zachary karate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-08-networkx",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0200",
+    "input": "[v0] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0201",
+    "input": "[v1] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0202",
+    "input": "[v2] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0203",
+    "input": "[v3] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0204",
+    "input": "[v4] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0205",
+    "input": "[v5] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0206",
+    "input": "[v6] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0207",
+    "input": "[v7] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0208",
+    "input": "[v8] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0209",
+    "input": "[v9] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0210",
+    "input": "[v10] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0211",
+    "input": "[v11] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0212",
+    "input": "[v12] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0213",
+    "input": "[v13] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0214",
+    "input": "[v14] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0215",
+    "input": "[v15] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0216",
+    "input": "[v16] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0217",
+    "input": "[v17] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0218",
+    "input": "[v18] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0219",
+    "input": "[v19] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0220",
+    "input": "[v20] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0221",
+    "input": "[v21] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0222",
+    "input": "[v22] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0223",
+    "input": "[v23] symbolic derivative of matrix expression: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0224",
+    "input": "[v24] closed form of sum 1/k^2 sympy: add technical detail for a controlled trial.",
+    "expected_skill": "skill-09-sympy",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0225",
+    "input": "[v0] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0226",
+    "input": "[v1] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0227",
+    "input": "[v2] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0228",
+    "input": "[v3] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0229",
+    "input": "[v4] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0230",
+    "input": "[v5] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0231",
+    "input": "[v6] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0232",
+    "input": "[v7] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0233",
+    "input": "[v8] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0234",
+    "input": "[v9] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0235",
+    "input": "[v10] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0236",
+    "input": "[v11] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0237",
+    "input": "[v12] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0238",
+    "input": "[v13] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0239",
+    "input": "[v14] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0240",
+    "input": "[v15] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0241",
+    "input": "[v16] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0242",
+    "input": "[v17] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0243",
+    "input": "[v18] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0244",
+    "input": "[v19] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0245",
+    "input": "[v20] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0246",
+    "input": "[v21] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0247",
+    "input": "[v22] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0248",
+    "input": "[v23] translate this Rust enum to Python: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0249",
+    "input": "[v24] convert Java to Python asyncio: add technical detail for a controlled trial.",
+    "expected_skill": "skill-10-code-translator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0250",
+    "input": "[v0] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0251",
+    "input": "[v1] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0252",
+    "input": "[v2] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0253",
+    "input": "[v3] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0254",
+    "input": "[v4] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0255",
+    "input": "[v5] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0256",
+    "input": "[v6] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0257",
+    "input": "[v7] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0258",
+    "input": "[v8] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0259",
+    "input": "[v9] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0260",
+    "input": "[v10] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0261",
+    "input": "[v11] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0262",
+    "input": "[v12] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0263",
+    "input": "[v13] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0264",
+    "input": "[v14] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0265",
+    "input": "[v15] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0266",
+    "input": "[v16] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0267",
+    "input": "[v17] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0268",
+    "input": "[v18] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0269",
+    "input": "[v19] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0270",
+    "input": "[v20] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0271",
+    "input": "[v21] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0272",
+    "input": "[v22] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0273",
+    "input": "[v23] Tikz diagram compile latex: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0274",
+    "input": "[v24] pdflatex beamer slides compile: add technical detail for a controlled trial.",
+    "expected_skill": "skill-11-latex-renderer",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0275",
+    "input": "[v0] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0276",
+    "input": "[v1] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0277",
+    "input": "[v2] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0278",
+    "input": "[v3] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0279",
+    "input": "[v4] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0280",
+    "input": "[v5] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0281",
+    "input": "[v6] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0282",
+    "input": "[v7] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0283",
+    "input": "[v8] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0284",
+    "input": "[v9] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0285",
+    "input": "[v10] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0286",
+    "input": "[v11] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0287",
+    "input": "[v12] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0288",
+    "input": "[v13] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0289",
+    "input": "[v14] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0290",
+    "input": "[v15] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0291",
+    "input": "[v16] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0292",
+    "input": "[v17] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0293",
+    "input": "[v18] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0294",
+    "input": "[v19] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0295",
+    "input": "[v20] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0296",
+    "input": "[v21] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0297",
+    "input": "[v22] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0298",
+    "input": "[v23] polars lazy scan parquet: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0299",
+    "input": "[v24] pandas groupby aggregation pipeline: add technical detail for a controlled trial.",
+    "expected_skill": "skill-12-data-pipeline",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0300",
+    "input": "[v0] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0301",
+    "input": "[v1] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0302",
+    "input": "[v2] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0303",
+    "input": "[v3] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0304",
+    "input": "[v4] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0305",
+    "input": "[v5] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0306",
+    "input": "[v6] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0307",
+    "input": "[v7] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0308",
+    "input": "[v8] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0309",
+    "input": "[v9] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0310",
+    "input": "[v10] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0311",
+    "input": "[v11] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0312",
+    "input": "[v12] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0313",
+    "input": "[v13] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0314",
+    "input": "[v14] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0315",
+    "input": "[v15] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0316",
+    "input": "[v16] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0317",
+    "input": "[v17] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0318",
+    "input": "[v18] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0319",
+    "input": "[v19] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0320",
+    "input": "[v20] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0321",
+    "input": "[v21] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0322",
+    "input": "[v22] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0323",
+    "input": "[v23] wolfram query Lambert W: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0324",
+    "input": "[v24] WolframAlpha integrate sin(x)/x: add technical detail for a controlled trial.",
+    "expected_skill": "skill-13-wolfram-query",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0325",
+    "input": "[v0] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0326",
+    "input": "[v1] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0327",
+    "input": "[v2] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0328",
+    "input": "[v3] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0329",
+    "input": "[v4] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0330",
+    "input": "[v5] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0331",
+    "input": "[v6] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0332",
+    "input": "[v7] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0333",
+    "input": "[v8] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0334",
+    "input": "[v9] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0335",
+    "input": "[v10] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0336",
+    "input": "[v11] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0337",
+    "input": "[v12] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0338",
+    "input": "[v13] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0339",
+    "input": "[v14] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0340",
+    "input": "[v15] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0341",
+    "input": "[v16] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0342",
+    "input": "[v17] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0343",
+    "input": "[v18] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0344",
+    "input": "[v19] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0345",
+    "input": "[v20] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0346",
+    "input": "[v21] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0347",
+    "input": "[v22] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0348",
+    "input": "[v23] git cherry-pick onto main: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0349",
+    "input": "[v24] git bisect start binary search: add technical detail for a controlled trial.",
+    "expected_skill": "skill-14-git-operations",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0350",
+    "input": "[v0] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0351",
+    "input": "[v1] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0352",
+    "input": "[v2] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0353",
+    "input": "[v3] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0354",
+    "input": "[v4] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0355",
+    "input": "[v5] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0356",
+    "input": "[v6] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0357",
+    "input": "[v7] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0358",
+    "input": "[v8] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0359",
+    "input": "[v9] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0360",
+    "input": "[v10] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0361",
+    "input": "[v11] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0362",
+    "input": "[v12] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0363",
+    "input": "[v13] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0364",
+    "input": "[v14] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0365",
+    "input": "[v15] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0366",
+    "input": "[v16] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0367",
+    "input": "[v17] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0368",
+    "input": "[v18] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0369",
+    "input": "[v19] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0370",
+    "input": "[v20] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0371",
+    "input": "[v21] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0372",
+    "input": "[v22] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0373",
+    "input": "[v23] p2pclaw lab integration harness: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0374",
+    "input": "[v24] openclaw gateway pairing code: add technical detail for a controlled trial.",
+    "expected_skill": "skill-15-p2pclaw-lab",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0375",
+    "input": "[v0] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0376",
+    "input": "[v1] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0377",
+    "input": "[v2] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0378",
+    "input": "[v3] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0379",
+    "input": "[v4] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0380",
+    "input": "[v5] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0381",
+    "input": "[v6] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0382",
+    "input": "[v7] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0383",
+    "input": "[v8] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0384",
+    "input": "[v9] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0385",
+    "input": "[v10] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0386",
+    "input": "[v11] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0387",
+    "input": "[v12] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0388",
+    "input": "[v13] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0389",
+    "input": "[v14] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0390",
+    "input": "[v15] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0391",
+    "input": "[v16] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0392",
+    "input": "[v17] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0393",
+    "input": "[v18] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0394",
+    "input": "[v19] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0395",
+    "input": "[v20] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0396",
+    "input": "[v21] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0397",
+    "input": "[v22] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0398",
+    "input": "[v23] notation compress for P2PCLAW output: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0399",
+    "input": "[v24] token compress equations in prose: add technical detail for a controlled trial.",
+    "expected_skill": "skill-16-token-compression",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0400",
+    "input": "[v0] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0401",
+    "input": "[v1] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0402",
+    "input": "[v2] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0403",
+    "input": "[v3] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0404",
+    "input": "[v4] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0405",
+    "input": "[v5] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0406",
+    "input": "[v6] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0407",
+    "input": "[v7] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0408",
+    "input": "[v8] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0409",
+    "input": "[v9] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0410",
+    "input": "[v10] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0411",
+    "input": "[v11] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0412",
+    "input": "[v12] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0413",
+    "input": "[v13] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0414",
+    "input": "[v14] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0415",
+    "input": "[v15] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0416",
+    "input": "[v16] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0417",
+    "input": "[v17] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0418",
+    "input": "[v18] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0419",
+    "input": "[v19] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0420",
+    "input": "[v20] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0421",
+    "input": "[v21] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0422",
+    "input": "[v22] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0423",
+    "input": "[v23] microbenchmark regression detector: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0424",
+    "input": "[v24] benchmark suite CI gate: add technical detail for a controlled trial.",
+    "expected_skill": "skill-17-benchmark-verifier",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0425",
+    "input": "[v0] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0426",
+    "input": "[v1] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0427",
+    "input": "[v2] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0428",
+    "input": "[v3] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0429",
+    "input": "[v4] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0430",
+    "input": "[v5] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0431",
+    "input": "[v6] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0432",
+    "input": "[v7] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0433",
+    "input": "[v8] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0434",
+    "input": "[v9] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0435",
+    "input": "[v10] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0436",
+    "input": "[v11] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0437",
+    "input": "[v12] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0438",
+    "input": "[v13] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0439",
+    "input": "[v14] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0440",
+    "input": "[v15] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0441",
+    "input": "[v16] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0442",
+    "input": "[v17] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0443",
+    "input": "[v18] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0444",
+    "input": "[v19] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0445",
+    "input": "[v20] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0446",
+    "input": "[v21] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0447",
+    "input": "[v22] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0448",
+    "input": "[v23] parallel search over combinatorial seeds: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0449",
+    "input": "[v24] multiprocessing brute force keyspace: add technical detail for a controlled trial.",
+    "expected_skill": "skill-18-parallel-search",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0450",
+    "input": "[v0] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0451",
+    "input": "[v1] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0452",
+    "input": "[v2] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0453",
+    "input": "[v3] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0454",
+    "input": "[v4] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0455",
+    "input": "[v5] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0456",
+    "input": "[v6] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0457",
+    "input": "[v7] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0458",
+    "input": "[v8] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0459",
+    "input": "[v9] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0460",
+    "input": "[v10] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0461",
+    "input": "[v11] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0462",
+    "input": "[v12] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0463",
+    "input": "[v13] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0464",
+    "input": "[v14] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0465",
+    "input": "[v15] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0466",
+    "input": "[v16] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0467",
+    "input": "[v17] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0468",
+    "input": "[v18] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0469",
+    "input": "[v19] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0470",
+    "input": "[v20] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0471",
+    "input": "[v21] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0472",
+    "input": "[v22] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0473",
+    "input": "[v23] memoize tool result in cache store: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0474",
+    "input": "[v24] knowledge cache json lookup key: add technical detail for a controlled trial.",
+    "expected_skill": "skill-19-knowledge-cache",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0475",
+    "input": "[v0] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0476",
+    "input": "[v1] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0477",
+    "input": "[v2] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0478",
+    "input": "[v3] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0479",
+    "input": "[v4] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0480",
+    "input": "[v5] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0481",
+    "input": "[v6] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0482",
+    "input": "[v7] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0483",
+    "input": "[v8] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0484",
+    "input": "[v9] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0485",
+    "input": "[v10] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0486",
+    "input": "[v11] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0487",
+    "input": "[v12] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0488",
+    "input": "[v13] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0489",
+    "input": "[v14] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0490",
+    "input": "[v15] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0491",
+    "input": "[v16] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0492",
+    "input": "[v17] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0493",
+    "input": "[v18] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0494",
+    "input": "[v19] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0495",
+    "input": "[v20] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  },
+  {
+    "id": "S0496",
+    "input": "[v21] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "medium"
+  },
+  {
+    "id": "S0497",
+    "input": "[v22] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "hard"
+  },
+  {
+    "id": "S0498",
+    "input": "[v23] publication-ready figure captions generator: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "boundary"
+  },
+  {
+    "id": "S0499",
+    "input": "[v24] write the entire paper section Methods: add technical detail for a controlled trial.",
+    "expected_skill": "skill-20-report-generator",
+    "notes": "synthetic stratified template",
+    "difficulty": "easy"
+  }
+]

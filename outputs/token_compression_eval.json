@@ -1,0 +1,11 @@
+{
+  "file": "E:\\OpenCLAW-4\\papers\\Skills\\Token-compression.md",
+  "tokens": 2224,
+  "lines": 398,
+  "measured_savings": {
+    "average": 2.73,
+    "min": 1.0,
+    "max": 5.0,
+    "count": 10
+  }
+}

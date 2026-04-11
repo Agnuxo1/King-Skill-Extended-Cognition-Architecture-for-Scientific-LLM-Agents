@@ -1,0 +1,157 @@
+{
+  "king": {
+    "path": "E:\\OpenCLAW-4\\papers\\Skills\\king-skill\\SKILL.md",
+    "tokens": 961,
+    "lines": 234,
+    "name": "king-skill",
+    "savings": "N/A"
+  },
+  "skills": [
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-01\\SKILL1.md",
+      "tokens": 212,
+      "lines": 56,
+      "name": "skill-01-python-executor",
+      "savings": "\u2605\u2605\u2605\u2605\u2605"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-02\\SKILL2.md",
+      "tokens": 356,
+      "lines": 87,
+      "name": "skill-02-sat-solver",
+      "savings": "\u2605\u2605\u2605\u2605\u2605"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-03\\SKILL3.md",
+      "tokens": 150,
+      "lines": 45,
+      "name": "skill-03-arxiv-fetch",
+      "savings": "\u2605\u2605\u2605\u2605\u2606"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-04\\SKILL4.md",
+      "tokens": 225,
+      "lines": 53,
+      "name": "skill-04-oeis-nist",
+      "savings": "\u2605\u2605\u2605\u2606\u2606"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-05\\SKILL5.md",
+      "tokens": 201,
+      "lines": 56,
+      "name": "skill-05-lean4-verify",
+      "savings": "4/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-06\\SKILL6.md",
+      "tokens": 152,
+      "lines": 52,
+      "name": "skill-06-doc-transform",
+      "savings": "5/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-07\\SKILL7.md",
+      "tokens": 274,
+      "lines": 78,
+      "name": "skill-07-scipy-sim",
+      "savings": "5/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-08\\SKILL8.md",
+      "tokens": 190,
+      "lines": 63,
+      "name": "skill-08-networkx",
+      "savings": "5/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-09\\SKILL9.md",
+      "tokens": 204,
+      "lines": 58,
+      "name": "skill-09-sympy",
+      "savings": "4/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-10\\SKILL10.md",
+      "tokens": 223,
+      "lines": 61,
+      "name": "skill-10-code-translator",
+      "savings": "3/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-11\\SKILL11.md",
+      "tokens": 212,
+      "lines": 66,
+      "name": "skill-11-latex-renderer",
+      "savings": "\u2605\u2605\u2605\u2606\u2606"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-12\\SKILL12.md",
+      "tokens": 153,
+      "lines": 55,
+      "name": "skill-12-data-pipeline",
+      "savings": "4/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-13\\SKILL13.md",
+      "tokens": 150,
+      "lines": 52,
+      "name": "skill-13-wolfram-query",
+      "savings": "4/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-14\\SKILL14.md",
+      "tokens": 179,
+      "lines": 55,
+      "name": "skill-14-git-operations",
+      "savings": "3/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-15\\SKILL15.md",
+      "tokens": 169,
+      "lines": 54,
+      "name": "skill-15-p2pclaw-lab",
+      "savings": "5/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-17\\SKILL17.md",
+      "tokens": 184,
+      "lines": 61,
+      "name": "skill-17-benchmark-verifier",
+      "savings": "4/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-18\\SKILL18.md",
+      "tokens": 200,
+      "lines": 61,
+      "name": "skill-18-parallel-search",
+      "savings": "5/5"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-19\\SKILL19.md",
+      "tokens": 201,
+      "lines": 60,
+      "name": "skill-19-knowledge-cache",
+      "savings": "\u2605\u2605\u2605\u2605\u2606"
+    },
+    {
+      "path": "E:\\OpenCLAW-4\\papers\\Skills\\skills-bundle\\skill-20\\SKILL20.md",
+      "tokens": 177,
+      "lines": 71,
+      "name": "skill-20-report-generator",
+      "savings": "3/5"
+    }
+  ],
+  "summary": {
+    "total": 19,
+    "total_tokens": 3812,
+    "avg": 200,
+    "ratings": {
+      "\u2605\u2605\u2605\u2605\u2605": 2,
+      "\u2605\u2605\u2605\u2605\u2606": 2,
+      "\u2605\u2605\u2605\u2606\u2606": 2,
+      "45": 5,
+      "55": 5,
+      "35": 3
+    }
+  }
+}

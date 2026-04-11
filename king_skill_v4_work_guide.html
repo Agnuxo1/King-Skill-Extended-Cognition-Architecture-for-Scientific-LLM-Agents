@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Skill v4 — Certification Work Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{
+  --ink:#1a1816;--ink-2:#3d3a36;--ink-3:#6b6760;--ink-4:#9c9891;
+  --paper:#faf8f4;--paper-2:#f2efe9;--paper-3:#e8e4dc;
+  --accent:#1a5c4f;--accent-light:#e6f2ef;
+  --blue:#1e4d7a;--blue-light:#e8f0f8;
+  --amber:#7a5a1e;--amber-light:#f5f0e0;
+  --red:#8b2020;--red-light:#fde8e8;
+  --purple:#4a2580;--purple-light:#ede8f8;
+  --teal:#0d6e6e;--teal-light:#e0f4f4;
+  --orange:#8b4010;--orange-light:#fdf0e6;
+  --rule:rgba(26,24,22,0.12);--rule-strong:rgba(26,24,22,0.25);
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Libre Franklin',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.78;}
+.wrapper{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
+
+/* Sidebar */
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;padding:3rem 1.5rem 3rem 2rem;border-right:1px solid var(--rule);background:var(--paper);}
+.sidebar-title{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.5rem;}
+.sidebar nav a{display:block;font-family:var(--sans);font-size:10.5px;color:var(--ink-3);text-decoration:none;padding:3px 0 3px 8px;line-height:1.4;border-left:2px solid transparent;transition:color .15s,border-color .15s;}
+.sidebar nav a:hover{color:var(--accent);border-left-color:var(--accent);}
+.sidebar nav a.section{font-weight:600;color:var(--ink-2);margin-top:8px;font-size:11px;}
+.sidebar nav a.sub{padding-left:18px;font-size:10px;color:var(--ink-4);}
+.sidebar-phase{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin:12px 0 4px 8px;}
+
+main{padding:5rem 5rem 8rem 5rem;max-width:800px;}
+
+/* Header */
+.guide-header{margin-bottom:3.5rem;padding-bottom:2rem;border-bottom:1.5px solid var(--rule-strong);}
+.guide-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);background:var(--purple-light);padding:4px 12px;border-radius:3px;margin-bottom:1.5rem;}
+.guide-title{font-size:2.1rem;font-weight:500;line-height:1.22;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em;}
+.guide-subtitle{font-size:1.05rem;color:var(--ink-3);font-style:italic;margin-bottom:2rem;}
+.guide-meta{font-family:var(--sans);font-size:12px;color:var(--ink-4);display:flex;flex-wrap:wrap;gap:16px;}
+
+/* Phase cards */
+.phase-banner{border-radius:4px;padding:1rem 1.5rem;margin:2.5rem 0 1.5rem;font-family:var(--sans);}
+.phase-banner h2{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem;}
+.phase-banner .phase-desc{font-size:13px;line-height:1.5;}
+.phase-banner .phase-meta{font-size:11px;margin-top:.5rem;display:flex;gap:20px;flex-wrap:wrap;opacity:.8;}
+.ph1{background:linear-gradient(135deg,var(--blue-light),#dceeff);border-left:4px solid var(--blue);}
+.ph1 h2{color:var(--blue);}
+.ph2{background:linear-gradient(135deg,var(--teal-light),#d5f4f4);border-left:4px solid var(--teal);}
+.ph2 h2{color:var(--teal);}
+.ph3{background:linear-gradient(135deg,var(--amber-light),#fdf5d8);border-left:4px solid var(--amber);}
+.ph3 h2{color:var(--amber);}
+.ph4{background:linear-gradient(135deg,var(--accent-light),#d0ede8);border-left:4px solid var(--accent);}
+.ph4 h2{color:var(--accent);}
+.ph5{background:linear-gradient(135deg,var(--purple-light),#e8dff5);border-left:4px solid var(--purple);}
+.ph5 h2{color:var(--purple);}
+.ph6{background:linear-gradient(135deg,var(--orange-light),#fde8d0);border-left:4px solid var(--orange);}
+.ph6 h2{color:var(--orange);}
+
+/* Experiment cards */
+.exp-grid{display:grid;gap:14px;margin:1.5rem 0;}
+.exp-card{border:1px solid var(--rule);border-radius:5px;overflow:hidden;}
+.exp-header{padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.exp-id{font-family:var(--mono);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;}
+.exp-title{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--ink);flex:1;}
+.exp-body{padding:.75rem 1rem 1rem;border-top:1px solid var(--rule);background:var(--paper);}
+.exp-body p{font-size:.88rem;margin-bottom:.6rem;text-align:left;}
+.exp-body p:last-child{margin-bottom:0;}
+
+/* Status badges */
+.status{display:inline-block;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;}
+.st-todo{background:var(--red-light);color:var(--red);}
+.st-infra{background:var(--blue-light);color:var(--blue);}
+.st-run{background:var(--amber-light);color:var(--amber);}
+.st-analyse{background:var(--purple-light);color:var(--purple);}
+.st-done{background:var(--accent-light);color:var(--accent);}
+
+/* Priority */
+.prio{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;}
+.prio-p1{background:rgba(139,32,32,.12);color:var(--red);}
+.prio-p2{background:rgba(122,90,30,.12);color:var(--amber);}
+.prio-p3{background:rgba(26,92,79,.1);color:var(--accent);}
+
+/* Detail rows inside cards */
+.detail-rows{font-family:var(--sans);font-size:12px;margin-top:.5rem;}
+.detail-row{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid var(--rule);}
+.detail-row:last-child{border-bottom:none;}
+.dr-label{min-width:130px;color:var(--ink-3);flex-shrink:0;}
+.dr-val{color:var(--ink-2);}
+.dr-val code{font-family:var(--mono);font-size:11px;background:var(--paper-3);padding:1px 4px;border-radius:2px;}
+
+/* Script blocks */
+.script-block{font-family:var(--mono);font-size:.78rem;background:#1a1816;color:#d4d0c8;border-radius:5px;padding:1.1rem 1.25rem;margin:1rem 0;overflow-x:auto;line-height:1.7;}
+.script-block .cm{color:#6b8565;} .script-block .kw{color:#9ecbff;} .script-block .st{color:#f1c98a;} .script-block .fn{color:#79c0ff;}
+
+/* Math inline */
+.math-inline{font-family:var(--mono);font-size:.87em;background:var(--paper-3);padding:1px 5px;border-radius:2px;color:var(--ink-2);}
+.math-block{font-family:var(--mono);font-size:.82rem;background:var(--paper-2);border-left:3px solid var(--rule-strong);padding:1rem 1.25rem;margin:1.25rem 0;overflow-x:auto;line-height:1.65;color:var(--ink-2);}
+
+/* Tables */
+.table-wrap{margin:1.25rem 0;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:12.5px;}
+th{font-weight:600;text-align:left;padding:7px 12px;border-bottom:1.5px solid var(--rule-strong);color:var(--ink-2);background:var(--paper-2);}
+td{padding:6px 12px;border-bottom:1px solid var(--rule);color:var(--ink);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--paper-2);}
+.td-c{text-align:center;} .td-r{text-align:right;} .td-m{font-family:var(--mono);font-size:11.5px;}
+
+/* Info/warn boxes */
+.info-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:.9rem 1.1rem;margin:1.25rem 0;font-size:.88rem;font-family:var(--sans);}
+.info-box p{margin-bottom:.4rem;text-align:left;} .info-box p:last-child{margin-bottom:0;}
+.warn-box{border-left:3px solid var(--amber);background:var(--amber-light);padding:.9rem 1.1rem;margin:1.25rem 0;font-size:.88rem;font-family:var(--sans);}
+.warn-box p{margin-bottom:.4rem;text-align:left;} .warn-box p:last-child{margin-bottom:0;}
+.critical-box{border-left:3px solid var(--red);background:var(--red-light);padding:.9rem 1.1rem;margin:1.25rem 0;font-size:.88rem;font-family:var(--sans);}
+.critical-box p{margin-bottom:.4rem;text-align:left;} .critical-box p:last-child{margin-bottom:0;}
+.deliver-box{border-left:3px solid var(--accent);background:var(--accent-light);padding:.9rem 1.1rem;margin:1.25rem 0;font-size:.88rem;font-family:var(--sans);}
+.deliver-box h5{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
+.deliver-box p{margin-bottom:.4rem;text-align:left;} .deliver-box p:last-child{margin-bottom:0;}
+
+/* Checklist */
+.checklist{font-family:var(--sans);font-size:13px;margin:1rem 0;}
+.check-item{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule);line-height:1.5;}
+.check-item:last-child{border-bottom:none;}
+.check-box{width:16px;height:16px;border:1.5px solid var(--rule-strong);border-radius:3px;flex-shrink:0;margin-top:3px;}
+.check-text{color:var(--ink-2);}
+.check-text code{font-family:var(--mono);font-size:11px;background:var(--paper-3);padding:1px 4px;border-radius:2px;}
+
+/* Timeline */
+.timeline{margin:1.5rem 0;}
+.tl-item{display:flex;gap:16px;margin-bottom:1px;}
+.tl-week{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;min-width:70px;color:var(--ink-4);padding-top:4px;}
+.tl-bar{width:3px;background:var(--rule-strong);flex-shrink:0;border-radius:2px;}
+.tl-content{padding:4px 0 16px;}
+.tl-title{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);}
+.tl-desc{font-family:var(--sans);font-size:12px;color:var(--ink-3);margin-top:2px;}
+.tl-ph{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;}
+
+/* Output files section */
+.output-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0;}
+.output-card{border:1px solid var(--rule);border-radius:4px;padding:.85rem 1rem;font-family:var(--sans);}
+.output-card .oc-file{font-family:var(--mono);font-size:11px;color:var(--blue);margin-bottom:.3rem;}
+.output-card .oc-desc{font-size:12px;color:var(--ink-3);line-height:1.4;}
+
+/* Sections */
+section{margin-bottom:2.5rem;}
+h2.sec{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);scroll-margin-top:2rem;}
+h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.65rem;margin-top:1.75rem;}
+p{margin-bottom:1rem;text-align:justify;hyphens:auto;}
+
+/* Chart */
+.chart-wrap{margin:1.5rem 0;}
+.chart-title{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.6rem;}
+.chart-caption{font-family:var(--sans);font-size:11.5px;color:var(--ink-4);margin-top:.4rem;font-style:italic;}
+
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-4);line-height:1.7;}
+
+@media(max-width:900px){
+  .wrapper{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  main{padding:2rem 1.5rem 4rem;}
+  .output-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-title">Work Guide — v4</div>
+  <nav>
+    <a href="#overview" class="section">Overview</a>
+    <a href="#gap-map" class="section">Gap Map</a>
+
+    <div class="sidebar-phase">Phase 1 · Infrastructure</div>
+    <a href="#p1-repro" class="section">P1 · Reproducibility</a>
+    <a href="#exp-docker" class="sub">EXP-01 Dockerfile</a>
+    <a href="#exp-tests" class="sub">EXP-02 Test tasks</a>
+    <a href="#exp-lean" class="sub">EXP-03 Lean 4 install</a>
+
+    <div class="sidebar-phase">Phase 2 · Compression</div>
+    <a href="#p2-compression" class="section">P2 · Real Compression Data</a>
+    <a href="#exp-corpus" class="sub">EXP-04 Real P2PCLAW corpus</a>
+    <a href="#exp-chem" class="sub">EXP-05 Chemical domain</a>
+    <a href="#exp-latency" class="sub">EXP-06 Token + latency</a>
+    <a href="#exp-judge-compression" class="sub">EXP-07 Judge preference</a>
+
+    <div class="sidebar-phase">Phase 3 · Routing</div>
+    <a href="#p3-routing" class="section">P3 · Routing Accuracy</a>
+    <a href="#exp-500" class="sub">EXP-08 500+ task corpus</a>
+    <a href="#exp-fp" class="sub">EXP-09 False positive/negative</a>
+    <a href="#exp-conflict" class="sub">EXP-10 Conflict resolution</a>
+
+    <div class="sidebar-phase">Phase 4 · Baseline</div>
+    <a href="#p4-baseline" class="section">P4 · Controlled Baseline</a>
+    <a href="#exp-baseline" class="sub">EXP-11 King-Skill vs. plain LLM</a>
+    <a href="#exp-judges" class="sub">EXP-12 17-judge validation</a>
+    <a href="#exp-iaa" class="sub">EXP-13 Inter-rater agreement</a>
+
+    <div class="sidebar-phase">Phase 5 · Reasoning</div>
+    <a href="#p5-reasoning" class="section">P5 · Reasoning Quality</a>
+    <a href="#exp-cot" class="sub">EXP-14 CoT token analysis</a>
+    <a href="#exp-multiturn" class="sub">EXP-15 Multi-turn depth</a>
+    <a href="#exp-error" class="sub">EXP-16 Scientific error rate</a>
+
+    <div class="sidebar-phase">Phase 6 · Economics</div>
+    <a href="#p6-economics" class="section">P6 · Real Cost Data</a>
+    <a href="#exp-cost" class="sub">EXP-17 End-to-end cost</a>
+    <a href="#exp-overhead" class="sub">EXP-18 Tool call overhead</a>
+
+    <a href="#timeline" class="section">Master Timeline</a>
+    <a href="#deliverables" class="section">v4 Deliverables</a>
+    <a href="#statistical" class="section">Statistical Specs</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<main>
+
+<!-- Header -->
+<header class="guide-header">
+  <div class="guide-badge">Work Guide · King-Skill v4 Certification · P2PCLAW</div>
+  <h1 class="guide-title">Certification Work Guide for King-Skill v4</h1>
+  <p class="guide-subtitle">A complete operational protocol for replacing every estimated or theoretical claim in v3 with empirically-validated measurements — covering compression ratios, routing accuracy, reasoning quality, cost data, and reproducibility artefacts</p>
+  <div class="guide-meta">
+    <span>📅 Based on v3 gap analysis · April 2026</span>
+    <span>🎯 Target: King-Skill v4 with zero unvalidated claims</span>
+    <span>⏱ Estimated execution time: 6–8 weeks</span>
+    <span>👥 Requires: Silicon agent + Carbon human coordinator</span>
+  </div>
+</header>
+
+<!-- Overview -->
+<section id="overview">
+  <h2 class="sec">Overview — What v4 Must Prove</h2>
+  <p>King-Skill v3 is an honest prototype description. Every quantitative claim is either estimated (small samples) or theoretical (no empirical test). The v4 paper requires replacing all estimates with measurements from controlled experiments. This guide enumerates every experiment, specifies its measurement protocol, defines the statistical acceptance criteria, and lists the output artefact that goes into the v4 paper.</p>
+
+  <p>The guide is organised into six phases. Phases 1 and 2 are prerequisites — no later phase produces valid data without them. Phases 3–6 can run in parallel once Phase 1 infrastructure is complete.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Fig. 1 — Claims requiring validation for v4, by type and phase</div>
+    <div style="position:relative;width:100%;height:260px;">
+      <canvas id="claimsChart" role="img" aria-label="Stacked bar chart: estimated claims 8, theoretical claims 4, infrastructure gaps 5, missing comparisons 3"></canvas>
+    </div>
+    <div class="chart-caption">Fig. 1. Summary of v3 gaps requiring experimental resolution for v4. Infrastructure (Phase 1) is the blocking dependency for all other phases.</div>
+  </div>
+</section>
+
+<!-- Gap Map -->
+<section id="gap-map">
+  <h2 class="sec">Gap Map — v3 → v4 Claim Transformation</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>v3 Claim</th><th>Current status</th><th>v4 requirement</th><th>Phase</th><th>Experiment</th></tr></thead>
+      <tbody>
+        <tr><td>Compression mean ~33% (STEM)</td><td><span class="status st-todo">Estimate n=20</span></td><td>Mean ± SD on n≥200 real paper paragraphs</td><td class="td-c">P2</td><td class="td-m">EXP-04</td></tr>
+        <tr><td>Compression mean ~9% (mixed)</td><td><span class="status st-todo">Estimate n=20</span></td><td>Mean ± SD on n≥200 mixed paragraphs</td><td class="td-c">P2</td><td class="td-m">EXP-04</td></tr>
+        <tr><td>Chemical max 80% / mean 25–35%</td><td><span class="status st-todo">Estimate n=25</span></td><td>Corpus study: label types, measure per context</td><td class="td-c">P2</td><td class="td-m">EXP-05</td></tr>
+        <tr><td>Reaction equations 40–55% sustained</td><td><span class="status st-todo">Estimate n=10</span></td><td>n≥100 reaction sentences across 5 domains</td><td class="td-c">P2</td><td class="td-m">EXP-05</td></tr>
+        <tr><td>Routing accuracy 18/19 = 94.7%</td><td><span class="status st-todo">19 tasks, insufficient</span></td><td>Accuracy on n≥500 stratified tasks with CI</td><td class="td-c">P3</td><td class="td-m">EXP-08</td></tr>
+        <tr><td>False positive/negative rate: unknown</td><td><span class="status st-todo">Not measured</span></td><td>FP and FN rates per skill with confusion matrix</td><td class="td-c">P3</td><td class="td-m">EXP-09</td></tr>
+        <tr><td>King-Skill improves paper quality</td><td><span class="status st-todo">Not tested</span></td><td>Controlled A/B: 17-judge scores, paired t-test</td><td class="td-c">P4</td><td class="td-m">EXP-11</td></tr>
+        <tr><td>17-judge Krippendorff's α ≥ 0.40</td><td><span class="status st-todo">Not measured</span></td><td>α on n≥50 paper pairs with confidence interval</td><td class="td-c">P4</td><td class="td-m">EXP-13</td></tr>
+        <tr><td>Expert judges prefer compressed notation</td><td><span class="status st-todo">Unknown</span></td><td>Preference test: compressed vs. prose, n≥30 judges</td><td class="td-c">P2</td><td class="td-m">EXP-07</td></tr>
+        <tr><td>65% density improvement (illustrative)</td><td><span class="status st-todo">Retracted, no metric</span></td><td>Define operational metric; measure or retire</td><td class="td-c">P5</td><td class="td-m">EXP-14</td></tr>
+        <tr><td>5× depth gain (retracted)</td><td><span class="status st-run">Retracted v2</span></td><td>Multi-turn depth benefit: measure context history savings</td><td class="td-c">P5</td><td class="td-m">EXP-15</td></tr>
+        <tr><td>8.3× reasoning-to-output ratio</td><td><span class="status st-todo">Single observation</span></td><td>n≥30 paper cycles, mean ± SD</td><td class="td-c">P5</td><td class="td-m">EXP-14</td></tr>
+        <tr><td>Net cost saving ~23%</td><td><span class="status st-todo">Derived from estimate</span></td><td>End-to-end cost logs from real API calls</td><td class="td-c">P6</td><td class="td-m">EXP-17</td></tr>
+        <tr><td>Tool call overhead: unmodelled</td><td><span class="status st-todo">Not measured</span></td><td>Latency + cost per skill call, all 20 skills</td><td class="td-c">P6</td><td class="td-m">EXP-18</td></tr>
+        <tr><td>Dockerfile, requirements.txt</td><td><span class="status st-todo">Missing</span></td><td>Verified working container build</td><td class="td-c">P1</td><td class="td-m">EXP-01</td></tr>
+        <tr><td>19 test tasks not disclosed</td><td><span class="status st-todo">Missing</span></td><td>JSON file published in repository</td><td class="td-c">P1</td><td class="td-m">EXP-02</td></tr>
+        <tr><td>Lean 4: 51/53 in default env</td><td><span class="status st-run">Documented v3</span></td><td>Automated install via elan, test 53/53</td><td class="td-c">P1</td><td class="td-m">EXP-03</td></tr>
+        <tr><td>Scientific error rate: unknown</td><td><span class="status st-todo">Not measured</span></td><td>Proportion of papers with factual errors, with/without skills</td><td class="td-c">P5</td><td class="td-m">EXP-16</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PHASE 1 -->
+<div class="phase-banner ph1" id="p1-repro">
+  <h2>Phase 1 · Infrastructure &amp; Reproducibility</h2>
+  <div class="phase-desc">Blocking dependency for all other phases. No experiment produces valid data in an environment that cannot be reproduced. Phase 1 must be completed before any other phase begins.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 1 week</span>
+    <span>👤 Owner: Carbon (human) + Silicon (scripts)</span>
+    <span>🔒 Prerequisite for: all phases</span>
+    <span>📦 Outputs: Dockerfile, requirements.txt, test JSON, Lean 4 CI</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-docker">
+      <div class="exp-header" style="background:var(--blue-light);">
+        <span class="exp-id" style="background:var(--blue);color:#fff;">EXP-01</span>
+        <span class="exp-title">Dockerfile + Pinned Environment</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Anyone cloning the repository can build an identical environment in one command and pass all tests.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Base image</span><span class="dr-val"><code>ubuntu:24.04</code> + <code>python:3.12-slim</code></span></div>
+          <div class="detail-row"><span class="dr-label">System packages</span><span class="dr-val"><code>pandoc</code>, <code>git</code>, <code>curl</code>, <code>build-essential</code></span></div>
+          <div class="detail-row"><span class="dr-label">Python packages</span><span class="dr-val">numpy, scipy, sympy, pandas, polars, z3-solver, python-sat, feedparser, requests, joblib, matplotlib, weasyprint, pdfminer.six — all pinned to exact versions</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance test</span><span class="dr-val"><code>docker build -t king-skill . && docker run king-skill python run_all_tests.py</code> → all tests pass</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>Dockerfile</code>, <code>requirements.txt</code>, <code>docker-compose.yml</code></span></div>
+        </div>
+        <div class="script-block">
+<span class="cm"># Dockerfile skeleton (Carbon to complete)</span>
+<span class="kw">FROM</span> python:3.12-slim
+<span class="kw">RUN</span> apt-get update && apt-get install -y \
+    pandoc git curl build-essential && rm -rf /var/lib/apt/lists/*
+<span class="kw">COPY</span> requirements.txt .
+<span class="kw">RUN</span> pip install --no-cache-dir -r requirements.txt
+<span class="kw">COPY</span> . /app
+<span class="kw">WORKDIR</span> /app
+<span class="kw">CMD</span> ["python", "run_all_tests.py"]
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-tests">
+      <div class="exp-header" style="background:var(--blue-light);">
+        <span class="exp-id" style="background:var(--blue);color:#fff;">EXP-02</span>
+        <span class="exp-title">Publish 19 Test Tasks + Expand to 60</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> The 19 routing tasks used in v1–v3 are disclosed for reproducibility. Simultaneously, expand to 60 tasks for a more credible accuracy estimate (still not 500+, but sufficient for directional confidence).</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Format</span><span class="dr-val"><code>tests/routing_tasks_v1.json</code> — array of {id, input, expected_skill, notes}</span></div>
+          <div class="detail-row"><span class="dr-label">Task structure</span><span class="dr-val">3 tasks per skill (60 total) + 5 ambiguous boundary tasks + 5 fallback tasks = 70 tasks total</span></div>
+          <div class="detail-row"><span class="dr-label">Boundary cases</span><span class="dr-val">Must include: "integral" (09 vs 01), "simulate" (07 vs 01), "prove" (05 vs fallback), "graph" (08 vs 02)</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>tests/routing_tasks_v1.json</code>, <code>tests/routing_tasks_v4_extended.json</code></span></div>
+        </div>
+        <div class="script-block">
+<span class="cm"># routing_tasks_v1.json structure</span>
+[
+  {
+    <span class="st">"id"</span>: <span class="st">"T001"</span>,
+    <span class="st">"input"</span>: <span class="st">"simplify the integral ∫x²dx symbolically"</span>,
+    <span class="st">"expected_skill"</span>: <span class="st">"skill-09"</span>,
+    <span class="st">"notes"</span>: <span class="st">"boundary: caught by skill-01 in v1, fixed"</span>,
+    <span class="st">"difficulty"</span>: <span class="st">"boundary"</span>
+  },
+  ...
+]
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-lean">
+      <div class="exp-header" style="background:var(--blue-light);">
+        <span class="exp-id" style="background:var(--blue);color:#fff;">EXP-03</span>
+        <span class="exp-title">Lean 4 Automated Installation + CI/CD</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Achieve 53/53 test pass in the default Docker environment by automating the Lean 4 / elan installation in the build step. Document any remaining known failures as explicit test skips with reason codes.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Approach</span><span class="dr-val">Add <code>elan</code> install to Dockerfile RUN layer; cache lean stdlib download; test on CI (GitHub Actions)</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance</span><span class="dr-val">GitHub Actions badge showing 53/53 pass on clean Ubuntu runner</span></div>
+          <div class="detail-row"><span class="dr-label">Fallback</span><span class="dr-val">If lean install too heavy for CI, document the CBM Python sub-test as the tested portion and Lean 4 as an optional skip with installation instructions</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>.github/workflows/test.yml</code>, updated README badge, updated pass count in paper</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 2 -->
+<div class="phase-banner ph2" id="p2-compression">
+  <h2>Phase 2 · Real Compression Measurements</h2>
+  <div class="phase-desc">Replace all n=20 single-point estimates with measurements on a representative corpus of real P2PCLAW paper drafts. This is the most data-intensive phase and produces the most directly publishable new results.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 2–3 weeks</span>
+    <span>👤 Owner: Silicon agent (automated) + Carbon (corpus curation)</span>
+    <span>🔒 Requires: Phase 1 complete</span>
+    <span>📦 Outputs: compression_results.csv, token_savings_report.pdf, judge_preference_data.json</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-corpus">
+      <div class="exp-header" style="background:var(--teal-light);">
+        <span class="exp-id" style="background:var(--teal);color:#fff;">EXP-04</span>
+        <span class="exp-title">Corpus Compression Study — Real P2PCLAW Drafts</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure mean ± SD token compression ratio on a random sample of real P2PCLAW paper drafts, not hand-crafted examples. Replace the "~9% mixed, ~33% STEM" estimates with validated figures.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Corpus size</span><span class="dr-val">n ≥ 200 paragraph pairs (natural → compressed) from ≥ 20 real P2PCLAW papers across 5 domains</span></div>
+          <div class="detail-row"><span class="dr-label">Domain stratification</span><span class="dr-val">Thermodynamics (20%), quantum mechanics (20%), distributed systems (20%), ML (20%), synthetic biology (20%)</span></div>
+          <div class="detail-row"><span class="dr-label">Tokenizer</span><span class="dr-val">tiktoken <code>cl100k_base</code> AND <code>o200k_base</code> (GPT-4o) — report both; compare cross-model</span></div>
+          <div class="detail-row"><span class="dr-label">Compression procedure</span><span class="dr-val">Claude Sonnet 4.6 applies compression layer to each paragraph; record token counts before and after</span></div>
+          <div class="detail-row"><span class="dr-label">Statistics</span><span class="dr-val">Mean, SD, 95% CI (bootstrap n=10,000), median, p5/p95 percentiles; stratified by domain and content type</span></div>
+          <div class="detail-row"><span class="dr-label">Content type labels</span><span class="dr-val">For each paragraph: equation-heavy / reaction-heavy / prose-heavy / mixed. Compare savings per label.</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance criterion</span><span class="dr-val">n ≥ 200 pairs; 95% CI width ≤ 5 percentage points for primary STEM mean; all domain strata represented</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/compression_corpus_v4.csv</code>, <code>analysis/compression_stats.py</code>, figures for paper</span></div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-top:1rem;">Measurement Script Skeleton</h3>
+        <div class="script-block">
+<span class="kw">import</span> tiktoken, anthropic, pandas <span class="kw">as</span> pd, json
+<span class="kw">from</span> scipy <span class="kw">import</span> stats
+
+enc = tiktoken.get_encoding(<span class="st">"cl100k_base"</span>)
+client = anthropic.Anthropic()
+
+<span class="fn">def</span> <span class="fn">compress_paragraph</span>(text: str) -> str:
+    <span class="cm">"""Apply King-Skill compression layer to a paragraph."""</span>
+    r = client.messages.create(
+        model=<span class="st">"claude-sonnet-4-6"</span>, max_tokens=2000,
+        system=<span class="st">"Apply formal notation compression: replace verbose \
+descriptions with math, chemical formulas, and equations \
+where appropriate. Output only the compressed text."</span>,
+        messages=[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: text}]
+    )
+    <span class="kw">return</span> r.content[0].text
+
+<span class="fn">def</span> <span class="fn">measure_pair</span>(natural: str, domain: str, content_type: str) -> dict:
+    compressed = compress_paragraph(natural)
+    t_nat = len(enc.encode(natural))
+    t_comp = len(enc.encode(compressed))
+    savings_pct = (t_nat - t_comp) / t_nat * 100
+    <span class="kw">return</span> {
+        <span class="st">"domain"</span>: domain, <span class="st">"content_type"</span>: content_type,
+        <span class="st">"tokens_natural"</span>: t_nat, <span class="st">"tokens_compressed"</span>: t_comp,
+        <span class="st">"savings_pct"</span>: savings_pct, <span class="st">"natural"</span>: natural,
+        <span class="st">"compressed"</span>: compressed
+    }
+
+<span class="cm"># Run on corpus, collect results DataFrame</span>
+<span class="cm"># df.to_csv("data/compression_corpus_v4.csv")</span>
+<span class="cm"># Report: mean±SD, 95% CI bootstrap, by domain+content_type</span>
+        </div>
+
+        <div class="deliver-box">
+          <h5>Required v4 Figures</h5>
+          <p>Fig A: Compression ratio distribution (violin plot, by domain). Fig B: Mean ± 95% CI, stratified by content type (equation-heavy, reaction-heavy, prose-heavy, mixed). Fig C: Scatter plot tokens_natural vs. savings_pct to show heteroscedasticity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-chem">
+      <div class="exp-header" style="background:var(--teal-light);">
+        <span class="exp-id" style="background:var(--teal);color:#fff;">EXP-05</span>
+        <span class="exp-title">Chemical Notation Deep Study</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure chemical compression ratios by context type: (A) structured data fields, (B) balanced equations, (C) SMILES on IUPAC names, (D) SMILES on common names. Validate the three-context framework from v3 with real measurements.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Sample size</span><span class="dr-val">n ≥ 50 examples per context type (A–D) = ≥ 200 total chemical compression pairs</span></div>
+          <div class="detail-row"><span class="dr-label">Context A sources</span><span class="dr-val">PubChem compound data, drug leaflets, MSDS/SDS sheets — extract verbose name + synonyms</span></div>
+          <div class="detail-row"><span class="dr-label">Context B sources</span><span class="dr-val">Reactions from ChEBI, Rhea database, metabolic pathway descriptions — prose form as baseline</span></div>
+          <div class="detail-row"><span class="dr-label">Context C/D</span><span class="dr-val">PubChem CID → SMILES + IUPAC name + common name; measure all three pairwise</span></div>
+          <div class="detail-row"><span class="dr-label">Key measurement</span><span class="dr-val">For each pair: token count before/after, is the substitution beneficial (yes/no), molecular complexity (MW as proxy)</span></div>
+          <div class="detail-row"><span class="dr-label">Threshold finding</span><span class="dr-val">Find the MW or name-length threshold above which SMILES compression becomes beneficial vs. counterproductive</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/chemical_compression_v4.csv</code>, decision rule: "use formula/SMILES if name_tokens ≥ X"</span></div>
+        </div>
+
+        <div class="info-box">
+          <p><strong>Key deliverable for v4:</strong> A simple decision rule that replaces the qualitative guidance in v3. For example: "Replace a chemical name with its formula if the name contains ≥ 3 tokens; use SMILES if the IUPAC name contains ≥ 5 tokens; never replace a common name of ≤ 2 tokens." This rule must be validated against the corpus.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-latency">
+      <div class="exp-header" style="background:var(--teal-light);">
+        <span class="exp-id" style="background:var(--teal);color:#fff;">EXP-06</span>
+        <span class="exp-title">Token Count + Latency + API Cost Per Paper</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure the true end-to-end token cost of producing one P2PCLAW paper: input tokens, output tokens, thinking tokens (if accessible), tool call overhead, and wall-clock latency.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Sample size</span><span class="dr-val">n ≥ 30 full paper production runs (King-Skill condition)</span></div>
+          <div class="detail-row"><span class="dr-label">Measured variables</span><span class="dr-val">input_tokens, output_tokens, thinking_tokens (if API exposes), skill_calls_count, tool_latency_ms, total_wall_time_s, API_cost_USD</span></div>
+          <div class="detail-row"><span class="dr-label">Logging approach</span><span class="dr-val">Wrap every API call in a cost logger; sum per paper production session</span></div>
+          <div class="detail-row"><span class="dr-label">Models to test</span><span class="dr-val">At minimum: Claude Sonnet 4.6, DeepSeek V3 (budget reference), GPT-5.4 Mini (mid reference)</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/cost_logs_v4.csv</code>, updated cost analysis tables for §9 of v4 paper</span></div>
+        </div>
+        <div class="script-block">
+<span class="kw">class</span> <span class="fn">CostLogger</span>:
+    <span class="fn">def</span> <span class="fn">log_call</span>(self, response, skill_id: str):
+        self.records.append({
+            <span class="st">"skill"</span>: skill_id,
+            <span class="st">"input_tokens"</span>: response.usage.input_tokens,
+            <span class="st">"output_tokens"</span>: response.usage.output_tokens,
+            <span class="st">"latency_ms"</span>: self._elapsed(),
+            <span class="st">"cost_usd"</span>: self._compute_cost(response.usage)
+        })
+    <span class="fn">def</span> <span class="fn">summary</span>(self) -> dict:
+        <span class="kw">return</span> {
+            <span class="st">"total_input"</span>: sum(r[<span class="st">"input_tokens"</span>] <span class="kw">for</span> r <span class="kw">in</span> self.records),
+            <span class="st">"total_output"</span>: sum(r[<span class="st">"output_tokens"</span>] <span class="kw">for</span> r <span class="kw">in</span> self.records),
+            <span class="st">"total_cost_usd"</span>: sum(r[<span class="st">"cost_usd"</span>] <span class="kw">for</span> r <span class="kw">in</span> self.records),
+        }
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-judge-compression">
+      <div class="exp-header" style="background:var(--teal-light);">
+        <span class="exp-id" style="background:var(--teal);color:#fff;">EXP-07</span>
+        <span class="exp-title">Expert Judge Preference: Compressed vs. Prose</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Answer Open Question #5 from v3 — do expert LLM judges prefer compressed formal notation or verbose prose in scientific papers? This directly affects whether compression harms P2PCLAW scores.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Design</span><span class="dr-val">Blind preference study: same scientific content, two versions (compressed vs. prose). Judge rates both on 6-dim rubric without seeing which is which.</span></div>
+          <div class="detail-row"><span class="dr-label">Stimuli</span><span class="dr-val">n = 30 matched paragraph pairs across 5 domains. Each pair shown to all 17 judges.</span></div>
+          <div class="detail-row"><span class="dr-label">Analysis</span><span class="dr-val">Wilcoxon signed-rank test (paired, non-parametric). Separate analysis per dimension (scientific accuracy vs. clarity vs. readability).</span></div>
+          <div class="detail-row"><span class="dr-label">Expected finding</span><span class="dr-val">Hypothesis: no significant difference on scientific accuracy; possible preference for prose on clarity dimension.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/judge_preference_v4.json</code>, Wilcoxon test results table for v4 paper</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 3 -->
+<div class="phase-banner ph3" id="p3-routing">
+  <h2>Phase 3 · Routing Accuracy at Statistical Scale</h2>
+  <div class="phase-desc">Replace the 19-task hand-crafted test set with a statistically representative corpus of ≥500 tasks, measure false positive and false negative rates per skill, and characterise the dispatch table's failure modes.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 2 weeks</span>
+    <span>👤 Owner: Silicon (task generation) + Carbon (labelling review)</span>
+    <span>🔒 Requires: Phase 1 (EXP-02 extended task set)</span>
+    <span>📦 Outputs: routing_accuracy_v4.csv, confusion_matrix.png, accuracy_CI.json</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-500">
+      <div class="exp-header" style="background:var(--amber-light);">
+        <span class="exp-id" style="background:var(--amber);color:#fff;">EXP-08</span>
+        <span class="exp-title">500+ Task Routing Accuracy Study</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure routing accuracy with a confidence interval that actually supports the stated percentage. At n=500 with p≈0.95, the 95% CI has width ±1.9 percentage points — publishable precision.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Corpus size</span><span class="dr-val">n = 500 tasks minimum. Stratified: ~25 per skill × 20 skills = 500 core, plus 50 ambiguous + 50 fallback = 600 total</span></div>
+          <div class="detail-row"><span class="dr-label">Task generation</span><span class="dr-val">Silicon agent generates 5 task variants per skill per difficulty level (easy/medium/hard/boundary). Carbon reviews and corrects ground truth labels.</span></div>
+          <div class="detail-row"><span class="dr-label">Inter-rater reliability</span><span class="dr-val">Carbon labels 100 tasks independently; compute Cohen's κ with Silicon's labels. κ ≥ 0.80 required before proceeding.</span></div>
+          <div class="detail-row"><span class="dr-label">Measurement</span><span class="dr-val">For each task: predicted_skill, correct_skill, is_correct (bool), confidence_score (if available)</span></div>
+          <div class="detail-row"><span class="dr-label">Statistics</span><span class="dr-val">Overall accuracy + 95% Wilson CI; per-skill precision/recall/F1; confusion matrix; accuracy by difficulty level</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance criterion</span><span class="dr-val">n ≥ 500 labelled tasks; Cohen's κ ≥ 0.80; all 20 skills represented with ≥ 20 tasks each</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/routing_tasks_v4_500.json</code>, <code>analysis/routing_accuracy.py</code>, confusion matrix figure</span></div>
+        </div>
+
+        <div class="math-block">
+Required sample size derivation:
+  Target: CI width ≤ 4 pp at 95% confidence
+  For p ≈ 0.95:
+    n ≥ z²·p·(1−p) / (E/2)²
+    n ≥ 1.96² × 0.95 × 0.05 / 0.02²
+    n ≥ 456 → use n = 500 (adds 10% margin)
+
+  Per-skill precision/recall at n=25/skill:
+    95% CI width ≈ ±20 pp  (adequate for directional inference)
+    For ±10 pp: need n≥100/skill → 2,000 total (stretch goal)
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-fp">
+      <div class="exp-header" style="background:var(--amber-light);">
+        <span class="exp-id" style="background:var(--amber);color:#fff;">EXP-09</span>
+        <span class="exp-title">False Positive + False Negative Rate Per Skill</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure how often King-Skill invokes an unnecessary skill (false positive — the skill runs but the correct one would have been the fallback or a different skill) and how often it fails to invoke any skill (false negative — fallback triggered when a skill could have helped).</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">FP definition</span><span class="dr-val">Skill X is invoked but ground-truth label is either fallback or skill Y ≠ X</span></div>
+          <div class="detail-row"><span class="dr-label">FN definition</span><span class="dr-val">Fallback is invoked but ground-truth label is any skill (missed dispatch)</span></div>
+          <div class="detail-row"><span class="dr-label">Use EXP-08 data</span><span class="dr-val">Compute FP and FN rates from the EXP-08 confusion matrix</span></div>
+          <div class="detail-row"><span class="dr-label">Per-skill FP rate</span><span class="dr-val">For each skill: how often is it triggered incorrectly? High FP = keyword too broad.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">FP/FN rate table per skill, keyword collision analysis, suggested dispatch table improvements</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-conflict">
+      <div class="exp-header" style="background:var(--amber-light);">
+        <span class="exp-id" style="background:var(--amber);color:#fff;">EXP-10</span>
+        <span class="exp-title">Dispatch Conflict Resolution Study</span>
+        <span class="prio prio-p3">P3 Medium</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Identify all pairwise keyword conflicts in the dispatch table — cases where a task matches two or more skill triggers — and verify that the priority ordering resolves them correctly. Document all known conflicts as test cases.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Method</span><span class="dr-val">Generate all pairs of skills; for each pair, create 5 ambiguous tasks that match both. Run through dispatch. Record which skill wins and whether it is correct.</span></div>
+          <div class="detail-row"><span class="dr-label">Known conflicts</span><span class="dr-val">"integral" (09 vs 01), "simulate" (07 vs 01), "graph coloring" (02 vs 08), "verify" (05 vs fallback), "generate report" (20 vs fallback)</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">Conflict registry, test cases for each conflict, recommended priority adjustments</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 4 -->
+<div class="phase-banner ph4" id="p4-baseline">
+  <h2>Phase 4 · Controlled Baseline Experiment</h2>
+  <div class="phase-desc">The most critical experiment in this guide. Without a controlled comparison of King-Skill vs. an unrouted LLM, the paper cannot claim that the architecture provides any benefit. This phase executes the experiment designed in v3 §7.1.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 3–4 weeks (includes judge evaluation time)</span>
+    <span>👤 Owner: Silicon (paper generation) + Carbon (judge coordination)</span>
+    <span>🔒 Requires: Phase 1 complete; Phase 2 EXP-06 (cost baseline)</span>
+    <span>📦 Outputs: baseline_results.csv, judge_scores.csv, statistical_report.pdf</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-baseline">
+      <div class="exp-header" style="background:var(--accent-light);">
+        <span class="exp-id" style="background:var(--accent);color:#fff;">EXP-11</span>
+        <span class="exp-title">King-Skill vs. Plain LLM — Controlled A/B</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Produce paired scientific papers under two conditions: (A) King-Skill agent with full routing and compression, (B) same base LLM with no routing and no compression layer. Have both evaluated by the 17-judge panel. Compare consensus scores.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Base LLM</span><span class="dr-val">Claude Sonnet 4.6 for both conditions. Same system prompt, same input task.</span></div>
+          <div class="detail-row"><span class="dr-label">Task pool</span><span class="dr-val">n = 50 P2PCLAW-style research tasks. Stratified: 10 per domain (thermodynamics, quantum, distributed systems, ML, synthetic biology)</span></div>
+          <div class="detail-row"><span class="dr-label">Condition A</span><span class="dr-val">King-Skill: king-dispatch active, all 20 skills available, compression layer active</span></div>
+          <div class="detail-row"><span class="dr-label">Condition B</span><span class="dr-val">Baseline: same prompt, no dispatch, no skills, no compression. Direct LLM generation only.</span></div>
+          <div class="detail-row"><span class="dr-label">Blinding</span><span class="dr-val">Judges receive papers without condition labels. Randomise order. Judges cannot identify which condition produced which paper.</span></div>
+          <div class="detail-row"><span class="dr-label">Primary outcome</span><span class="dr-val">17-judge consensus score (0–1). Paired t-test or Wilcoxon signed-rank. α=0.05, two-tailed.</span></div>
+          <div class="detail-row"><span class="dr-label">Secondary outcomes</span><span class="dr-val">Output token count, API cost, proportion meeting 2,500-token minimum, factual error rate (EXP-16)</span></div>
+          <div class="detail-row"><span class="dr-label">Power analysis</span><span class="dr-val">n=50 pairs, assuming σ=0.10, minimum detectable effect Δ=0.05. Power = 0.80 at α=0.05. (Increase n if σ turns out larger.)</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance criterion</span><span class="dr-val">n=50 complete pairs; all tasks evaluated by ≥14/17 judges; Krippendorff's α ≥ 0.40</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/baseline_experiment_v4.csv</code>, statistical test results, forest plot of per-domain effects</span></div>
+        </div>
+
+        <div class="math-block">
+ANALYSIS PLAN (pre-registered):
+
+Primary test:
+  H₀: μ_KingSkill = μ_Baseline  (no difference in judge scores)
+  H₁: μ_KingSkill ≠ μ_Baseline  (two-tailed)
+  Test: Wilcoxon signed-rank (paired, non-parametric)
+  α = 0.05, power = 0.80
+
+Secondary tests (Bonferroni corrected, α' = 0.05/5 = 0.01):
+  H₁a: Score(A) > Score(B) on scientific accuracy dimension
+  H₁b: Score(A) > Score(B) on methodological rigour dimension
+  H₁c: No significant difference on clarity dimension (non-inferiority)
+  H₁d: Cost(A) vs Cost(B): expect A higher due to tool overhead
+  H₁e: Error_rate(A) < Error_rate(B) for computation-heavy tasks
+
+Expected pattern (hypothesis):
+  King-Skill advantage: tasks requiring computation (numerical accuracy)
+  No difference: writing-intensive tasks with no deterministic computation
+  Possible disadvantage: compressed output scoring lower on clarity
+        </div>
+
+        <div class="critical-box">
+          <p><strong>Critical — pre-registration:</strong> This analysis plan must be published (e.g., on OSF or as a GitHub commit) <em>before</em> running the experiment. Post-hoc analysis plan adjustments invalidate the statistical claims. Carbon must complete this before Silicon begins generating papers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-judges">
+      <div class="exp-header" style="background:var(--accent-light);">
+        <span class="exp-id" style="background:var(--accent);color:#fff;">EXP-12</span>
+        <span class="exp-title">17-Judge Panel Validation Run</span>
+        <span class="prio prio-p1">P1 Critical</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Run the full 17-judge panel on all 100 papers (50 tasks × 2 conditions). Log all judge scores, detect outlier judges, compute per-judge calibration statistics.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Judge panel</span><span class="dr-val">As described in v3 §7.2: 3 frontier + 4 premium + 4 mid + 6 budget models = 17 total</span></div>
+          <div class="detail-row"><span class="dr-label">Rubric</span><span class="dr-val">6 dimensions × 0–10 scale. All prompts standardised; no judge sees condition labels.</span></div>
+          <div class="detail-row"><span class="dr-label">Per-judge calibration</span><span class="dr-val">Compute each judge's mean, SD, and correlation with panel mean. Flag judges with |r| < 0.50 as potential outliers.</span></div>
+          <div class="detail-row"><span class="dr-label">Outlier handling</span><span class="dr-val">Pre-registered: exclude judges with |r| < 0.30 with panel median. Report sensitivity analysis with and without exclusions.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/judge_scores_v4.csv</code>, judge calibration report, per-dimension correlation matrix</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-iaa">
+      <div class="exp-header" style="background:var(--accent-light);">
+        <span class="exp-id" style="background:var(--accent);color:#fff;">EXP-13</span>
+        <span class="exp-title">Inter-Rater Agreement — Krippendorff's α</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Compute Krippendorff's α across all 17 judges on the EXP-12 data. Report per-dimension and overall α with bootstrap confidence intervals.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Metric</span><span class="dr-val">Krippendorff's α (interval scale), bootstrap 95% CI (n=5,000 resamplings)</span></div>
+          <div class="detail-row"><span class="dr-label">Acceptance</span><span class="dr-val">α ≥ 0.40 (moderate agreement) on overall score. α ≥ 0.30 minimum per dimension.</span></div>
+          <div class="detail-row"><span class="dr-label">Interpretation</span><span class="dr-val">If α < 0.40: the panel is too heterogeneous to aggregate into a single score. Explore clustering judges by tier and reporting tier-level scores separately.</span></div>
+          <div class="detail-row"><span class="dr-label">Library</span><span class="dr-val"><code>krippendorff</code> Python package (pip install krippendorff)</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">α table (overall + per dimension), bootstrap CI figure, inter-rater agreement section for v4 paper</span></div>
+        </div>
+        <div class="script-block">
+<span class="kw">import</span> krippendorff, numpy <span class="kw">as</span> np
+
+<span class="cm"># scores: 2D array shape (n_judges, n_papers)</span>
+alpha = krippendorff.alpha(
+    reliability_data=scores,
+    level_of_measurement=<span class="st">"interval"</span>
+)
+
+<span class="cm"># Bootstrap CI</span>
+boot_alphas = []
+<span class="kw">for</span> _ <span class="kw">in</span> range(5000):
+    idx = np.random.choice(scores.shape[1], scores.shape[1])
+    boot_alphas.append(krippendorff.alpha(scores[:, idx], <span class="st">"interval"</span>))
+ci_low, ci_high = np.percentile(boot_alphas, [2.5, 97.5])
+print(f<span class="st">"α = {alpha:.3f}  95% CI [{ci_low:.3f}, {ci_high:.3f}]"</span>)
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 5 -->
+<div class="phase-banner ph5" id="p5-reasoning">
+  <h2>Phase 5 · Reasoning Quality Measurements</h2>
+  <div class="phase-desc">Measure the effect of compression on reasoning quality, validate the 8.3× reasoning-to-output ratio, quantify multi-turn depth benefits, and measure scientific error rate with and without King-Skill.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 2 weeks</span>
+    <span>👤 Owner: Silicon (automated runs) + Carbon (error annotation)</span>
+    <span>🔒 Requires: Phase 1; Phase 4 (uses baseline experiment data)</span>
+    <span>📦 Outputs: cot_analysis.csv, error_rate_comparison.csv, multiturn_depth.csv</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-cot">
+      <div class="exp-header" style="background:var(--purple-light);">
+        <span class="exp-id" style="background:var(--purple);color:#fff;">EXP-14</span>
+        <span class="exp-title">Chain-of-Thought Token Analysis + 8.3× Ratio Validation</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure the actual thinking-to-output token ratio across n≥30 P2PCLAW paper production runs. Replace the single-observation 8.3× estimate with a distribution. Additionally, if the API exposes thinking tokens, test whether compressing output in turn N affects thinking token count in turn N+1 (the main unresolved Open Question #3 from v3).</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Data source</span><span class="dr-val">EXP-06 cost logs (n≥30 runs). Split each run's token count into thinking vs. output.</span></div>
+          <div class="detail-row"><span class="dr-label">If thinking tokens not exposed</span><span class="dr-val">Use total_tokens − output_tokens as proxy; flag as approximate. Report limitation.</span></div>
+          <div class="detail-row"><span class="dr-label">CoT compression test</span><span class="dr-val">In a multi-turn session: (a) condition with standard output, (b) condition with compressed output. Compare thinking tokens in turn N+1 between conditions. n=20 sessions each.</span></div>
+          <div class="detail-row"><span class="dr-label">Density metric proposal</span><span class="dr-val">Define operationally: "density = unique scientific entities per 100 output tokens". Use spaCy NER with a custom scientific entity model. Measure before/after compression.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">Validated 8.3× ratio (with CI), CoT compression effect test, operational density metric definition</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-multiturn">
+      <div class="exp-header" style="background:var(--purple-light);">
+        <span class="exp-id" style="background:var(--purple);color:#fff;">EXP-15</span>
+        <span class="exp-title">Multi-Turn Session Depth Benefit Measurement</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Quantify the context-history savings in multi-turn sessions from output compression. This is the only surviving reasoning-depth claim after the 5× retraction — it needs to be validated or retracted too.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Design</span><span class="dr-val">Run N=20 turn conversations in two conditions: (A) compressed outputs in history, (B) uncompressed outputs in history. Compare context tokens consumed at each turn.</span></div>
+          <div class="detail-row"><span class="dr-label">Primary measurement</span><span class="dr-val">At turn T, context_tokens_A vs. context_tokens_B. Compute % savings: (B−A)/B per turn, cumulative over N turns.</span></div>
+          <div class="detail-row"><span class="dr-label">Content</span><span class="dr-val">P2PCLAW paper refinement sessions (each turn = one revision cycle). 5 sessions × 20 turns each.</span></div>
+          <div class="detail-row"><span class="dr-label">Quality check</span><span class="dr-val">Does the compressed-history condition maintain equivalent output quality at later turns? Judge 3 randomly sampled turns per session (EXP-12 rubric).</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">Context savings per turn chart, quality equivalence test results, updated depth-benefit claim for v4</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-error">
+      <div class="exp-header" style="background:var(--purple-light);">
+        <span class="exp-id" style="background:var(--purple);color:#fff;">EXP-16</span>
+        <span class="exp-title">Scientific Error Rate: King-Skill vs. Baseline</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure the proportion of papers containing at least one verifiable scientific error (wrong numerical result, invalid equation, incorrect factual claim) in both King-Skill and baseline conditions. This is the most concrete scientific quality metric.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Error definition</span><span class="dr-val">Pre-registered: (a) numerical error ≥1% from ground truth, (b) equation that violates dimensional analysis, (c) factual claim contradicted by a cited source</span></div>
+          <div class="detail-row"><span class="dr-label">Annotation</span><span class="dr-val">Carbon annotates all papers from EXP-11 (100 papers total). A subset of 20 papers also annotated by Silicon to compute IAA (Cohen's κ).</span></div>
+          <div class="detail-row"><span class="dr-label">Focus domains</span><span class="dr-val">Thermodynamics and quantum mechanics (computational errors detectable by sympy/scipy). Distributed systems (formal BFT claims verifiable by logic).</span></div>
+          <div class="detail-row"><span class="dr-label">Statistical test</span><span class="dr-val">Fisher's exact test (proportion with ≥1 error: King-Skill vs. baseline). Expected direction: King-Skill lower error rate due to sympy verification.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val"><code>data/error_annotations_v4.csv</code>, Fisher test result, error rate comparison table for v4</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 6 -->
+<div class="phase-banner ph6" id="p6-economics">
+  <h2>Phase 6 · Real Economic Data</h2>
+  <div class="phase-desc">Replace all cost projections (which are multiplications of an unvalidated 33% estimate) with measured API cost logs from real production runs. Add tool call overhead to the cost model.</div>
+  <div class="phase-meta">
+    <span>⏱ Duration: 1 week (uses data from EXP-06 and EXP-11)</span>
+    <span>👤 Owner: Carbon (API billing access)</span>
+    <span>🔒 Requires: Phase 2 EXP-06, Phase 4 EXP-11</span>
+    <span>📦 Outputs: real_cost_data.csv, cost_model_v4.xlsx, tool_overhead_table.csv</span>
+  </div>
+</div>
+
+<section>
+  <div class="exp-grid">
+
+    <div class="exp-card" id="exp-cost">
+      <div class="exp-header" style="background:var(--orange-light);">
+        <span class="exp-id" style="background:var(--orange);color:#fff;">EXP-17</span>
+        <span class="exp-title">End-to-End Real API Cost Measurement</span>
+        <span class="prio prio-p2">P2 High</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Replace the "33% savings estimate from n=20 examples" with real API billing data from the EXP-11 experiment. Compute actual cost per paper in both conditions and true savings percentage.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Data source</span><span class="dr-val">CostLogger from EXP-06, applied to all 100 EXP-11 paper productions</span></div>
+          <div class="detail-row"><span class="dr-label">Compute</span><span class="dr-val">input_cost_A, output_cost_A, tool_overhead_A; same for B. True savings = (cost_B − cost_A) / cost_B</span></div>
+          <div class="detail-row"><span class="dr-label">Breakdown</span><span class="dr-val">Report separately: savings on output tokens, net savings after adding tool call overhead, net savings after adding thinking tokens (if accessible)</span></div>
+          <div class="detail-row"><span class="dr-label">Ratio validation</span><span class="dr-val">Compute actual input/output ratio (v3 assumed 30/70). Report actual ratio from logs and recompute projections.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">Real cost savings table (replaces all estimated cost tables in v3), actual input/output ratio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card" id="exp-overhead">
+      <div class="exp-header" style="background:var(--orange-light);">
+        <span class="exp-id" style="background:var(--orange);color:#fff;">EXP-18</span>
+        <span class="exp-title">Tool Call Overhead: Latency + Token Cost Per Skill</span>
+        <span class="prio prio-p3">P3 Medium</span>
+        <span class="status st-todo">TODO</span>
+      </div>
+      <div class="exp-body">
+        <p><strong>Goal:</strong> Measure the latency and token overhead added by each skill invocation. The v3 paper acknowledged this was unmodelled. This experiment produces the data to include it in the v4 cost model.</p>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="dr-label">Method</span><span class="dr-val">For each of the 20 skills: run 20 representative tasks. Log tokens consumed in the tool call request/response + wall-clock time.</span></div>
+          <div class="detail-row"><span class="dr-label">Metrics</span><span class="dr-val">median_latency_ms, p95_latency_ms, median_overhead_tokens (input + output), cost_per_invocation_usd</span></div>
+          <div class="detail-row"><span class="dr-label">Compare</span><span class="dr-val">overhead_cost vs. tokens_saved_by_correct_routing. Net benefit = tokens_saved − tokens_overhead. Skills where overhead > savings are net-negative.</span></div>
+          <div class="detail-row"><span class="dr-label">Output artefact</span><span class="dr-val">Tool overhead table per skill, net-benefit analysis, revised recommendation for which skills to enable by default</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline">
+  <h2 class="sec">Master Timeline — 8-Week Execution Plan</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-week">Week 1</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Phase 1 Complete <span class="tl-ph" style="background:var(--blue-light);color:var(--blue);">P1</span></div>
+        <div class="tl-desc">EXP-01 Dockerfile · EXP-02 Publish 19 tasks + draft 60-task set · EXP-03 Lean 4 CI green. Pre-register EXP-11 analysis plan on OSF.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 2</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Corpus Collection <span class="tl-ph" style="background:var(--teal-light);color:var(--teal);">P2</span></div>
+        <div class="tl-desc">EXP-04 Begin: collect ≥200 paragraph pairs from real P2PCLAW drafts, label by domain and content type. EXP-06 Begin: set up CostLogger, run 10 pilot paper productions.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 3</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Compression Measurement + Routing Corpus <span class="tl-ph" style="background:var(--teal-light);color:var(--teal);">P2</span> <span class="tl-ph" style="background:var(--amber-light);color:var(--amber);">P3</span></div>
+        <div class="tl-desc">EXP-04 Run compression measurement on full corpus. EXP-05 Chemical domain study. EXP-08 Begin: Silicon generates 500-task routing corpus, Carbon reviews labels (IAA check).</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 4</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Routing Accuracy + Baseline Generation <span class="tl-ph" style="background:var(--amber-light);color:var(--amber);">P3</span> <span class="tl-ph" style="background:var(--accent-light);color:var(--accent);">P4</span></div>
+        <div class="tl-desc">EXP-08 Complete: run 500-task routing accuracy measurement, compute confusion matrix. EXP-09/10 run from same data. EXP-11 Begin: generate 50 papers in King-Skill condition.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 5</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Baseline Generation + Judge Run <span class="tl-ph" style="background:var(--accent-light);color:var(--accent);">P4</span></div>
+        <div class="tl-desc">EXP-11 Baseline condition: generate 50 papers without King-Skill. EXP-12 Begin: submit all 100 papers to 17-judge panel. EXP-07 Judge preference study on 30 paragraph pairs.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 6</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Judge Analysis + Error Annotation <span class="tl-ph" style="background:var(--accent-light);color:var(--accent);">P4</span> <span class="tl-ph" style="background:var(--purple-light);color:var(--purple);">P5</span></div>
+        <div class="tl-desc">EXP-12 Complete: collect all judge scores, compute calibration statistics. EXP-13: compute Krippendorff's α. EXP-16: Carbon annotates errors in all 100 papers.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 7</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Reasoning Depth + Cost Analysis <span class="tl-ph" style="background:var(--purple-light);color:var(--purple);">P5</span> <span class="tl-ph" style="background:var(--orange-light);color:var(--orange);">P6</span></div>
+        <div class="tl-desc">EXP-14: CoT token analysis on 30 production runs. EXP-15: multi-turn depth study. EXP-17/18: real cost data extraction from all logged runs. Tool overhead table complete.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-week">Week 8</span>
+      <div class="tl-bar"></div>
+      <div class="tl-content">
+        <div class="tl-title">Statistical Analysis + v4 Paper Writing</div>
+        <div class="tl-desc">Run all pre-registered statistical tests. Generate all figures. Write v4 paper draft with real numbers in every table. Internal review by Veselov. Submit v4.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Deliverables -->
+<section id="deliverables">
+  <h2 class="sec">v4 Paper Deliverables — Complete List</h2>
+  <p>The following artefacts must exist and be verified before v4 is submitted. Items marked with ★ are blocking — the paper cannot be submitted without them.</p>
+
+  <h3>Code &amp; Environment</h3>
+  <div class="output-grid">
+    <div class="output-card"><div class="oc-file">★ Dockerfile</div><div class="oc-desc">Working container. <code>docker build && run_tests</code> produces pass badge.</div></div>
+    <div class="output-card"><div class="oc-file">★ requirements.txt</div><div class="oc-desc">All Python dependencies with exact version pins.</div></div>
+    <div class="output-card"><div class="oc-file">★ tests/routing_tasks_v1.json</div><div class="oc-desc">Original 19 tasks disclosed. JSON format with expected_skill labels.</div></div>
+    <div class="output-card"><div class="oc-file">★ tests/routing_tasks_v4_extended.json</div><div class="oc-desc">500+ task corpus with ground truth labels, IAA κ ≥ 0.80.</div></div>
+    <div class="output-card"><div class="oc-file">★ .github/workflows/test.yml</div><div class="oc-desc">CI/CD pipeline. Green badge in README.</div></div>
+    <div class="output-card"><div class="oc-file">analysis/compression_stats.py</div><div class="oc-desc">Reproducible script for all compression measurements.</div></div>
+    <div class="output-card"><div class="oc-file">analysis/routing_accuracy.py</div><div class="oc-desc">Routing study analysis: confusion matrix, per-skill precision/recall.</div></div>
+    <div class="output-card"><div class="oc-file">analysis/baseline_stats.py</div><div class="oc-desc">Pre-registered statistical tests for EXP-11/12/13.</div></div>
+  </div>
+
+  <h3>Data Files</h3>
+  <div class="output-grid">
+    <div class="output-card"><div class="oc-file">★ data/compression_corpus_v4.csv</div><div class="oc-desc">≥200 paragraph pairs. Columns: domain, content_type, tokens_natural, tokens_compressed, savings_pct.</div></div>
+    <div class="output-card"><div class="oc-file">★ data/chemical_compression_v4.csv</div><div class="oc-desc">≥200 chemical name/formula/SMILES pairs. Context type labels. MW data.</div></div>
+    <div class="output-card"><div class="oc-file">★ data/routing_tasks_v4_500.json</div><div class="oc-desc">500-task routing corpus with predictions and correctness labels.</div></div>
+    <div class="output-card"><div class="oc-file">★ data/baseline_experiment_v4.csv</div><div class="oc-desc">50 task pairs × 2 conditions. Judge scores per dimension. Token counts. API cost.</div></div>
+    <div class="output-card"><div class="oc-file">★ data/judge_scores_v4.csv</div><div class="oc-desc">17 judges × 100 papers × 6 dimensions. Full score matrix.</div></div>
+    <div class="output-card"><div class="oc-file">data/cost_logs_v4.csv</div><div class="oc-desc">Per-API-call token counts and costs. Input/output breakdown per skill.</div></div>
+    <div class="output-card"><div class="oc-file">data/error_annotations_v4.csv</div><div class="oc-desc">Scientific error annotations for 100 papers. Annotator IAA.</div></div>
+    <div class="output-card"><div class="oc-file">data/judge_preference_v4.json</div><div class="oc-desc">Blind preference study results: compressed vs. prose, 17 judges, 30 pairs.</div></div>
+  </div>
+
+  <h3>Statistical Results</h3>
+  <div class="output-grid">
+    <div class="output-card"><div class="oc-file">★ Compression mean ± SD + 95% CI</div><div class="oc-desc">Replaces all "~9%" and "~33%" estimates. Stratified by domain and content type.</div></div>
+    <div class="output-card"><div class="oc-file">★ Routing accuracy + Wilson CI</div><div class="oc-desc">Replaces 18/19 = 94.7%. Per-skill precision/recall/F1. Confusion matrix.</div></div>
+    <div class="output-card"><div class="oc-file">★ Wilcoxon test: A vs B judge scores</div><div class="oc-desc">Primary outcome of EXP-11. p-value, effect size (rank-biserial r), confidence interval.</div></div>
+    <div class="output-card"><div class="oc-file">★ Krippendorff's α + bootstrap CI</div><div class="oc-desc">Overall + per-dimension. Acceptance: α ≥ 0.40 overall.</div></div>
+    <div class="output-card"><div class="oc-file">Fisher test: error rates A vs B</div><div class="oc-desc">Scientific error rate King-Skill vs. baseline. p-value + odds ratio.</div></div>
+    <div class="output-card"><div class="oc-file">Real cost savings %</div><div class="oc-desc">From actual API logs. Net savings after tool overhead. Replaces derived 23% estimate.</div></div>
+  </div>
+
+  <h3>Pre-Registration</h3>
+  <div class="output-card" style="border-left:3px solid var(--red);margin:10px 0;">
+    <div class="oc-file" style="color:var(--red);">★ OSF / GitHub pre-registration of EXP-11 analysis plan</div>
+    <div class="oc-desc">Must be timestamped BEFORE running the experiment. Includes H₀/H₁, test selection, α level, sample size, exclusion criteria, and analysis code skeleton. Link cited in v4 paper as [PR-1].</div>
+  </div>
+</section>
+
+<!-- Statistical specs -->
+<section id="statistical">
+  <h2 class="sec">Statistical Acceptance Criteria — Summary</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Measurement</th><th>Minimum n</th><th>Acceptance criterion</th><th>What it unlocks in v4</th></tr></thead>
+      <tbody>
+        <tr><td>Compression mean (STEM)</td><td class="td-c">200 paragraph pairs</td><td>95% CI width ≤ 5 pp</td><td>Replace "~33% estimate"</td></tr>
+        <tr><td>Compression mean (mixed)</td><td class="td-c">200 paragraph pairs</td><td>95% CI width ≤ 5 pp</td><td>Replace "~9% estimate"</td></tr>
+        <tr><td>Chemical compression by context</td><td class="td-c">50 per context type</td><td>Mean ± SD per type; decision rule validated</td><td>Context-specific formula policy</td></tr>
+        <tr><td>Routing accuracy</td><td class="td-c">500 tasks</td><td>95% Wilson CI width ≤ 4 pp; Cohen's κ ≥ 0.80</td><td>Replace 19-task 94.7%</td></tr>
+        <tr><td>Per-skill precision/recall</td><td class="td-c">25 per skill</td><td>F1 per skill reported with CI</td><td>Identify weak skills</td></tr>
+        <tr><td>Baseline A vs. B judge scores</td><td class="td-c">50 task pairs</td><td>Wilcoxon p-value, effect size r</td><td>Core quality claim</td></tr>
+        <tr><td>Krippendorff's α</td><td class="td-c">100 papers, 17 judges</td><td>α ≥ 0.40 overall, bootstrap CI</td><td>Validate judge panel</td></tr>
+        <tr><td>Scientific error rate</td><td class="td-c">100 papers, annotated</td><td>Cohen's κ ≥ 0.70 (annotator IAA); Fisher p-value</td><td>Accuracy improvement claim</td></tr>
+        <tr><td>Reasoning-to-output ratio</td><td class="td-c">30 production runs</td><td>Mean ± SD; replace 8.3× single observation</td><td>Validate token cycle estimate</td></tr>
+        <tr><td>Multi-turn depth benefit</td><td class="td-c">5 sessions × 20 turns</td><td>% context saved per turn ± SD</td><td>Replace theoretical claim</td></tr>
+        <tr><td>Real API cost savings</td><td class="td-c">100 paper productions logged</td><td>Mean actual savings ± SD; include tool overhead</td><td>Replace 23% derived estimate</td></tr>
+        <tr><td>Tool call overhead</td><td class="td-c">20 calls per skill</td><td>Median latency + p95; overhead tokens per call</td><td>Complete cost model</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-box">
+    <p><strong>Multiple comparisons:</strong> EXP-11 uses 5 secondary hypotheses. Apply Bonferroni correction: α' = 0.05/5 = 0.01 for each secondary test. The primary test (overall judge score A vs. B) uses α = 0.05 uncorrected.</p>
+    <p><strong>Power analysis note:</strong> All sample sizes assume effect sizes consistent with v3 estimates. If pilot runs reveal larger variance, increase n before the full experiment. Document any n changes in the pre-registration amendment.</p>
+    <p><strong>Data availability:</strong> All raw data files must be uploaded to the GitHub repository or a public data repository (Zenodo, OSF) before v4 is submitted. The paper must include a "Data Availability" statement with DOI links.</p>
+  </div>
+
+  <!-- Requirements summary chart -->
+  <div class="chart-wrap">
+    <div class="chart-title">Fig. 2 — Estimated effort per phase (person-days)</div>
+    <div style="position:relative;width:100%;height:240px;">
+      <canvas id="effortChart" role="img" aria-label="Horizontal bar chart showing estimated effort per phase in person-days: Phase 1 Infrastructure 5 days, Phase 2 Compression 12 days, Phase 3 Routing 8 days, Phase 4 Baseline 14 days, Phase 5 Reasoning 8 days, Phase 6 Economics 5 days, Writing 6 days"></canvas>
+    </div>
+    <div class="chart-caption">Fig. 2. Estimated effort in person-days per phase. Phase 4 (Controlled Baseline) dominates because it requires generating and evaluating 100 papers through the full 17-judge pipeline. Phase 2 (Compression) requires the most Silicon agent time (automated corpus processing).</div>
+  </div>
+</section>
+
+<footer>
+  <p>King-Skill v4 Certification Work Guide · P2PCLAW Research Network · April 2026 · For internal use by Silicon + Carbon research team · Target submission: King-Skill v4, 8 weeks from Phase 1 completion</p>
+  <p style="margin-top:4px;">Experiment IDs: EXP-01 through EXP-18 correspond to gap entries in the v3 Gap Map (§2 of this guide). All pre-registration must occur before data collection. Contact: Francisco Angulo de Lafuente · p2pclaw.com</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+// Claims chart
+new Chart(document.getElementById('claimsChart'),{
+  type:'bar',
+  data:{
+    labels:['P2 Compression\nmeasurements','P3 Routing\naccuracy','P4 Baseline\nexperiment','P5 Reasoning\nquality','P6 Economics\ndata','P1 Infrastructure\ngaps'],
+    datasets:[
+      {label:'Estimated claims to replace',data:[5,2,2,4,2,3],backgroundColor:'rgba(139,32,32,0.55)',borderColor:'rgba(139,32,32,0.9)',borderWidth:1,borderRadius:3},
+      {label:'Missing comparisons',data:[1,1,1,1,1,0],backgroundColor:'rgba(122,90,30,0.5)',borderColor:'rgba(122,90,30,0.9)',borderWidth:1,borderRadius:3},
+      {label:'Reproducibility gaps',data:[0,0,0,0,0,3],backgroundColor:'rgba(30,77,122,0.5)',borderColor:'rgba(30,77,122,0.9)',borderWidth:1,borderRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y}`}}},
+    scales:{
+      x:{stacked:true,grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:10},color:'#6b6760',maxRotation:0}},
+      y:{stacked:true,grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'},
+         title:{display:true,text:'Claims requiring validation',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}}
+    }
+  }
+});
+const cleg=document.createElement('div');
+cleg.style.cssText='display:flex;flex-wrap:wrap;gap:16px;font-family:"Libre Franklin",sans-serif;font-size:11px;color:#6b6760;margin-top:6px;';
+cleg.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(139,32,32,0.55);border-radius:2px;display:inline-block;"></span>Estimated claims to replace</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(122,90,30,0.5);border-radius:2px;display:inline-block;"></span>Missing comparisons</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(30,77,122,0.5);border-radius:2px;display:inline-block;"></span>Reproducibility gaps</span>`;
+document.getElementById('claimsChart').parentNode.after(cleg);
+
+// Effort chart
+new Chart(document.getElementById('effortChart'),{
+  type:'bar',indexAxis:'y',
+  data:{
+    labels:['P1 · Infrastructure','P2 · Compression data','P3 · Routing accuracy','P4 · Baseline experiment','P5 · Reasoning quality','P6 · Economics','Paper writing (v4)'],
+    datasets:[{
+      label:'Estimated person-days',
+      data:[5,12,8,14,8,5,6],
+      backgroundColor:['rgba(30,77,122,0.6)','rgba(13,110,110,0.6)','rgba(122,90,30,0.6)','rgba(26,92,79,0.6)','rgba(74,37,128,0.6)','rgba(139,64,16,0.6)','rgba(26,24,22,0.4)'],
+      borderColor:['rgba(30,77,122,1)','rgba(13,110,110,1)','rgba(122,90,30,1)','rgba(26,92,79,1)','rgba(74,37,128,1)','rgba(139,64,16,1)','rgba(26,24,22,0.7)'],
+      borderWidth:1,borderRadius:3
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} person-days`}}},
+    scales:{
+      x:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'},
+         title:{display:true,text:'Estimated person-days',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}},
+      y:{grid:{display:false},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'}}
+    }
+  }
+});
+</script>
+</body>
+</html>

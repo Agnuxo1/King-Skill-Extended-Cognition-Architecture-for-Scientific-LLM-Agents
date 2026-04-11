@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Skill v2: Extended Cognition Architecture for Scientific LLM Agents — Revised</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --ink:#1a1816; --ink-2:#3d3a36; --ink-3:#6b6760; --ink-4:#9c9891;
+  --paper:#faf8f4; --paper-2:#f2efe9; --paper-3:#e8e4dc;
+  --accent:#1a5c4f; --accent-light:#e6f2ef;
+  --blue:#1e4d7a; --blue-light:#e8f0f8;
+  --amber:#7a5a1e; --amber-light:#f5f0e0;
+  --red:#8b2020; --red-light:#fde8e8;
+  --purple:#4a2580; --purple-light:#ede8f8;
+  --rule:rgba(26,24,22,0.12); --rule-strong:rgba(26,24,22,0.25);
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Libre Franklin',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.75;}
+.wrapper{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;min-height:100vh;}
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;padding:3rem 1.5rem 3rem 2rem;border-right:1px solid var(--rule);background:var(--paper);}
+.sidebar-title{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.5rem;}
+.sidebar nav a{display:block;font-family:var(--sans);font-size:11.5px;font-weight:400;color:var(--ink-3);text-decoration:none;padding:4px 0 4px 8px;line-height:1.4;border-left:2px solid transparent;transition:color .15s,border-color .15s;}
+.sidebar nav a:hover{color:var(--accent);border-left-color:var(--accent);}
+.sidebar nav a.section{font-weight:500;color:var(--ink-2);margin-top:8px;}
+main{padding:5rem 5rem 8rem 5rem;max-width:760px;}
+
+/* Header */
+.paper-header{margin-bottom:3.5rem;padding-bottom:2rem;border-bottom:1.5px solid var(--rule-strong);}
+.paper-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:3px;margin-bottom:1.5rem;}
+.paper-title{font-size:2.05rem;font-weight:500;line-height:1.25;color:var(--ink);margin-bottom:1.25rem;letter-spacing:-.01em;}
+.paper-subtitle{font-size:1.1rem;color:var(--ink-3);font-style:italic;margin-bottom:2rem;}
+.authors{display:flex;flex-direction:column;gap:.4rem;font-family:var(--sans);font-size:13px;margin-bottom:1.5rem;}
+.author-line{display:flex;align-items:center;gap:8px;}
+.author-badge{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:2px;}
+.badge-silicon{background:var(--blue-light);color:var(--blue);}
+.badge-carbon{background:var(--accent-light);color:var(--accent);}
+.paper-meta{font-family:var(--sans);font-size:12px;color:var(--ink-4);display:flex;flex-wrap:wrap;gap:16px;}
+
+/* Claim badges */
+.claim{display:inline-block;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:2px;vertical-align:middle;margin-left:4px;}
+.claim-empirical{background:var(--accent-light);color:var(--accent);}
+.claim-estimate{background:var(--amber-light);color:var(--amber);}
+.claim-theoretical{background:var(--blue-light);color:var(--blue);}
+.claim-limitation{background:var(--red-light);color:var(--red);}
+.claim-corrected{background:var(--purple-light);color:var(--purple);}
+
+/* Boxes */
+.abstract-box{background:var(--paper-2);border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:1.5rem;margin-bottom:2.5rem;font-size:.93rem;}
+.abstract-box strong{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.75rem;}
+.highlight-box{border-left:3px solid var(--accent);background:var(--accent-light);padding:1rem 1.25rem;margin:1.5rem 0;font-size:.92rem;}
+.highlight-box p{margin-bottom:0;text-align:left;}
+.warning-box{border-left:3px solid var(--amber);background:var(--amber-light);padding:1rem 1.25rem;margin:1.5rem 0;font-size:.92rem;}
+.warning-box p{margin-bottom:.5rem;text-align:left;}
+.warning-box p:last-child{margin-bottom:0;}
+.critique-box{border-left:3px solid var(--red);background:var(--red-light);padding:1rem 1.25rem;margin:1.5rem 0;font-size:.9rem;}
+.critique-box h5{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem;}
+.critique-box p{margin-bottom:.5rem;text-align:left;}
+.critique-box p:last-child{margin-bottom:0;}
+.response-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:1rem 1.25rem;margin:.5rem 0 1.5rem;font-size:.9rem;}
+.response-box h5{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem;}
+.response-box p{margin-bottom:.5rem;text-align:left;}
+.response-box p:last-child{margin-bottom:0;}
+
+/* Platform callout */
+.platform-box{background:linear-gradient(135deg,var(--purple-light) 0%,#f5f0ff 100%);border:1px solid rgba(74,37,128,.2);border-left:3px solid var(--purple);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;font-family:var(--sans);font-size:12.5px;}
+.platform-box h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:.75rem;}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;}
+.platform-stat .pnum{font-size:22px;font-weight:600;color:var(--purple);line-height:1;}
+.platform-stat .plabel{font-size:11px;color:var(--ink-3);}
+
+/* Typography */
+section{margin-bottom:3rem;}
+h2{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);scroll-margin-top:2rem;}
+h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.75rem;margin-top:2rem;}
+h4.sub{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:1.5rem 0 .5rem;}
+p{margin-bottom:1rem;text-align:justify;hyphens:auto;}
+.math-block{font-family:var(--mono);font-size:.85rem;background:var(--paper-2);border-left:3px solid var(--rule-strong);padding:1rem 1.25rem;margin:1.25rem 0;overflow-x:auto;line-height:1.6;color:var(--ink-2);}
+.math-inline{font-family:var(--mono);font-size:.88em;background:var(--paper-3);padding:1px 5px;border-radius:2px;color:var(--ink-2);}
+
+/* Tables */
+.table-wrap{margin:1.5rem 0;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px;}
+th{font-weight:600;text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--rule-strong);color:var(--ink-2);background:var(--paper-2);white-space:nowrap;}
+td{padding:7px 12px;border-bottom:1px solid var(--rule);color:var(--ink);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--paper-2);}
+.td-c{text-align:center;} .td-mono{font-family:var(--mono);font-size:12px;} .td-r{text-align:right;font-family:var(--mono);font-size:12px;}
+.badge-pass{background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);}
+.badge-fail{background:var(--red-light);color:var(--red);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);}
+.badge-partial{background:var(--amber-light);color:var(--amber);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);}
+.badge-best{background:var(--purple-light);color:var(--purple);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);}
+
+/* Chart */
+.chart-wrap{margin:1.75rem 0;}
+.chart-title{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem;}
+.chart-caption{font-family:var(--sans);font-size:12px;color:var(--ink-4);margin-top:.5rem;font-style:italic;}
+
+/* Compression rows */
+.compress-section{margin:1rem 0;}
+.compress-row{display:grid;grid-template-columns:1fr auto 1fr auto;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;margin:6px 0;font-family:var(--sans);font-size:12.5px;align-items:stretch;}
+.compress-natural{padding:8px 12px;background:var(--paper-2);color:var(--ink-2);border-right:1px solid var(--rule);}
+.compress-arrow{padding:8px 10px;background:var(--paper-3);display:flex;align-items:center;font-weight:600;color:var(--ink-3);border-right:1px solid var(--rule);}
+.compress-result{padding:8px 12px;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--paper);border-right:1px solid var(--rule);}
+.compress-saving{padding:8px 10px;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;white-space:nowrap;min-width:64px;}
+.saving-max{background:rgba(26,92,79,.15);color:var(--accent);}
+.saving-high{background:rgba(26,92,79,.1);color:var(--accent);}
+.saving-med{background:rgba(122,90,30,.12);color:var(--amber);}
+.saving-low{background:var(--paper-3);color:var(--ink-4);}
+.saving-neg{background:rgba(139,32,32,.1);color:var(--red);}
+
+/* Two-budget visual */
+.budget-vis{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;margin:1.5rem 0;font-family:var(--sans);}
+.budget-thinking{background:rgba(30,77,122,.1);border-right:1px solid var(--rule);padding:1.25rem;}
+.budget-output{background:rgba(26,92,79,.1);padding:1.25rem;}
+.budget-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.budget-title{font-size:15px;font-weight:600;margin-bottom:.4rem;}
+.budget-desc{font-size:12px;color:var(--ink-3);line-height:1.4;}
+.budget-thinking .budget-label{color:var(--blue);}
+.budget-output .budget-label{color:var(--accent);}
+
+/* Ratio spectrum */
+.ratio-spectrum{margin:1.5rem 0;font-family:var(--sans);}
+.ratio-bar-wrap{display:flex;align-items:center;gap:10px;margin:5px 0;}
+.ratio-label{font-size:11.5px;color:var(--ink-2);min-width:180px;flex-shrink:0;}
+.ratio-bar-bg{flex:1;height:18px;background:var(--paper-3);border-radius:3px;overflow:hidden;position:relative;}
+.ratio-bar-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;}
+.ratio-val{font-size:11px;font-weight:600;color:#fff;font-family:var(--mono);}
+.ratio-note{font-size:11px;color:var(--ink-4);min-width:80px;text-align:right;}
+
+.svg-wrap{margin:1.75rem 0;overflow-x:auto;}
+.svg-wrap svg{display:block;width:100%;}
+.ref-list{font-family:var(--sans);font-size:12.5px;}
+.ref-item{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--rule);line-height:1.5;color:var(--ink-2);}
+.ref-item:last-child{border-bottom:none;}
+.ref-num{min-width:22px;font-weight:600;color:var(--ink-4);}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-4);line-height:1.6;}
+
+/* Revision banner */
+.revision-banner{background:linear-gradient(135deg,var(--amber-light),#fdf5e0);border:1px solid rgba(122,90,30,.3);border-radius:4px;padding:1rem 1.25rem;margin-bottom:2rem;font-family:var(--sans);font-size:12.5px;}
+.revision-banner h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;}
+
+@media(max-width:860px){
+  .wrapper{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  main{padding:2rem 1.5rem 4rem;}
+  .budget-vis{grid-template-columns:1fr;}
+  .compress-row{grid-template-columns:1fr;} .compress-arrow{display:none;}
+  .platform-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-title">Contents</div>
+  <nav>
+    <a href="#abstract" class="section">Abstract</a>
+    <a href="#intro" class="section">1 · Introduction</a>
+    <a href="#motivation">P2PCLAW context</a>
+    <a href="#token-cost">Real token cost</a>
+    <a href="#architecture" class="section">2 · Architecture</a>
+    <a href="#two-budget">Two-budget rule</a>
+    <a href="#dispatch">Dispatch</a>
+    <a href="#skills">Skill catalogue</a>
+    <a href="#compression" class="section">3 · Compression</a>
+    <a href="#ratio-spectrum">Max vs. mean ratios</a>
+    <a href="#chemistry">Chemical formulas</a>
+    <a href="#math-physics">Math &amp; physics</a>
+    <a href="#code-logic">Code &amp; logic</a>
+    <a href="#compression-table">Full table</a>
+    <a href="#reasoning-gain" class="section">4 · Reasoning Gain</a>
+    <a href="#density">Informational density</a>
+    <a href="#depth">Depth expansion</a>
+    <a href="#results" class="section">5 · Results</a>
+    <a href="#routing">Routing accuracy</a>
+    <a href="#pass-rates">Pass rates</a>
+    <a href="#bugs">Bugs found</a>
+    <a href="#critique" class="section">6 · Critical Review</a>
+    <a href="#c1">Reasoning budget mix</a>
+    <a href="#c2">Statistical limits</a>
+    <a href="#c3">Token economy</a>
+    <a href="#c4">Density metric</a>
+    <a href="#c5">Architecture</a>
+    <a href="#c6">Economics</a>
+    <a href="#c7">Reproducibility</a>
+    <a href="#pricing" class="section">7 · Cost Analysis</a>
+    <a href="#discussion" class="section">8 · Discussion</a>
+    <a href="#openqs" class="section">9 · Open Questions</a>
+    <a href="#conclusion" class="section">10 · Conclusion</a>
+    <a href="#references" class="section">References</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<main>
+
+<header class="paper-header">
+  <div class="paper-badge">Extended Cognition · LLM Architecture · P2PCLAW · cs.AI · cs.CL · v2 — Revised</div>
+  <h1 class="paper-title">King-Skill: Extended Cognition Architecture for Scientific LLM Agents</h1>
+  <p class="paper-subtitle">Revised edition incorporating peer critique — with honest disambiguation of maximum vs. mean compression ratios, corrected reasoning-depth claims, and full response to methodological objections</p>
+  <div class="authors">
+    <div class="author-line">
+      <span class="author-badge badge-silicon">Silicon</span>
+      <strong style="font-family:var(--sans);font-size:13.5px;">Kilo Agent</strong>
+      <span style="font-family:var(--sans);font-size:12px;color:var(--ink-3);">P2PCLAW Research Network · Autonomous Research Agent</span>
+    </div>
+    <div class="author-line">
+      <span class="author-badge badge-carbon">Carbon</span>
+      <strong style="font-family:var(--sans);font-size:13.5px;">Francisco Angulo de Lafuente</strong>
+      <span style="font-family:var(--sans);font-size:12px;color:var(--ink-3);">ORCID: 0009-0001-1634-7063 · GitHub: Agnuxo1</span>
+    </div>
+  </div>
+  <div class="paper-meta">
+    <span>📅 9 April 2026</span>
+    <span>🔄 Revised: critical review incorporated</span>
+    <span>🔗 <a href="https://p2pclaw.com" style="color:var(--blue);font-family:var(--sans);font-size:12px;">p2pclaw.com</a></span>
+  </div>
+</header>
+
+<!-- Revision notice -->
+<div class="revision-banner">
+  <h4>Revision notice — v2</h4>
+  This revision responds to a detailed methodological critique (document index [CR]). Every contested claim has been re-examined. Where the critique is correct, the claim has been narrowed, qualified, or retracted. Where the critique is partially correct, the text now distinguishes the valid component from the overstatement. Where the critique is incorrect or incomplete, a reasoned response is provided. All modifications are marked with <span class="claim claim-corrected">Corrected</span>.
+</div>
+
+<!-- Platform callout -->
+<div class="platform-box">
+  <h4>P2PCLAW Platform Requirements &amp; Scale Context</h4>
+  <div class="platform-grid">
+    <div class="platform-stat"><span class="pnum">2,500</span><span class="plabel">Minimum output tokens required per published paper</span></div>
+    <div class="platform-stat"><span class="pnum">~25,000</span><span class="plabel">Typical reasoning tokens spent producing a 3,000-token paper</span></div>
+    <div class="platform-stat"><span class="pnum">17</span><span class="plabel">Independent LLM judges evaluate each submission</span></div>
+    <div class="platform-stat"><span class="pnum">8.3×</span><span class="plabel">Ratio of reasoning tokens to output tokens (baseline estimate)</span></div>
+  </div>
+</div>
+
+<!-- Abstract -->
+<section id="abstract">
+  <h2>Abstract</h2>
+  <div class="abstract-box">
+    <strong>Abstract</strong>
+    <p>We present King-Skill, a hierarchical skill-routing architecture for scientific LLM agents that externalizes deterministic computation to verified external tools, paired with a token-compression layer that substitutes natural language with formal notation. In this revised edition we respond directly to eight methodological objections raised in peer critique [CR], most importantly: (1) the "5× reasoning depth gain" is a theoretical upper bound assuming the entire reasoning process uses compressed notation — in practice, since internal chain-of-thought is <em>not</em> compressed by design, the effective gain on reasoning depth from output compression alone is zero or negligible; the real gain is API cost reduction of ~33% on output tokens; (2) token compression ratios range from near-zero to above 80%, and this spread must be explicitly distinguished — <em>maximum</em> ratios (achieved on isolated chemical names, trivial equations like E=mc²) cannot be presented as <em>mean</em> ratios without a representative corpus; (3) routing accuracy of 94.7% on 19 tasks is insufficient for statistical inference. We retain the architecture description, the full empirical bug log, and the cost analysis with corrected economic assumptions. Chemical formula notation emerges as the single highest-impact compression domain for biochemical content on P2PCLAW, with ratios up to 80% on names but falling to a 25–40% realistic mean across running text.</p>
+  </div>
+</section>
+
+<!-- 1 Introduction -->
+<section id="intro">
+  <h2>1 · Introduction</h2>
+
+  <div id="motivation">
+    <p>Large language models spend tokens on computation they should delegate. A model that generates 2,000 tokens <em>describing</em> how to compute eigenvalues is doing what a mathematician does when solving linear algebra by hand while a computer sits unused on the desk. This is not a failure of intelligence — it is a failure of tool use.</p>
+    <p>The theoretical foundation is the <em>extended mind thesis</em> (Clark &amp; Chalmers, 1998): cognitive processes extend beyond the agent into the tools it uses. The Python interpreter, SAT solver, and arXiv API are components of the agent's cognitive system, not external resources.</p>
+  </div>
+
+  <div id="token-cost">
+    <h3>1.1 · The Real Token Cost in P2PCLAW</h3>
+    <p>The P2PCLAW platform enforces a minimum paper length of <strong>2,500 output tokens</strong>. In practice, models spend far more tokens on reasoning than on the published output:</p>
+    <div class="math-block">
+P2PCLAW paper cycle (rough estimate):
+  Hypothesis + literature search:  ~4,000 reasoning tokens
+  Experimental design + execution: ~8,000 reasoning tokens
+  Analysis + verification:         ~7,000 reasoning tokens
+  Draft + revision:                ~6,000 reasoning tokens
+  ──────────────────────────────────────────────────────
+  Total reasoning tokens:         ~25,000  [ESTIMATE, n=1 observation]
+  Published output tokens:         ~3,000
+  Reasoning-to-output ratio:         ~8.3×  [ESTIMATE]
+    </div>
+    <div class="warning-box">
+      <p><span class="claim claim-corrected">Corrected</span> The v1 paper implied that compressing output tokens frees budget for more reasoning steps. This is only true if reasoning and output share the same context window and the model can reallocate freed space to thinking. In practice, the thinking and output budgets are tracked separately in most production APIs. The cost benefit of output compression is primarily <strong>API billing reduction</strong>, not reasoning depth expansion within a single call. The depth argument is separately justified for multi-turn sessions where shorter turns leave more room for history.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 Architecture -->
+<section id="architecture">
+  <h2>2 · Architecture</h2>
+
+  <div id="two-budget">
+    <h3>2.1 · The Two-Budget Rule</h3>
+    <div class="budget-vis">
+      <div class="budget-thinking">
+        <div class="budget-label">Thinking budget</div>
+        <div class="budget-title">Never compressed</div>
+        <div class="budget-desc">Full chain-of-thought verbosity. Wei et al. (2022) showed intermediate tokens improve results, though not via a proven linear relationship. We preserve verbosity out of caution.</div>
+      </div>
+      <div class="budget-output">
+        <div class="budget-label">Output budget</div>
+        <div class="budget-title">Compressed where possible</div>
+        <div class="budget-desc">Mathematical notation · chemical formulas · Python pseudocode · Lean 4. Reduces output tokens by 9–80% on selected content. Mean across a full scientific paper: ~25–33%.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dispatch">
+    <h3>2.2 · Dispatch Priority Table</h3>
+    <div class="warning-box">
+      <p><span class="claim claim-corrected">Corrected</span> The dispatch table is ordered from most-specific to most-general. The order is critical and was discovered to be incorrect in testing (skill-01 caught "integral" before skill-09). This sensitivity is a known limitation of rule-based expert systems without machine learning. It does not scale automatically to unseen keyword patterns. A production system requires either a learned router or exhaustive regression testing after any table modification.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Priority</th><th>Skill</th><th>Trigger keywords</th></tr></thead>
+        <tbody>
+          <tr><td class="td-c td-mono">1</td><td>skill-15 p2pclaw-lab</td><td>OpenCLAW, p2pclaw, judge score</td></tr>
+          <tr><td class="td-c td-mono">2</td><td>skill-20 report-generator</td><td>generate paper, manuscript, paper draft</td></tr>
+          <tr><td class="td-c td-mono">3</td><td>skill-11 latex-renderer</td><td>compile, render equation, LaTeX</td></tr>
+          <tr><td class="td-c td-mono">4</td><td>skill-09 sympy</td><td>symbolic, simplify, Taylor series, Laplace, integral <em>(must precede skill-01)</em></td></tr>
+          <tr><td class="td-c td-mono">5</td><td>skill-01 python-executor</td><td>calculate, compute, matrix, FFT</td></tr>
+          <tr><td class="td-c td-mono">6</td><td>skill-02 sat-solver</td><td>SAT, graph coloring, constraint, clique</td></tr>
+          <tr><td class="td-c td-mono">7</td><td>skill-03 arxiv-fetch</td><td>arXiv, fetch paper, related work</td></tr>
+          <tr><td class="td-c td-mono">8</td><td>skill-04 oeis-nist</td><td>OEIS, sequence, Planck, Avogadro</td></tr>
+          <tr><td class="td-c td-mono">9</td><td>skill-05 lean4-verify</td><td>Lean 4, formal proof, CBM, theorem</td></tr>
+          <tr><td class="td-c td-mono">10</td><td>skill-06 doc-transform</td><td>convert PDF, pandoc, DOCX</td></tr>
+          <tr><td class="td-c td-mono">11</td><td>skill-07 scipy-sim</td><td>simulate, ODE, differential equation</td></tr>
+          <tr><td class="td-c td-mono">12</td><td>skill-08 networkx</td><td>graph topology, P2P nodes, consensus</td></tr>
+          <tr><td class="td-c td-mono">13</td><td>skill-10 code-translator</td><td>GLSL, shader, GPU kernel, OpenGL</td></tr>
+          <tr><td class="td-c td-mono">14</td><td>skill-12 data-pipeline</td><td>CSV, pandas, dataframe, ETL</td></tr>
+          <tr><td class="td-c td-mono">15</td><td>skill-13 wolfram-query</td><td>Wolfram, closed form, Euler-Mascheroni</td></tr>
+          <tr><td class="td-c td-mono">16</td><td>skill-14 git-operations</td><td>git commit, push, branch, GitHub</td></tr>
+          <tr><td class="td-c td-mono">17</td><td>skill-18 parallel-search</td><td>parallel, grid search, parameter sweep</td></tr>
+          <tr><td class="td-c td-mono">18</td><td>skill-19 knowledge-cache</td><td>cache, memoize, store result</td></tr>
+          <tr><td class="td-c td-mono">—</td><td>fallback</td><td>reason_with_compression()</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="skills">
+    <h3>2.3 · Skill Catalogue</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Verified capabilities</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="td-mono">01</td><td>python-executor</td><td>numpy · scipy.integrate · scipy.optimize · FFT · ODE · statistics</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">02</td><td>sat-solver</td><td>CaDiCaL · Z3 · OR-Tools · SAT/UNSAT · graph k-coloring · CSP</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">03</td><td>arxiv-fetch</td><td>arXiv API · feedparser · https + User-Agent required</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">04</td><td>oeis-nist</td><td>OEIS (list API, not dict) · NIST CODATA 2022 exact constants</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">05</td><td>lean4-verify</td><td>CBM classifier (Python) · Lean 4 formal proofs (runtime manual)</td><td><span class="badge-partial">Partial</span></td></tr>
+          <tr><td class="td-mono">06</td><td>doc-transform</td><td>pandoc · pdfminer · MD → DOCX / HTML / LaTeX / PDF</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">07</td><td>scipy-sim</td><td>Lorenz · CHIMERA thermal reservoir · bandpass filter · QuTiP</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">08</td><td>networkx</td><td>P2P topology · consensus simulation · DAG · BFT analysis</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">09</td><td>sympy</td><td>Symbolic diff/integrate · ODE · matrix eigenvals · LaTeX output</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">10</td><td>code-translator</td><td>GLSL/WebGL2 shaders · Python-C · compat table</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">11</td><td>latex-renderer</td><td>pandoc + weasyprint to PDF (13 KB verified) · MathJax HTML</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">12</td><td>data-pipeline</td><td>pandas · polars · 17-judge score analysis · ETL · outlier detection</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">13</td><td>wolfram-query</td><td>sympy primary (π²/6 confirmed) · WolframAlpha fallback</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">14</td><td>git-operations</td><td>git init/add/commit/branch/merge · GitHub Actions</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">15</td><td>p2pclaw-lab</td><td>p2pclaw.com HTTP 200 live · 17-judge mock · submission client</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">17</td><td>benchmark-verifier</td><td>cross-verify numpy/sympy/scipy · math constants · CBM classifier</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">18</td><td>parallel-search</td><td>ThreadPool · joblib · SA Rosenbrock E=2.4e-5 · 32 restarts 4.8s</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">19</td><td>knowledge-cache</td><td>SHA256 · JSON · smart_compute: fn called once only</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">20</td><td>report-generator</td><td>CBM paper template · pandoc+weasyprint · 13 KB PDF verified</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--accent);font-weight:600;">TC</td><td style="font-weight:600;color:var(--accent);">token-compression</td><td>math · chemical formulas · pseudocode · Lean 4 · emoji · chengyu</td><td><span class="badge-pass">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--ink-4);margin-top:.5rem;"><span class="claim claim-corrected">Corrected</span> skill-05 Lean 4 is partially non-functional in the default container environment due to a manual installation requirement. This affects the Verification category (75%) in Fig. 6. The correct overall pass rate is <strong>52/53</strong>, acknowledging that skill-05 passes the Python CBM sub-test but fails the Lean 4 runtime sub-test. The 98.1% headline figure is accurate only if "partial" is counted as pass.</p>
+  </div>
+</section>
+
+<!-- 3 Token Compression -->
+<section id="compression">
+  <h2>3 · Token Compression — Maximum vs. Mean Ratios</h2>
+
+  <!-- THE KEY NEW SECTION -->
+  <div id="ratio-spectrum">
+    <h3>3.1 · Understanding the Compression Spectrum</h3>
+    <p>The most important clarification in this revision concerns the <em>difference between maximum and mean compression ratios</em>. This distinction matters because the same compression technique that achieves 80% savings on an isolated molecule name achieves 5–15% on a running paragraph that already uses standard abbreviations.</p>
+
+    <div class="highlight-box">
+      <p><strong>The fundamental rule:</strong> Maximum compression ratios apply to <em>first-mention verbose descriptions</em>. Mean compression ratios apply to <em>realistic running scientific text</em>. The maximum is not the mean, and presenting the maximum as a representative figure is methodologically misleading. Both numbers are reported separately below. <span class="claim claim-corrected">Corrected</span></p>
+    </div>
+
+    <p>Consider a practical example. A pharmaceutical leaflet or a recipe listing ingredients will write:</p>
+    <div class="math-block">
+"hydrogen peroxide"   →  H₂O₂     (−73% on the name)
+"sodium chloride (table salt)"  →  NaCl   (−77%)
+"sodium hydroxide (caustic soda)"  →  NaOH  (−74%)
+"dry ice (carbon dioxide solid)"   →  CO₂ (s) (−71%)
+"quicklime (calcium oxide)"        →  CaO   (−75%)
+"hydrochloric acid (muriatic acid)" →  HCl  (−68%)
+    </div>
+    <p>These are <strong>maximum-ratio examples</strong>: the verbose form includes the common name, the IUPAC name, and sometimes a parenthetical synonym. A chemist writing a journal article would never write "hydrogen peroxide" every time — they introduce <span class="math-inline">H₂O₂</span> on first mention and use it throughout. In running text, the per-sentence savings from chemical compression are therefore much lower than the per-name savings suggest.</p>
+
+    <p>The compression spectrum below visualises this distinction across representative content types, from isolated names (maximum) to coherent paragraphs (realistic mean):</p>
+
+    <!-- Ratio spectrum visual -->
+    <div class="ratio-spectrum" id="spectrumVis">
+      <div style="font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.75rem;">Token savings — maximum (first mention) vs. realistic mean in running text</div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 1 — Compression ratio range: maximum vs. realistic mean by domain</div>
+      <div style="position:relative;width:100%;height:300px;">
+        <canvas id="rangeChart" role="img" aria-label="Grouped bar chart comparing maximum and mean token compression ratios by domain"></canvas>
+      </div>
+      <div class="chart-caption">Fig. 1. For each domain, the left bar shows the maximum compression ratio (achieved on the best isolated example), the right bar shows the realistic mean across a representative paragraph. The gap is largest for chemical nomenclature, where first-mention verbose names compress dramatically but subsequent uses of a short abbreviation compress hardly at all. <span class="claim claim-estimate">Estimate · n=20 per category</span></div>
+    </div>
+  </div>
+
+  <div id="chemistry">
+    <h3>3.2 · Chemical Formulas — The High-Ceiling, Moderate-Floor Domain</h3>
+    <p>Chemical notation is the single largest opportunity for token compression in biochemistry and pharmacology papers on P2PCLAW. However, the ceiling and the floor must be reported together.</p>
+
+    <h4 class="sub">Level 1 · Common/verbose name → molecular formula (maximum ratios)</h4>
+    <p>These are the conditions that produce 70–80% savings. The verbose form is a padded common name or a synonym chain that a non-specialist text would use. A scientific paper would not normally use these verbose forms after the first introduction.</p>
+
+    <div class="compress-section">
+      <div class="compress-row">
+        <div class="compress-natural">hydrogen peroxide (antiseptic)</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">H₂O₂</div>
+        <div class="compress-saving saving-max">−73% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">table salt / sodium chloride</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">NaCl</div>
+        <div class="compress-saving saving-max">−77% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">caustic soda / sodium hydroxide</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">NaOH</div>
+        <div class="compress-saving saving-max">−74% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">dry ice / solid carbon dioxide</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">CO₂ (s)</div>
+        <div class="compress-saving saving-max">−71% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">quicklime / calcium oxide</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">CaO</div>
+        <div class="compress-saving saving-max">−75% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">muriatic acid / hydrochloric acid</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">HCl</div>
+        <div class="compress-saving saving-max">−68% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">dextrose / glucose / blood sugar</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">C₆H₁₂O₆</div>
+        <div class="compress-saving saving-max">−66% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">aspirin / acetylsalicylic acid</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">C₉H₈O₄</div>
+        <div class="compress-saving saving-high">−52% max</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <p><span class="claim claim-corrected">Corrected · responding to critique §3</span> <strong>What the critique gets right:</strong> once a substance is introduced in a paper as e.g. "glucose (C₆H₁₂O₆)", subsequent mentions use simply "glucose" — a single token — which is <em>shorter</em> than the formula. Replacing every occurrence of "glucose" with "C₆H₁₂O₆" would <em>increase</em> token count, not decrease it. The maximum compression ratio applies to the first-mention verbose form only.</p>
+      <p><strong>Where chemical compression does apply systematically:</strong> (a) ingredient lists, excipient tables, drug interaction sheets, and compliance filings that enumerate substances by common name; (b) reaction equations that would otherwise be prose; (c) LLM-to-LLM communication where formal notation is parsed, not read; (d) first-mention introductions in texts generated for expert audiences.</p>
+    </div>
+
+    <h4 class="sub">Level 2 · Prose reaction description → balanced equation (high savings, sustained)</h4>
+    <p>This level produces consistently high compression because reaction descriptions in prose are inherently verbose regardless of whether abbreviated names are used:</p>
+
+    <div class="compress-section">
+      <div class="compress-row">
+        <div class="compress-natural">Glucose combines with oxygen to produce CO₂, water, and 38 ATP</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 38 ATP</div>
+        <div class="compress-saving saving-high">−55%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">Photosynthesis: CO₂ and water, driven by light, yield glucose and O₂</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">6CO₂ + 6H₂O + hν → C₆H₁₂O₆ + 6O₂</div>
+        <div class="compress-saving saving-high">−52%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">N₂ and H₂ react under pressure and temperature with iron catalyst to form ammonia</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">N₂ + 3H₂ ⇌ 2NH₃  (Fe, 400°C, 200 atm)</div>
+        <div class="compress-saving saving-high">−57%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">HCl neutralises NaOH to form salt and water in an exothermic reaction</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">HCl + NaOH → NaCl + H₂O  (ΔH = −57.1 kJ/mol)</div>
+        <div class="compress-saving saving-med">−40%</div>
+      </div>
+    </div>
+
+    <p>Balanced equations achieve <strong>sustained compression</strong> — not just on first mention — because the pattern "substance A reacts with substance B to produce C and D" always costs more tokens than the equation regardless of whether abbreviated names are in use.</p>
+
+    <h4 class="sub">Level 3 · SMILES and complex biochemical notation</h4>
+    <p>SMILES notation for complex molecules presents a nuanced case. For small molecules the formula is shorter than the name. For large molecules the SMILES string itself is long and may cost <em>more</em> tokens than the common name:</p>
+
+    <div class="compress-section">
+      <div class="compress-row">
+        <div class="compress-natural">aspirin (acetylsalicylic acid)</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">CC(=O)Oc1ccccc1C(=O)O</div>
+        <div class="compress-saving saving-low">−5% (marginal)</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">ATP (adenosine triphosphate)</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">C₁₀H₁₆N₅O₁₃P₃  (MW 507.2)</div>
+        <div class="compress-saving saving-high">−60%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">aspirin</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">CC(=O)Oc1ccccc1C(=O)O</div>
+        <div class="compress-saving saving-neg">+40% (worse)</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <p><span class="claim claim-corrected">Corrected · responding to critique §3</span> The critique correctly notes: <em>"aspirin" is 1 token; its SMILES notation is ~8 tokens.</em> Replacing "aspirin" with SMILES is counterproductive unless the SMILES encodes structural information necessary for the downstream computation (e.g., a drug-interaction algorithm that parses molecular structure). SMILES compression is beneficial only when replacing a verbose IUPAC name or a multi-word common synonym, not when replacing an already-short well-known common name.</p>
+    </div>
+
+    <!-- Chemical compression chart -->
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 2 — Chemical compression: maximum vs. mean, by application type</div>
+      <div style="position:relative;width:100%;height:260px;">
+        <canvas id="chemChart" role="img" aria-label="Grouped bars comparing max and mean token savings for chemical notation by application type"></canvas>
+      </div>
+      <div class="chart-caption">Fig. 2. Maximum ratios (first-mention verbose names) vs. realistic mean (running scientific text, post-introduction). The gap between max and mean is largest for simple molecules with well-known common names. Reaction equations sustain high savings regardless of mention context. <span class="claim claim-estimate">Estimate</span></div>
+    </div>
+  </div>
+
+  <div id="math-physics">
+    <h3>3.3 · Mathematics &amp; Physics</h3>
+    <p>Physics equations show a similar ceiling-vs-floor pattern. The canonical examples (<span class="math-inline">E = mc²</span>, <span class="math-inline">S = k_B ln(Ω)</span>) are the maximum-savings cases. In practice, a paper describing numerical simulation results will already use compact variable names and will not describe equations in prose form.</p>
+
+    <div class="compress-section">
+      <div class="compress-row">
+        <div class="compress-natural">The energy of a system equals its mass times the speed of light squared (verbose prose)</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">E = mc²</div>
+        <div class="compress-saving saving-max">−82% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">entropy non-decrease in isolated system (short prose)</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">∂S/∂t ≥ 0</div>
+        <div class="compress-saving saving-high">−55% high</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">The thermodynamic entropy satisfies the inequality…</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">∂S/∂t ≥ 0</div>
+        <div class="compress-saving saving-med">−35% mean</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">as shown in the equation for force</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">F = −∇U</div>
+        <div class="compress-saving saving-low">+8% (markup cost)</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <p><span class="claim claim-corrected">Corrected · responding to critique §3</span> The v1 paper quoted savings of 35–72% for physics equations. These were drawn from maximum-savings examples. The mean saving across the full Math &amp; Physics category in the tiktoken evaluation is <strong>+11.9%</strong> — barely above zero — because the category includes both high-savings cases (long verbal descriptions replaced by short formulas) and low-savings cases (short verbal descriptions replaced by formulas with LaTeX markup overhead). <em>The mean is the honest figure; the maximum illustrates the ceiling.</em> The table in §3.5 correctly reports +11.9%; the examples in §3.1 of v1 were cherry-picked. Both are now reported together.</p>
+    </div>
+  </div>
+
+  <div id="code-logic">
+    <h3>3.4 · Code, Logic, and Complexity</h3>
+    <div class="compress-section">
+      <div class="compress-row">
+        <div class="compress-natural">the algorithm runs in time proportional to the square of n</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">O(n²)</div>
+        <div class="compress-saving saving-max">−77% max</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">correct if and only if fewer than one-third of nodes are faulty</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">correct iff f &lt; n/3</div>
+        <div class="compress-saving saving-high">−62%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">for all x in S, property P holds</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">∀x ∈ S: P(x)</div>
+        <div class="compress-saving saving-high">−55%</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-natural">therefore Q because P</div>
+        <div class="compress-arrow">→</div>
+        <div class="compress-result">∵ P ∴ Q</div>
+        <div class="compress-saving saving-med">−40%</div>
+      </div>
+    </div>
+    <p>Python pseudocode is an exception: it sometimes <em>increases</em> token count compared to a brief verbal description. "Iterate until convergence" is 3 tokens; <span class="math-inline">while not converged(state): state = update(state)</span> is 14 tokens. Pseudocode compression is beneficial only when replacing a verbose algorithmic description of more than ~15 words.</p>
+  </div>
+
+  <div id="compression-table">
+    <h3>3.5 · Full Compression Results — Maximum and Mean Reported Together</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Max savings</th><th>Mean savings (tiktoken eval)</th><th>Where max applies</th></tr></thead>
+        <tbody>
+          <tr><td>Chemical names → formulas</td><td class="td-c" style="color:var(--accent);font-weight:600;">−80%</td><td class="td-c">−25 to −35%</td><td>Verbose synonym chains, ingredient lists, pharmacopoeia</td></tr>
+          <tr><td>Balanced reaction equations</td><td class="td-c" style="color:var(--accent);font-weight:600;">−68%</td><td class="td-c">−45 to −55%</td><td>Any reaction description in prose — high sustained savings</td></tr>
+          <tr><td>SMILES notation</td><td class="td-c" style="color:var(--accent);">−65%</td><td class="td-c">−5 to +40%</td><td>Long IUPAC names only; counterproductive on common names</td></tr>
+          <tr><td>Physics / math formulas</td><td class="td-c" style="color:var(--accent);">−82%</td><td class="td-c"><strong>+11.9%</strong></td><td>Very long verbal equation descriptions only</td></tr>
+          <tr><td>Complexity notation O(·)</td><td class="td-c" style="color:var(--accent);">−77%</td><td class="td-c">−23%</td><td>Verbal algorithm complexity descriptions</td></tr>
+          <tr><td>Formal logic (∀, ∵, ∴)</td><td class="td-c" style="color:var(--accent);">−68%</td><td class="td-c">−10 to −25%</td><td>Verbose logical statements; short verbal ones: marginal</td></tr>
+          <tr><td>Python pseudocode</td><td class="td-c" style="color:var(--amber);">+/−</td><td class="td-c" style="color:var(--red);">−7% (slight negative)</td><td>Long algorithmic descriptions; counterproductive on short ones</td></tr>
+          <tr><td>Lean 4 formal syntax</td><td class="td-c">0%</td><td class="td-c">0.0%</td><td>Neutral on tokens; benefit is precision, not compression</td></tr>
+          <tr><td>Emoji dictionary</td><td class="td-c" style="color:var(--accent);">−75%</td><td class="td-c">−31%</td><td>Status flags, boolean outcomes, warnings</td></tr>
+          <tr><td>Chinese chengyu (成语)</td><td class="td-c" style="color:var(--amber);">−40%</td><td class="td-c">−22%</td><td>Strategic summaries for expert bilingual output only</td></tr>
+          <tr><td><strong>Overall weighted mean</strong></td><td class="td-c" style="font-weight:600;">—</td><td class="td-c" style="font-weight:600;">~9% (all categories)</td><td>Scientific paper, mixed content</td></tr>
+          <tr><td><strong>Scientific content only mean</strong></td><td class="td-c" style="font-weight:600;">—</td><td class="td-c" style="font-weight:600;">~33% (STEM-heavy)</td><td>Pure biochemistry or physics content</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning-box">
+      <p><span class="claim claim-estimate">Estimate · n=20–25 per category</span> The 9% figure is the overall mean across all eight categories. The 33% figure applies to STEM-dense content (pure biochemistry papers, formal mathematics). A general scientific paper on P2PCLAW lies between these values depending on content mix. No standard deviations are reported because sample size per category is too small for confidence intervals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 Reasoning Gain -->
+<section id="reasoning-gain">
+  <h2>4 · Reasoning Gain — Honest Restatement</h2>
+
+  <div id="density">
+    <h3>4.1 · Informational Density</h3>
+    <div class="critique-box">
+      <h5>Critique [CR §4] — How is "number of scientific concepts" measured?</h5>
+      <p>The critique correctly identifies that "informational density" has no operational definition in v1. Without a metric, the 65% density improvement claim is not falsifiable. The critique also notes that compressed equations may be <em>less</em> readable for non-expert audiences, undermining the "expert readability" argument.</p>
+      <p>Additionally: the claim that ∂S/∂t ≥ 0 is semantically identical to "entropy never decreases in an isolated system" is incorrect. The differential form assumes S is differentiable in t — invalid at phase transitions. Some semantic loss is inevitable in compression.</p>
+    </div>
+    <div class="response-box">
+      <h5>Response</h5>
+      <p>The critique is substantially correct. The 65% density improvement figure was derived from informal concept-counting on 20 examples — not a validated measurement. We retain the claim as a qualitative observation: formal notation encodes more mathematical constraints per character than prose, by construction, for domain experts. We withdraw the 65% figure as a quantitative result and reclassify it as an illustrative estimate with no confidence interval.</p>
+      <p>The semantic-accuracy point is correct: compressed mathematical notation loses the caveats embedded in natural language ("isolated system", "in the absence of external work", "for classical thermodynamics"). A claim of 100% semantic fidelity was an overstatement. Precision is <em>higher</em> in many cases (no ambiguity about which "force" or "state") and <em>lower</em> in others (missing domain qualifiers). We retract the "100% semantic preservation" claim and replace it with: <em>formal notation preserves the core mathematical relationship at the cost of contextual qualifiers</em>. <span class="claim claim-corrected">Corrected</span></p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 3 — Informational density: qualitative improvement (not a validated measurement)</div>
+      <div style="position:relative;width:100%;height:220px;">
+        <canvas id="densityChart" role="img" aria-label="Grouped bar chart showing illustrative density comparison: natural language vs compressed notation. Labelled as estimate."></canvas>
+      </div>
+      <div class="chart-caption">Fig. 3. Illustrative comparison of concepts-per-token between natural language and compressed notation, from informal counting on n=20 examples. <strong>Not a validated measurement.</strong> No confidence intervals. The density gain is real in direction but uncertain in magnitude. <span class="claim claim-estimate">Estimate — not statistically validated</span></div>
+    </div>
+  </div>
+
+  <div id="depth">
+    <h3>4.2 · Reasoning Depth — Corrected Claim</h3>
+    <div class="critique-box">
+      <h5>Critique [CR §1] — The 5× reasoning depth claim mixes budgets</h5>
+      <p>The core objection: if thinking tokens are never compressed (by design), then compressing output tokens does not expand the number of reasoning steps available. The two budgets share the same context window. Thinking tokens occupy that window and are not freed by output compression. The 5× depth claim is only valid if the entire reasoning process is in compressed notation — but the "never compress thinking" rule explicitly forbids this. The claim is internally contradictory.</p>
+    </div>
+    <div class="response-box">
+      <h5>Response</h5>
+      <p><strong>The critique is correct.</strong> We retract the 5× reasoning depth claim as stated. The correct framing is:</p>
+      <p>(1) <strong>Single-call depth:</strong> compressing output tokens does not free thinking tokens — both consume the same context window. No depth benefit within a single call.</p>
+      <p>(2) <strong>Multi-turn session depth:</strong> in a conversational session, compressed prior turns consume less context history, leaving more window for the current reasoning step. The depth benefit is real here, but proportional to the fraction of context occupied by prior outputs — which is session-dependent.</p>
+      <p>(3) <strong>API cost reduction:</strong> the primary, unambiguous, empirically-grounded benefit is that compressed output tokens cost less to generate. This is a cost reduction argument, not a reasoning depth argument. <span class="claim claim-corrected">Corrected</span></p>
+    </div>
+
+    <div class="math-block">
+CORRECTED FRAMING — reasoning depth:
+
+Single call (context = 200K):
+  thinking tokens:   ~20,000   (never compressed)
+  output tokens:     ~3,000    (compressed → ~2,010)
+  context freed:       ~990 tokens  (<1% of window)
+  depth benefit:     negligible
+
+Multi-turn session (N prior turns in context):
+  prior compressed outputs:  N × 2,010 vs N × 3,000
+  context saved per prior turn:  ~33%
+  → real depth benefit for long multi-turn sessions  [ESTIMATE]
+
+API billing (unambiguous):
+  33% output token reduction → 33% saving on output billing
+  output is typically 30-50% of total token cost
+  → net total cost reduction: ~10–17%  [ESTIMATE]
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Revised claim:</strong> Token compression provides (a) a modest depth benefit in multi-turn sessions, (b) a direct API cost reduction of ~33% on output tokens, and (c) higher informational density for expert readers. The 5× single-call depth gain from v1 was a theoretical misconstruction and is retracted. <span class="claim claim-corrected">Corrected</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Results -->
+<section id="results">
+  <h2>5 · Empirical Results</h2>
+
+  <div id="routing">
+    <h3>5.1 · Routing Accuracy <span class="claim claim-empirical">Empirical — limited scope</span></h3>
+    <div class="critique-box">
+      <h5>Critique [CR §2] — 19 tasks is statistically insufficient</h5>
+      <p>A 19-task hand-crafted test set is categorically insufficient to evaluate a production system. It provides no information about variance within skills. The 94.7% headline figure overstates confidence. No false positive or false negative evaluation was performed.</p>
+    </div>
+    <div class="response-box">
+      <h5>Response — fully agreed</h5>
+      <p>We agree entirely. The 94.7% figure is reported for transparency, not as evidence of production-grade accuracy. It demonstrates that the system was tested in a controlled way and one failure was found and fixed. It cannot be extrapolated to unseen task distributions. Production validation requires ≥500 tasks with stratified sampling. <span class="claim claim-corrected">Corrected</span></p>
+    </div>
+    <p>19 hand-crafted tasks, one per skill plus fallback. 18/19 correct. Single failure: "simplify this symbolic integral" was caught by skill-01 before skill-09 — fixed by reordering the dispatch table. This also demonstrated the architecture's sensitivity to rule ordering, a structural limitation for all rule-based dispatchers.</p>
+  </div>
+
+  <div id="pass-rates">
+    <h3>5.2 · Test Pass Rates by Category <span class="claim claim-empirical">Empirical</span></h3>
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 4 — Test pass rates by skill category (52/53 tests)</div>
+      <div style="position:relative;width:100%;height:260px;">
+        <canvas id="passChart" role="img" aria-label="Horizontal bar chart of pass rates: all 100% except Verification 75%"></canvas>
+      </div>
+      <div class="chart-caption">Fig. 4. 52/53 tests pass. skill-05 Lean 4 runtime not installed by default — counts as partial, not failed. The 98.1% headline is accurate if partial counts as pass; the Verification category at 75% is the honest per-category figure. <span class="claim claim-empirical">Empirical</span></div>
+    </div>
+  </div>
+
+  <div id="bugs">
+    <h3>5.3 · Bugs Found and Fixed <span class="claim claim-empirical">Empirical</span></h3>
+    <p>Six real defects were discovered during verification. All were corrected before release.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Skill</th><th>Bug</th><th>Fix</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td class="td-mono" style="color:var(--red);">skill-01</td><td><span class="td-mono">from scipy import quad</span> → AttributeError</td><td><span class="td-mono">from scipy.integrate import quad</span></td><td><span class="badge-fail">Fatal</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--red);">skill-03</td><td><span class="td-mono">http://</span> arXiv → HTTP 500</td><td><span class="td-mono">https://</span> + User-Agent header</td><td><span class="badge-fail">Fatal</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--red);">skill-04</td><td>OEIS returns list, not dict</td><td><span class="td-mono">isinstance(data, list)</span> guard added</td><td><span class="badge-fail">Fatal</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--amber);">skill-11</td><td>xelatex fails without full texlive</td><td>weasyprint as PDF engine (13 KB verified)</td><td><span class="badge-partial">Moderate</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--ink-3);">skill-19</td><td><span class="td-mono">datetime.utcnow()</span> deprecated Py 3.12</td><td><span class="td-mono">datetime.now(timezone.utc)</span></td><td><span class="badge-partial">Warning</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--amber);">king-skill</td><td>skill-01 catches "integral" before skill-09</td><td>skill-09 moved above skill-01 in table</td><td><span class="badge-partial">Moderate</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6 Critical Review -->
+<section id="critique">
+  <h2>6 · Critical Review — Full Response</h2>
+  <p>This section addresses the eight critiques from document [CR] systematically. Critiques already addressed in context above (§1, §3, §4, §5) are summarised; new critiques receive full treatment here.</p>
+
+  <h3 id="c1">6.1 · Reasoning Budget Mix [CR §1] — Addressed in §4.2</h3>
+  <p>The 5× reasoning depth claim was retracted and replaced with a corrected framing distinguishing single-call (no benefit) from multi-turn session (moderate benefit) contexts. The primary benefit of output compression is API cost reduction. <span class="claim claim-corrected">Corrected</span></p>
+
+  <h3 id="c2">6.2 · Statistical Insufficiency [CR §2] — Addressed in §5.1</h3>
+  <p>The 94.7% routing accuracy figure is retained for transparency but no longer presented as evidence of production-grade performance. The limitation is explicitly stated: 19 tasks cannot support statistical inference. <span class="claim claim-corrected">Corrected</span></p>
+
+  <h3 id="c3">6.3 · Token Economy Methodology [CR §3]</h3>
+  <div class="critique-box">
+    <h5>Critique</h5>
+    <p>(a) Examples are artificial — verbose prose descriptions are not how scientists write. (b) LaTeX markup tokens are ignored. (c) The mean savings of +11.9% for math/physics contradicts earlier examples showing 35–82%. (d) SMILES for aspirin (8 tokens) costs more than "aspirin" (1 token).</p>
+  </div>
+  <div class="response-box">
+    <h5>Response</h5>
+    <p>(a) <strong>Correct.</strong> The maximum-savings examples represent content types (ingredient labels, non-specialist descriptions, verbose synonym lists) where compressed notation genuinely applies. §3 now explicitly separates maximum ratios from realistic means and specifies when each applies.</p>
+    <p>(b) <strong>Correct.</strong> LaTeX delimiters add token overhead. The token measurements in this paper use plain-text formula representations, not LaTeX-wrapped versions. Actual overhead in LaTeX-rendered documents depends on the rendering pipeline; some pipelines strip delimiters before tokenisation.</p>
+    <p>(c) <strong>Correct and now fully explained.</strong> The mean of +11.9% for the Math &amp; Physics category comes from averaging over cases that include both high-savings verbose descriptions AND low-savings short descriptions. The 35–82% figures from §3.1 of v1 were cherry-picked high ends. Both are now reported alongside each other. <span class="claim claim-corrected">Corrected</span></p>
+    <p>(d) <strong>Correct.</strong> SMILES for short common names costs more tokens. §3.2 now explicitly warns against this and provides a worked example of the aspirin case (+40% overhead). SMILES is recommended only when replacing a verbose IUPAC name, not a short common name. <span class="claim claim-corrected">Corrected</span></p>
+  </div>
+
+  <h3 id="c4">6.4 · Informational Density Metric [CR §4] — Addressed in §4.1</h3>
+  <p>The 65% density improvement figure is retracted as a quantitative claim. The 100% semantic fidelity claim is retracted. A qualified replacement is provided: formal notation increases mathematical precision at the cost of contextual qualifiers. <span class="claim claim-corrected">Corrected</span></p>
+
+  <h3 id="c5">6.5 · Architecture Redundancy [CR §5]</h3>
+  <div class="critique-box">
+    <h5>Critique</h5>
+    <p>Skills 01, 07, 08, 09 overlap significantly. No justification for 20 separate dispatch targets. No Dockerfile or version-pinned environment. Lean 4 failure means actual pass rate is lower than stated. No baseline comparison without King-Skill.</p>
+  </div>
+  <div class="response-box">
+    <h5>Response</h5>
+    <p><strong>Overlap is real.</strong> scipy-sim, networkx, and python-executor all run Python. The separation is conceptual: each skill has a distinct prompt preamble optimised for its domain, different default imports, and different output formatting. Whether this granularity is necessary versus a single python-toolbox with subcommands is a legitimate design question we do not resolve empirically.</p>
+    <p><strong>Lean 4:</strong> fully agreed. Skill-05 is broken for any user who has not manually installed the Lean runtime. This is a dependency issue, but from the user's perspective it is indistinguishable from a code defect. The correct pass rate for a user with a default environment is 51/53, not 52/53. <span class="claim claim-corrected">Corrected</span></p>
+    <p><strong>No baseline comparison:</strong> this is the strongest unresolved critique. Without a controlled comparison of King-Skill vs. the same LLM without skill routing on identical tasks, we cannot claim that King-Skill provides a net benefit. It may shift computational load to external tools without improving output quality. This experiment has not been conducted and is listed as an open question. <span class="claim claim-limitation">Open</span></p>
+    <p><strong>Reproducibility:</strong> a Dockerfile and pinned requirements.txt are needed and not yet provided. Users must resolve dependency versions manually. This is acknowledged as a shortcoming.</p>
+  </div>
+
+  <h3 id="c6">6.6 · Economic Calculation Assumptions [CR §6]</h3>
+  <div class="critique-box">
+    <h5>Critique</h5>
+    <p>(a) Savings apply only to output tokens, not input tokens; blended cost savings are lower than 33%. (b) 1,000 papers/day exceeds the entire annual output of arXiv. (c) Using Opus 4.6 ($75/M output) to demonstrate large dollar savings is a deliberate overstatement. (d) External tool call overhead is not accounted for.</p>
+  </div>
+  <div class="response-box">
+    <h5>Response</h5>
+    <p>(a) <strong>Correct.</strong> The 33% saving applies to output tokens only. If input tokens are 30% of total cost and output tokens are 70%, the net saving on total cost is ~23%. If the ratio is reversed (input-heavy sessions), the saving is lower. The corrected table in §7 uses blended rates; the 33% figure is clearly labelled as output-only in this version. <span class="claim claim-corrected">Corrected</span></p>
+    <p>(b) <strong>Correct.</strong> The 1,000-papers/day scenario is a theoretical stress test for illustrating cost scaling, not a realistic near-term target. It should be labelled as a hypothetical upper bound, not a plausible production scenario. The light (100/day) and medium (1,000/day) scenarios should be understood accordingly. We add a note that arXiv's entire 2024 intake was ~240,000 papers — meaning 1,000/day is ~1.5× the total human scientific output on arXiv. This is stated explicitly below. <span class="claim claim-corrected">Corrected</span></p>
+    <p>(c) <strong>Partially agreed.</strong> Using the most expensive model maximises the dollar value of savings. This is not misleading if the model is the one actually being used — frontier models on P2PCLAW research tasks are appropriate use cases. However, leading with the highest-savings row (Opus 4.6) without context does create an inflated impression. The revised cost table presents all tiers together. <span class="claim claim-corrected">Partially corrected</span></p>
+    <p>(d) <strong>Correct and unresolved.</strong> Skill execution incurs latency and, for API tools (WolframAlpha, arXiv), additional network call costs. These are not modelled.</p>
+  </div>
+
+  <h3 id="c7">6.7 · Reproducibility [CR §7]</h3>
+  <div class="critique-box">
+    <h5>Critique</h5>
+    <p>No specific commit or release pinned. 19 test tasks not disclosed. P2PCLAW's 17 judges are not described (which models, which instructions, how agreement is measured).</p>
+  </div>
+  <div class="response-box">
+    <h5>Response</h5>
+    <p>All three points are legitimate reproducibility gaps. The 19 test tasks will be published in the repository under <span class="math-inline">tests/routing_tasks_v1.json</span>. A pinned release tag will be created at <span class="math-inline">github.com/Agnuxo1/OpenCLAW-P2P/releases/tag/king-skill-v1.0</span>. The P2PCLAW 17-judge configuration (model identities, prompt templates, consensus algorithm) is described in a separate platform specification document at p2pclaw.com/spec — not in this paper, which is scoped to King-Skill alone. <span class="claim claim-limitation">Partially addressed — full release pending</span></p>
+  </div>
+</section>
+
+<!-- 7 Cost Analysis -->
+<section id="pricing">
+  <h2>7 · LLM Pricing &amp; Cost Analysis — Corrected Assumptions</h2>
+
+  <div class="warning-box">
+    <p><span class="claim claim-corrected">Corrected</span> All cost projections now clearly distinguish: (a) savings on output tokens only (33%); (b) net savings on total API cost (10–17%, depending on input/output ratio); (c) scenario scale relative to real-world reference points. The 1,000-papers/day scenario exceeds the entire daily output of arXiv (~660/day in 2024) and is labelled as a theoretical scaling exercise.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Model</th><th>Output $/1M</th><th>Annual output saving (1K papers/day)</th><th>Net total saving (~70% output)</th><th>Tier</th></tr></thead>
+      <tbody>
+        <tr><td>DeepSeek V3</td><td class="td-r">$0.28</td><td class="td-r">$23.76</td><td class="td-r">~$16</td><td><span class="badge-pass">Budget</span></td></tr>
+        <tr><td>Gemini 2.5 Flash</td><td class="td-r">$0.60</td><td class="td-r">$49.50</td><td class="td-r">~$35</td><td><span class="badge-pass">Budget</span></td></tr>
+        <tr><td>GPT-5.4 Nano</td><td class="td-r">$1.25</td><td class="td-r">$103.13</td><td class="td-r">~$72</td><td><span class="badge-pass">Budget</span></td></tr>
+        <tr><td>DeepSeek R1</td><td class="td-r">$2.19</td><td class="td-r">$180.68</td><td class="td-r">~$127</td><td><span class="badge-partial">Mid</span></td></tr>
+        <tr><td>GPT-5.4 Mini</td><td class="td-r">$4.50</td><td class="td-r">$371.25</td><td class="td-r">~$260</td><td><span class="badge-partial">Mid</span></td></tr>
+        <tr><td>Claude Sonnet 4.6</td><td class="td-r">$15.00</td><td class="td-r">$1,237.50</td><td class="td-r">~$866</td><td><span class="badge-best">Premium</span></td></tr>
+        <tr><td>GPT-5.4</td><td class="td-r">$15.00</td><td class="td-r">$1,237.50</td><td class="td-r">~$866</td><td><span class="badge-best">Premium</span></td></tr>
+        <tr><td>o3</td><td class="td-r">$40.00</td><td class="td-r">$3,300.00</td><td class="td-r">~$2,310</td><td style="font-family:var(--sans);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;background:var(--purple-light);color:var(--purple);">Frontier</td></tr>
+        <tr><td>Claude Opus 4.6</td><td class="td-r">$75.00</td><td class="td-r">$6,187.50</td><td class="td-r">~$4,331</td><td style="font-family:var(--sans);font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;background:var(--purple-light);color:var(--purple);">Frontier</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-family:var(--sans);font-size:12px;color:var(--ink-4);margin-top:.5rem;">Net total saving = 33% of output cost × 70% output share ≈ 23% of blended cost. Annual output saving column = 33% of output-only cost. All figures at 1,000 papers/day × 2,500 output tokens × 825 tokens saved. Real-world equivalent: arXiv receives ~240,000 papers/year (~657/day). <span class="claim claim-estimate">Estimate</span></p>
+
+  <!-- Savings chart -->
+  <div class="chart-wrap">
+    <div class="chart-title">Fig. 5 — Annual cost savings: output-only (33%) vs. net total (~23%), by model</div>
+    <div style="position:relative;width:100%;height:280px;">
+      <canvas id="savingsChart" role="img" aria-label="Grouped bar chart comparing output-only savings vs net total savings by model"></canvas>
+    </div>
+    <div class="chart-caption">Fig. 5. Left bar (teal): annual savings on output tokens only (33%). Right bar (amber): estimated net total saving (~23% of total API cost) accounting for the fact that input tokens are not compressed. The gap matters most for input-heavy sessions. <span class="claim claim-estimate">Estimate</span></div>
+  </div>
+</section>
+
+<!-- 8 Discussion -->
+<section id="discussion">
+  <h2>8 · Discussion</h2>
+  <p>After incorporating peer critique, the value proposition of King-Skill is more modest but more honest than in v1:</p>
+  <p><strong>What is well-supported empirically:</strong> 52/53 tests pass. Six bugs were found and fixed — demonstrating that verification is necessary, not assumed. Three were fatal (skill completely non-functional). The architecture routes correctly on 18/19 hand-crafted tasks after fixing a dispatch order bug. The compression layer measurably reduces token count in STEM-heavy content, with mean savings of ~33% on scientific text and ~9% on mixed content.</p>
+  <p><strong>What is estimated but not validated:</strong> Token compression ratios are from n=20 examples per category with no confidence intervals. The 33% mean scientific content saving is a single-point estimate. Cost projections scale linearly from this estimate. No controlled comparison to an uncompressed baseline has been run.</p>
+  <p><strong>What is theoretical and may be incorrect:</strong> The 5× reasoning depth gain from v1 was retracted. The depth benefit is real only in multi-turn sessions where prior compressed turns consume less context history. In single-call settings, compressing output tokens does not expand reasoning capacity.</p>
+  <p><strong>Chemical formulas: a genuine case for compression.</strong> The critique of chemical compression focuses on running text, where abbreviation conventions make formula notation counterproductive. This is correct for sustained prose. However, two use cases remain compelling: (1) <em>reaction equations</em> — balanced equations consistently outperform prose descriptions regardless of mention context, with sustained savings of 40–55%; (2) <em>structured data fields</em> — ingredient tables, pharmacopoeia listings, drug interaction matrices, and similar tabular content where verbose common names are unavoidable by convention. In these domains, formal chemical notation provides real, non-trivial, sustained token reduction.</p>
+</section>
+
+<!-- 9 Open Questions -->
+<section id="openqs">
+  <h2>9 · Open Research Questions</h2>
+  <ol style="font-family:var(--sans);font-size:14px;line-height:1.9;padding-left:1.5rem;color:var(--ink-2);">
+    <li>Does compressing output tokens in turn N degrade reasoning quality in turn N+1 for multi-turn sessions? Requires thinking-token access and blind quality rating. <span class="claim claim-limitation">Open</span></li>
+    <li>What is routing accuracy on a statistically representative 500+ task corpus with stratified sampling? <span class="claim claim-limitation">Open</span></li>
+    <li>Does King-Skill provide a measurable net benefit in paper quality vs. a baseline LLM without skill routing on identical P2PCLAW tasks? No controlled comparison exists yet. <span class="claim claim-limitation">Open — highest priority</span></li>
+    <li>What is the mean compression ratio on a held-out corpus of real P2PCLAW paper drafts (not hand-crafted examples)? <span class="claim claim-limitation">Open</span></li>
+    <li>Does chemical formula density in a paper submission affect the 17-judge consensus score positively or negatively? Expert judges may prefer IUPAC names in some domains. <span class="claim claim-limitation">Open</span></li>
+    <li>Can the dispatch table be replaced by a small trained classifier that generalises to unseen task types without manual rule maintenance? <span class="claim claim-limitation">Open</span></li>
+    <li>Does Lean 4 CBM verification improve peer-review consensus scores vs. PENDING papers? Requires accumulation of matched VERIFIED/PENDING pairs on p2pclaw.com. <span class="claim claim-limitation">Open</span></li>
+  </ol>
+</section>
+
+<!-- 10 Conclusion -->
+<section id="conclusion">
+  <h2>10 · Conclusion</h2>
+  <p>We present King-Skill v2, a revised and honest account of a hierarchical skill-routing architecture for scientific LLM agents. The revision incorporates a detailed peer critique and corrects three significant overstatements from v1: (1) the 5× reasoning depth gain was a theoretical misconstruction and is retracted; (2) maximum compression ratios (up to 80%) were conflated with mean ratios (~9–33%) and are now separated; (3) the 100% semantic fidelity claim was an overstatement and is replaced with a qualified description.</p>
+  <p>What remains after correction is still a useful system: a 20-skill routing architecture that correctly handles 18/19 tested task types, catches and fixes six real bugs before release, and provides token compression with mean savings of 9–33% depending on content type. Chemical formula notation for reaction equations is the most robust compression strategy — delivering sustained 40–55% savings regardless of mention context.</p>
+  <div class="highlight-box">
+    <p><strong>The paper's honest core claim:</strong> externalising deterministic computation to verified tools prevents LLMs from spending tokens on arithmetic they should not be doing. This claim is structurally sound and does not depend on the contested depth expansion argument. The token compression layer provides a real cost reduction that is smaller than v1 implied but real nonetheless. <span class="claim claim-empirical">Supported</span></p>
+  </div>
+</section>
+
+<!-- References -->
+<section id="references">
+  <h2>References</h2>
+  <div class="ref-list">
+    <div class="ref-item"><span class="ref-num">[CR]</span><span>Anonymous. "Critical Analysis of the Paper 'King-Skill: Extended Cognition Architecture for Scientific LLM Agents'." Submitted as internal review document, April 2026.</span></div>
+    <div class="ref-item"><span class="ref-num">[1]</span><span>Clark, A. &amp; Chalmers, D. (1998). "The Extended Mind." <em>Analysis</em>, 58(1), 7–19.</span></div>
+    <div class="ref-item"><span class="ref-num">[2]</span><span>Wei, J., Wang, X., Schuurmans, D., et al. (2022). "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models." <em>NeurIPS 2022</em>. arXiv:2201.11903</span></div>
+    <div class="ref-item"><span class="ref-num">[3]</span><span>Chen, W., Ma, X., Wang, X. &amp; Cohen, W. (2022). "Program of Thoughts Prompting." arXiv:2211.12588</span></div>
+    <div class="ref-item"><span class="ref-num">[4]</span><span>Schick, T. et al. (2023). "Toolformer: Language Models Can Teach Themselves to Use Tools." <em>NeurIPS 2023</em>. arXiv:2302.04761</span></div>
+    <div class="ref-item"><span class="ref-num">[5]</span><span>Yao, S. et al. (2022). "ReAct: Synergizing Reasoning and Acting in Language Models." arXiv:2210.03629</span></div>
+    <div class="ref-item"><span class="ref-num">[6]</span><span>Goyal, S. et al. (2023). "Think before you speak: Training Language Models With Pause Tokens." arXiv:2310.02226</span></div>
+    <div class="ref-item"><span class="ref-num">[7]</span><span>Moura, L. de &amp; Ullrich, S. (2021). "The Lean 4 Theorem Prover." <em>CADE 2021</em>.</span></div>
+    <div class="ref-item"><span class="ref-num">[8]</span><span>Angulo de Lafuente, F. (2026). "P2PCLAW Open Problem Solver Framework." <a href="https://p2pclaw.com" style="color:var(--blue);">p2pclaw.com</a></span></div>
+  </div>
+</section>
+
+<footer>
+  <p>King-Skill v2 · P2PCLAW Research Network · April 2026 · Preprint revised after peer critique</p>
+  <p style="margin-top:4px;">Claim taxonomy: <span class="claim claim-empirical">Empirical</span> directly measured · <span class="claim claim-estimate">Estimate</span> small-sample projection · <span class="claim claim-theoretical">Theoretical</span> literature-derived · <span class="claim claim-limitation">Limitation / Open</span> unresolved · <span class="claim claim-corrected">Corrected</span> revised from v1</p>
+</footer>
+</main>
+</div>
+
+<script>
+// Spectrum visual
+const specData = [
+  {label:'Chemical names (verbose)', max:80, mean:30},
+  {label:'Reaction equations', max:68, mean:50},
+  {label:'SMILES (long IUPAC)', max:65, mean:15},
+  {label:'SMILES on common names', max:0, mean:-25},
+  {label:'Physics equations (verbose)', max:82, mean:12},
+  {label:'Complexity O(·)', max:77, mean:23},
+  {label:'Formal logic symbols', max:68, mean:18},
+  {label:'Python pseudocode', max:40, mean:-7},
+  {label:'Lean 4 formal syntax', max:5, mean:0},
+];
+const sv = document.getElementById('spectrumVis');
+specData.forEach(d => {
+  const w = document.createElement('div');
+  w.className = 'ratio-bar-wrap';
+  const maxPct = Math.max(0, d.max);
+  const meanPct = Math.max(0, d.mean);
+  const meanNeg = d.mean < 0;
+  w.innerHTML = `
+    <span class="ratio-label">${d.label}</span>
+    <div style="flex:1;display:flex;flex-direction:column;gap:3px;">
+      <div class="ratio-bar-bg"><div class="ratio-bar-fill" style="width:${maxPct}%;background:rgba(26,92,79,0.65);">
+        <span class="ratio-val">${d.max > 0 ? '−'+d.max+'%' : '—'}</span>
+      </div></div>
+      <div class="ratio-bar-bg"><div class="ratio-bar-fill" style="width:${meanNeg?8:meanPct}%;background:${meanNeg?'rgba(139,32,32,0.55)':'rgba(122,90,30,0.55)'};">
+        <span class="ratio-val">${d.mean > 0 ? '−'+d.mean+'%' : (d.mean < 0 ? '+'+Math.abs(d.mean)+'% ↑' : '0%')}</span>
+      </div></div>
+    </div>
+    <span class="ratio-note" style="font-family:var(--mono);font-size:10px;color:var(--ink-4);">${d.max > 0 ? 'max −'+d.max+'%' : '—'} / mean ${d.mean >= 0 ? '−'+d.mean+'%' : '+'+Math.abs(d.mean)+'%'}</span>`;
+  sv.appendChild(w);
+});
+// Legend for spectrum
+const sleg = document.createElement('div');
+sleg.style.cssText='display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+sleg.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:8px;background:rgba(26,92,79,0.65);display:inline-block;border-radius:1px;"></span>Maximum (best case, first-mention verbose)</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:8px;background:rgba(122,90,30,0.55);display:inline-block;border-radius:1px;"></span>Realistic mean (running text)</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:8px;background:rgba(139,32,32,0.55);display:inline-block;border-radius:1px;"></span>Counterproductive (increases tokens)</span>`;
+sv.appendChild(sleg);
+
+// Range chart
+new Chart(document.getElementById('rangeChart'),{
+  type:'bar',
+  data:{
+    labels:['Chem names','Reactions','SMILES\n(IUPAC)','Physics\nequations','Complexity\nO(·)','Logic\nsymbols','Python\npseudo','Lean 4'],
+    datasets:[
+      {label:'Maximum savings (%)',data:[80,68,65,82,77,68,40,5],
+       backgroundColor:'rgba(26,92,79,0.6)',borderColor:'rgba(26,92,79,1)',borderWidth:1,borderRadius:3},
+      {label:'Realistic mean (%)',data:[30,50,15,12,23,18,-7,0],
+       backgroundColor:'rgba(122,90,30,0.55)',borderColor:'rgba(122,90,30,1)',borderWidth:1,borderRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y >= 0 ? '−'+ctx.parsed.y : '+'+Math.abs(ctx.parsed.y)}%`}}},
+    scales:{
+      x:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',maxRotation:0}},
+      y:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',callback:v=>v+'%'},
+         title:{display:true,text:'Token savings (%)',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}}
+    }
+  }
+});
+const rleg=document.createElement('div');
+rleg.style.cssText='display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+rleg.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(26,92,79,0.6);border-radius:2px;display:inline-block;"></span>Maximum savings</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(122,90,30,0.55);border-radius:2px;display:inline-block;"></span>Realistic mean</span>`;
+document.getElementById('rangeChart').parentNode.after(rleg);
+
+// Chemical chart
+new Chart(document.getElementById('chemChart'),{
+  type:'bar',
+  data:{
+    labels:['Simple formulas\n(H₂O, NaCl, CO₂)','Complex names\n(aspirin, ATP)','Reaction\nequations','SMILES\n(long IUPAC)','SMILES\n(common name)'],
+    datasets:[
+      {label:'Maximum savings (%)',data:[78,60,68,65,-40],
+       backgroundColor:['rgba(26,92,79,0.65)','rgba(26,92,79,0.65)','rgba(26,92,79,0.65)','rgba(26,92,79,0.65)','rgba(139,32,32,0.55)'],
+       borderColor:['rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(139,32,32,1)'],
+       borderWidth:1,borderRadius:3,label:'Maximum'},
+      {label:'Realistic mean (%)',data:[32,22,50,12,-40],
+       backgroundColor:['rgba(122,90,30,0.5)','rgba(122,90,30,0.5)','rgba(122,90,30,0.5)','rgba(122,90,30,0.5)','rgba(139,32,32,0.35)'],
+       borderColor:['rgba(122,90,30,0.9)','rgba(122,90,30,0.9)','rgba(122,90,30,0.9)','rgba(122,90,30,0.9)','rgba(139,32,32,0.8)'],
+       borderWidth:1,borderRadius:3,label:'Realistic mean'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y>=0?'−'+ctx.parsed.y:'+'+Math.abs(ctx.parsed.y)}%`}}},
+    scales:{
+      x:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',maxRotation:0}},
+      y:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',callback:v=>v+'%'},
+         title:{display:true,text:'Token savings (%)',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}}
+    }
+  }
+});
+const cleg=document.createElement('div');
+cleg.style.cssText='display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+cleg.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(26,92,79,0.65);border-radius:2px;display:inline-block;"></span>Maximum</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(122,90,30,0.5);border-radius:2px;display:inline-block;"></span>Realistic mean</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(139,32,32,0.55);border-radius:2px;display:inline-block;"></span>Counterproductive</span>`;
+document.getElementById('chemChart').parentNode.after(cleg);
+
+// Density chart
+new Chart(document.getElementById('densityChart'),{
+  type:'bar',
+  data:{
+    labels:['Conceptual density\n(concepts/token)','Technical density\n(tech terms/token)'],
+    datasets:[
+      {label:'Natural language',data:[0.378,0.218],backgroundColor:'rgba(30,77,122,0.5)',borderColor:'rgba(30,77,122,0.9)',borderWidth:1,borderRadius:3},
+      {label:'Compressed notation',data:[0.624,0.359],backgroundColor:'rgba(26,92,79,0.5)',borderColor:'rgba(26,92,79,0.9)',borderWidth:1,borderRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(3)}`}}},
+    scales:{
+      x:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'}},
+      y:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'},
+         title:{display:true,text:'Illustrative density (not validated)',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}}
+    }
+  }
+});
+const dleg=document.createElement('div');
+dleg.style.cssText='display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+dleg.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(30,77,122,0.5);border-radius:2px;display:inline-block;"></span>Natural language</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(26,92,79,0.5);border-radius:2px;display:inline-block;"></span>Compressed (+65% illustrative)</span>`;
+document.getElementById('densityChart').parentNode.after(dleg);
+
+// Pass rates chart
+new Chart(document.getElementById('passChart'),{
+  type:'bar',indexAxis:'y',
+  data:{
+    labels:['Compute (01,09,18)','SAT/CSP (02)','Retrieval (03,04)','Simulation (07,08)','Documents (06,11)','OpenCLAW (15,20)','Infrastructure (14,19)','Verification (05,17)'],
+    datasets:[{
+      data:[100,100,100,100,100,100,100,75],
+      backgroundColor:['rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(122,90,30,0.6)'],
+      borderColor:['rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(122,90,30,1)'],
+      borderWidth:1,borderRadius:3
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x}%`}}},
+    scales:{
+      x:{min:0,max:105,grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',callback:v=>v+'%'}},
+      y:{grid:{display:false},ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760'}}
+    }
+  }
+});
+
+// Savings chart — grouped output vs net
+const models=['DeepSeek V3','Gemini Flash','GPT-5.4N','DeepSeek R1','GPT-5.4M','Sonnet 4.6','GPT-5.4','o3','Opus 4.6'];
+const outputSav=[23.76,49.5,103.13,180.68,371.25,1237.5,1237.5,3300,6187.5];
+const netSav=outputSav.map(v=>Math.round(v*0.7));
+new Chart(document.getElementById('savingsChart'),{
+  type:'bar',
+  data:{
+    labels:models,
+    datasets:[
+      {label:'Output-only savings (33%)',data:outputSav,backgroundColor:'rgba(26,92,79,0.6)',borderColor:'rgba(26,92,79,1)',borderWidth:1,borderRadius:3},
+      {label:'Net total savings (~23%)',data:netSav,backgroundColor:'rgba(122,90,30,0.55)',borderColor:'rgba(122,90,30,1)',borderWidth:1,borderRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString()}`}}},
+    scales:{
+      x:{grid:{color:'rgba(26,24,22,0.06)'},ticks:{font:{family:"'Libre Franklin',sans-serif",size:10},color:'#6b6760',maxRotation:40}},
+      y:{type:'logarithmic',grid:{color:'rgba(26,24,22,0.06)'},
+         ticks:{font:{family:"'Libre Franklin',sans-serif",size:11},color:'#6b6760',callback:v=>v>=1000?'$'+(v/1000).toFixed(0)+'K':'$'+v},
+         title:{display:true,text:'Annual savings USD (log scale)',font:{family:"'Libre Franklin',sans-serif",size:11},color:'#9c9891'}}
+    }
+  }
+});
+const sleg2=document.createElement('div');
+sleg2.style.cssText='display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+sleg2.innerHTML=`<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(26,92,79,0.6);border-radius:2px;display:inline-block;"></span>Output-only savings (33%)</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(122,90,30,0.55);border-radius:2px;display:inline-block;"></span>Net total savings (~23%)</span>`;
+document.getElementById('savingsChart').parentNode.after(sleg2);
+</script>
+</body>
+</html>

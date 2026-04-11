@@ -1,0 +1,58 @@
+King-Skill v4 lab — registro de ejecución (datos verificables en esta máquina, 2026-04-11)
+================================================================================
+
+FASE 1
+------
+EXP-01: Dockerfile + requirements.txt + docker-compose creados en king_skill_v4_lab/.
+        docker build NO ejecutado: Docker Desktop (npipe Linux engine) no estaba en ejecución.
+        Con SKIP_HEAVY_DEPS=1 las pruebas locales omiten imports pesados; en contenedor deben pasar todos.
+
+EXP-02: Generados y versionados:
+        data/routing_tasks_v1.json (19 tareas)
+        data/routing_tasks_v4_extended.json (70 tareas)
+        data/routing_tasks_v4_500.json (500 tareas)
+        Origen: scripts/generate_routing_json.py (reproducible).
+
+EXP-03: scripts/install_lean_elan.sh añadido. Dockerfile con LEAN_DOCKER=0 por defecto.
+        53/53 Lean: requiere test suite del proyecto; no vendado aquí.
+
+FASE 2
+------
+EXP-04: Ejecutado scripts/exp04_extract_corpus.py → 320 párrafos reales bajo papers/ (≥200).
+        Salida local: outputs/corpus_paragraphs_v4.csv (gitignored por tamaño).
+        Resumen: outputs/exp04_corpus_summary.json
+        Baseline tokens (tiktoken cl100k): outputs/exp04_token_baseline_v4.json
+        Pares natural↔comprimido con API: scripts/exp04_llm_compress.py (requiere ANTHROPIC_API_KEY).
+
+EXP-05: Ejecutado scripts/exp05_pubchem.py → 210 filas desde PubChem REST (sin clave).
+        outputs/chemical_compression_v4.csv + chemical_compression_v4_summary.json
+        Regla exploratoria (subconjunto IUPAC+SMILES válidos): ver JSON; ejemplo resumido:
+        fracción(SMILES más corto en tokens) sube con name_token_count; máximo observado ~0.73
+        para nombres IUPAC ≥ 4 tokens (validar en paper con definición exacta de “beneficial”).
+
+EXP-06 / 17 / 18: cost_logger.py implementado; mediciones reales pendientes de sesiones API.
+
+EXP-07: Plantilla Carbon: data/judge_preference_v4_template.json
+
+FASE 3
+------
+EXP-08/09: run_all_tests.py + keyword_router.py — precisión referencia en conjunto 500
+           alineado con el router por construcción (ver methodology_warning en reporte JSON).
+           Tras revisión humana y router LLM, repetir métricas.
+           scripts/exp09_fp_fn.py → matriz de confusión outputs/routing_confusion_v4.csv
+
+EXP-10: data/routing_keyword_conflicts_v4.json (registro de conflictos de palabras clave).
+
+FASE 4–6
+---------
+EXP-11–18: Requieren OSF, panel de 17 jueces, ejecuciones API costosas y anotación humana.
+           Plantilla EXP-11: data/exp11_osf_preregistration_template.json
+
+Comando útil (host sin todas las dependencias pip):
+  cd papers/Skills/king_skill_v4_lab
+  set SKIP_HEAVY_DEPS=1
+  python run_all_tests.py
+
+Docker (cuando el daemon esté activo):
+  docker build -t king-skill-v4:lab .
+  docker run --rm king-skill-v4:lab

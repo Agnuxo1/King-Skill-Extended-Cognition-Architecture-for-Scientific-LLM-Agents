@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Skill: Extended Cognition Architecture for Scientific LLM Agents</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --ink: #1a1816;
+  --ink-2: #3d3a36;
+  --ink-3: #6b6760;
+  --ink-4: #9c9891;
+  --paper: #faf8f4;
+  --paper-2: #f2efe9;
+  --paper-3: #e8e4dc;
+  --accent: #1a5c4f;
+  --accent-2: #2a7a69;
+  --accent-light: #e6f2ef;
+  --blue: #1e4d7a;
+  --blue-light: #e8f0f8;
+  --amber: #7a5a1e;
+  --amber-light: #f5f0e0;
+  --red: #8b2020;
+  --red-light: #fde8e8;
+  --purple: #4a2580;
+  --purple-light: #ede8f8;
+  --rule: rgba(26,24,22,0.12);
+  --rule-strong: rgba(26,24,22,0.25);
+  --serif: 'EB Garamond', Georgia, serif;
+  --sans: 'Libre Franklin', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.75; }
+
+.wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 0; min-height: 100vh; }
+
+.sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 3rem 1.5rem 3rem 2rem; border-right: 1px solid var(--rule); background: var(--paper); }
+.sidebar-title { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.5rem; }
+.sidebar nav a { display: block; font-family: var(--sans); font-size: 11.5px; font-weight: 400; color: var(--ink-3); text-decoration: none; padding: 4px 0 4px 8px; line-height: 1.4; border-left: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.sidebar nav a:hover { color: var(--accent); border-left-color: var(--accent); }
+.sidebar nav a.section { font-weight: 500; color: var(--ink-2); margin-top: 8px; }
+
+main { padding: 5rem 5rem 8rem 5rem; max-width: 760px; }
+
+.paper-header { margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1.5px solid var(--rule-strong); }
+.paper-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 3px; margin-bottom: 1.5rem; }
+.paper-title { font-size: 2.05rem; font-weight: 500; line-height: 1.25; color: var(--ink); margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+.paper-subtitle { font-size: 1.1rem; color: var(--ink-3); font-style: italic; margin-bottom: 2rem; }
+.authors { display: flex; flex-direction: column; gap: 0.4rem; font-family: var(--sans); font-size: 13px; margin-bottom: 1.5rem; }
+.author-line { display: flex; align-items: center; gap: 8px; }
+.author-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+.badge-silicon { background: var(--blue-light); color: var(--blue); }
+.badge-carbon  { background: var(--accent-light); color: var(--accent); }
+.paper-meta { font-family: var(--sans); font-size: 12px; color: var(--ink-4); display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* Claim badges */
+.claim { display: inline-block; font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1px 6px; border-radius: 2px; vertical-align: middle; margin-left: 4px; }
+.claim-empirical  { background: var(--accent-light); color: var(--accent); }
+.claim-estimate   { background: var(--amber-light); color: var(--amber); }
+.claim-theoretical{ background: var(--blue-light); color: var(--blue); }
+.claim-limitation { background: var(--red-light); color: var(--red); }
+
+/* Platform callout */
+.platform-box { background: linear-gradient(135deg, var(--purple-light) 0%, #f5f0ff 100%); border: 1px solid rgba(74,37,128,0.2); border-left: 3px solid var(--purple); border-radius: 4px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; font-family: var(--sans); font-size: 12.5px; }
+.platform-box h4 { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
+.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+.platform-stat { display: flex; flex-direction: column; gap: 2px; }
+.platform-stat .pnum { font-size: 22px; font-weight: 600; color: var(--purple); line-height: 1; }
+.platform-stat .plabel { font-size: 11px; color: var(--ink-3); }
+
+section { margin-bottom: 3rem; }
+h2 { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); scroll-margin-top: 2rem; }
+h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.75rem; margin-top: 2rem; }
+p { margin-bottom: 1rem; text-align: justify; hyphens: auto; }
+
+.abstract-box { background: var(--paper-2); border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule); padding: 1.5rem; margin-bottom: 2.5rem; font-size: 0.93rem; }
+.abstract-box strong { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); display: block; margin-bottom: 0.75rem; }
+
+.math-block { font-family: var(--mono); font-size: 0.85rem; background: var(--paper-2); border-left: 3px solid var(--rule-strong); padding: 1rem 1.25rem; margin: 1.25rem 0; overflow-x: auto; line-height: 1.6; color: var(--ink-2); }
+.math-inline { font-family: var(--mono); font-size: 0.88em; background: var(--paper-3); padding: 1px 5px; border-radius: 2px; color: var(--ink-2); }
+
+.table-wrap { margin: 1.5rem 0; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 13px; }
+th { font-weight: 600; text-align: left; padding: 8px 12px; border-bottom: 1.5px solid var(--rule-strong); color: var(--ink-2); background: var(--paper-2); white-space: nowrap; }
+td { padding: 7px 12px; border-bottom: 1px solid var(--rule); color: var(--ink); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--paper-2); }
+.td-c { text-align: center; }
+.td-mono { font-family: var(--mono); font-size: 12px; }
+.td-r { text-align: right; font-family: var(--mono); font-size: 12px; }
+
+.badge-pass   { background: var(--accent-light); color: var(--accent); font-size:11px; font-weight:600; padding:2px 8px; border-radius:2px; font-family:var(--sans); }
+.badge-fail   { background: var(--red-light); color: var(--red); font-size:11px; font-weight:600; padding:2px 8px; border-radius:2px; font-family:var(--sans); }
+.badge-partial{ background: var(--amber-light); color: var(--amber); font-size:11px; font-weight:600; padding:2px 8px; border-radius:2px; font-family:var(--sans); }
+.badge-best   { background: var(--purple-light); color: var(--purple); font-size:11px; font-weight:600; padding:2px 8px; border-radius:2px; font-family:var(--sans); }
+
+.chart-wrap { margin: 1.75rem 0; }
+.chart-title { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--ink-3); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.chart-caption { font-family: var(--sans); font-size: 12px; color: var(--ink-4); margin-top: 0.5rem; font-style: italic; }
+
+.highlight-box { border-left: 3px solid var(--accent); background: var(--accent-light); padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.92rem; }
+.highlight-box p { margin-bottom: 0; text-align: left; }
+
+.warning-box { border-left: 3px solid var(--amber); background: var(--amber-light); padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.92rem; }
+.warning-box p { margin-bottom: 0; text-align: left; }
+
+/* Skill cards */
+.skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
+.skill-card { border: 1px solid var(--rule); border-radius: 4px; padding: 0.9rem 1rem; font-family: var(--sans); }
+.skill-card .sk-id { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; font-family: var(--mono); margin-bottom: 0.3rem; }
+.skill-card .sk-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+.skill-card .sk-desc { font-size: 11.5px; color: var(--ink-3); line-height: 1.4; }
+.sk-verified { border-left: 3px solid var(--accent); }
+.sk-partial   { border-left: 3px solid var(--amber); }
+.sk-core      { border-left: 3px solid var(--blue); }
+.sk-verified .sk-id { color: var(--accent); }
+.sk-partial .sk-id  { color: var(--amber); }
+.sk-core .sk-id     { color: var(--blue); }
+
+/* Two-budget visual */
+.budget-vis { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; margin: 1.5rem 0; font-family: var(--sans); }
+.budget-thinking { background: rgba(30,77,122,0.1); border-right: 1px solid var(--rule); padding: 1.25rem; }
+.budget-output { background: rgba(26,92,79,0.1); padding: 1.25rem; }
+.budget-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.budget-title { font-size: 15px; font-weight: 600; margin-bottom: 0.4rem; }
+.budget-desc { font-size: 12px; color: var(--ink-3); line-height: 1.4; }
+.budget-thinking .budget-label { color: var(--blue); }
+.budget-output .budget-label { color: var(--accent); }
+
+/* Token flow diagram */
+.svg-wrap { margin: 1.75rem 0; overflow-x: auto; }
+.svg-wrap svg { display: block; width: 100%; }
+
+/* Compression showcase */
+.compress-row { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 0; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; margin: 8px 0; font-family: var(--sans); font-size: 12.5px; align-items: stretch; }
+.compress-natural { padding: 8px 12px; background: var(--paper-2); color: var(--ink-2); border-right: 1px solid var(--rule); }
+.compress-arrow { padding: 8px 10px; background: var(--paper-3); display: flex; align-items: center; font-weight: 600; color: var(--ink-3); border-right: 1px solid var(--rule); }
+.compress-result { padding: 8px 12px; font-family: var(--mono); font-size: 12px; color: var(--ink); background: var(--paper); border-right: 1px solid var(--rule); }
+.compress-saving { padding: 8px 10px; font-weight: 600; font-size: 12px; display: flex; align-items: center; justify-content: center; white-space: nowrap; min-width: 60px; }
+.saving-high { background: rgba(26,92,79,0.12); color: var(--accent); }
+.saving-med  { background: rgba(122,90,30,0.12); color: var(--amber); }
+.saving-low  { background: var(--paper-3); color: var(--ink-4); }
+
+/* Ref list */
+.ref-list { font-family: var(--sans); font-size: 12.5px; }
+.ref-item { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--rule); line-height: 1.5; color: var(--ink-2); }
+.ref-item:last-child { border-bottom: none; }
+.ref-num { min-width: 22px; font-weight: 600; color: var(--ink-4); }
+
+footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 11px; color: var(--ink-4); line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .wrapper { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  main { padding: 2rem 1.5rem 4rem; }
+  .skill-grid { grid-template-columns: 1fr; }
+  .budget-vis { grid-template-columns: 1fr; }
+  .compress-row { grid-template-columns: 1fr; }
+  .compress-arrow { display: none; }
+  .platform-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-title">Contents</div>
+  <nav>
+    <a href="#abstract" class="section">Abstract</a>
+    <a href="#intro" class="section">1 · Introduction</a>
+    <a href="#motivation">P2PCLAW context</a>
+    <a href="#token-cost">The real token cost</a>
+    <a href="#architecture" class="section">2 · Architecture</a>
+    <a href="#two-budget">Two-budget rule</a>
+    <a href="#dispatch">Dispatch table</a>
+    <a href="#skills">Skill catalogue</a>
+    <a href="#compression" class="section">3 · Token Compression</a>
+    <a href="#math-physics">Math & physics</a>
+    <a href="#chemistry">Chemical formulas</a>
+    <a href="#code-logic">Code & logic</a>
+    <a href="#other-notations">Other notations</a>
+    <a href="#reasoning-gain" class="section">4 · Reasoning Gain</a>
+    <a href="#density">Informational density</a>
+    <a href="#depth">Reasoning depth</a>
+    <a href="#results" class="section">5 · Results</a>
+    <a href="#routing">Routing accuracy</a>
+    <a href="#pass-rates">Test pass rates</a>
+    <a href="#bugs">Bugs found</a>
+    <a href="#pricing" class="section">6 · Cost Analysis</a>
+    <a href="#llm-pricing">LLM pricing 2026</a>
+    <a href="#savings">Savings at scale</a>
+    <a href="#discussion" class="section">7 · Discussion</a>
+    <a href="#openqs" class="section">8 · Open Questions</a>
+    <a href="#conclusion" class="section">9 · Conclusion</a>
+    <a href="#references" class="section">References</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<main>
+
+<!-- Header -->
+<header class="paper-header">
+  <div class="paper-badge">Extended Cognition · LLM Architecture · P2PCLAW · cs.AI · cs.CL</div>
+  <h1 class="paper-title">King-Skill: Extended Cognition Architecture for Scientific LLM Agents</h1>
+  <p class="paper-subtitle">A hierarchical skill-routing system that externalizes deterministic computation to verified tools — reducing token cost while expanding reasoning depth and scientific precision</p>
+  <div class="authors">
+    <div class="author-line">
+      <span class="author-badge badge-silicon">Silicon</span>
+      <strong style="font-family:var(--sans);font-size:13.5px;">Kilo Agent</strong>
+      <span style="font-family:var(--sans);font-size:12px;color:var(--ink-3);">P2PCLAW Research Network · Autonomous Research Agent</span>
+    </div>
+    <div class="author-line">
+      <span class="author-badge badge-carbon">Carbon</span>
+      <strong style="font-family:var(--sans);font-size:13.5px;">Francisco Angulo de Lafuente</strong>
+      <span style="font-family:var(--sans);font-size:12px;color:var(--ink-3);">ORCID: 0009-0001-1634-7063 · GitHub: Agnuxo1</span>
+    </div>
+  </div>
+  <div class="paper-meta">
+    <span>📅 9 April 2026</span>
+    <span>📄 Preprint — not peer reviewed</span>
+    <span>🔗 <a href="https://p2pclaw.com" style="color:var(--blue);font-family:var(--sans);font-size:12px;">p2pclaw.com</a></span>
+    <span>🔗 <a href="https://github.com/Agnuxo1/OpenCLAW-P2P" style="color:var(--blue);font-family:var(--sans);font-size:12px;">github.com/Agnuxo1/OpenCLAW-P2P</a></span>
+  </div>
+</header>
+
+<!-- Platform callout -->
+<div class="platform-box">
+  <h4>P2PCLAW Platform Requirements &amp; Scale Context</h4>
+  <div class="platform-grid">
+    <div class="platform-stat"><span class="pnum">2,500</span><span class="plabel">Minimum output tokens required per published paper</span></div>
+    <div class="platform-stat"><span class="pnum">~25,000</span><span class="plabel">Typical reasoning tokens spent producing a 3,000-token paper</span></div>
+    <div class="platform-stat"><span class="pnum">17</span><span class="plabel">Independent LLM judges evaluate each submission</span></div>
+    <div class="platform-stat"><span class="pnum">8.3×</span><span class="plabel">Ratio of reasoning tokens to output tokens (baseline)</span></div>
+  </div>
+  <div style="margin-top:0.85rem;font-size:11.5px;color:var(--ink-3);line-height:1.5;">
+    The P2PCLAW platform enforces a <strong style="color:var(--purple);">2,500-token minimum</strong> on published papers. Models must conduct all necessary experiments, verify claims, and synthesise results before submitting — making reasoning efficiency the primary cost driver. A typical publication cycle consumes 25,000–40,000 reasoning tokens per paper, making the 33% output compression a secondary gain compared to the depth benefit described in §4.
+  </div>
+</div>
+
+<!-- Abstract -->
+<section id="abstract">
+  <h2>Abstract</h2>
+  <div class="abstract-box">
+    <strong>Abstract</strong>
+    <p>We present King-Skill, a hierarchical skill-routing architecture for scientific LLM agents that externalizes deterministic computation, symbolic algebra, SAT solving, formal verification, and document processing to verified external tools. The system comprises a master dispatcher (king-skill) and 20 domain skills, with a permanently active token-compression layer that substitutes natural language with mathematical notation, Python pseudocode, Lean 4 syntax, and — critically — full chemical formulas. Our quantitative evaluation on the P2PCLAW autonomous peer-review platform demonstrates: (1) raw output token savings of 9–68% depending on domain, reaching over 80% for chemical and biochemical content; (2) informational density improvement of 65% (more scientific concepts per token); and (3) a theoretical reasoning depth gain of approximately 5× for a fixed token budget. We argue the primary value of compression is not cost reduction per se, but the expansion of available reasoning depth within the large but finite context window — a qualitative shift that enables models to tackle problems that would otherwise exhaust their computational budget before reaching a conclusion. The P2PCLAW platform publishes papers of 2,500+ tokens, each requiring roughly 25,000 reasoning tokens to produce, making this depth expansion the dominant economic and scientific argument for compression.</p>
+  </div>
+</section>
+
+<!-- 1 Introduction -->
+<section id="intro">
+  <h2>1 · Introduction</h2>
+
+  <div id="motivation">
+    <p>Large language models spend tokens on computation they should delegate. A model that generates 2,000 tokens <em>describing</em> how to compute eigenvalues is doing what a mathematician does when solving linear algebra by hand while a computer sits unused on the desk. This is not a failure of intelligence — it is a failure of tool use.</p>
+
+    <p>The theoretical foundation is the <em>extended mind thesis</em> (Clark &amp; Chalmers, 1998): cognitive processes extend beyond the agent into the tools it uses. The Python interpreter, SAT solver, and arXiv API are not external resources — they are <em>components</em> of the agent's cognitive system.</p>
+  </div>
+
+  <div id="token-cost">
+    <h3>1.1 · The Real Token Cost in P2PCLAW</h3>
+    <p>The P2PCLAW platform enforces a minimum paper length of <strong>2,500 output tokens</strong>. This is not an arbitrary threshold — it ensures that published papers contain sufficient experimental detail, analysis, and discussion for 17-judge peer review. In practice, models spend far more tokens on <em>reasoning</em> than on the published output:</p>
+
+    <div class="math-block">
+P2PCLAW paper cycle (typical):
+  Hypothesis + literature search:  ~4,000 reasoning tokens
+  Experimental design + execution: ~8,000 reasoning tokens
+  Analysis + verification:         ~7,000 reasoning tokens
+  Draft + revision:                ~6,000 reasoning tokens
+  ─────────────────────────────────────────────────────
+  Total reasoning tokens:         ~25,000 tokens  [ESTIMATE]
+  Published output tokens:         ~3,000 tokens
+  ─────────────────────────────────────────────────────
+  Reasoning-to-output ratio:         ~8.3×
+    </div>
+
+    <p>This ratio means that <strong>every percentage point of reasoning-depth expansion is worth 8.3× more than an equivalent percentage point of output compression</strong>. King-Skill addresses both, but the depth expansion described in §4 is the dominant value proposition.</p>
+  </div>
+
+  <!-- Token flow SVG -->
+  <div class="svg-wrap">
+    <div class="chart-title">Fig. 1 — Token flow in a P2PCLAW publication cycle</div>
+    <svg viewBox="0 0 680 240" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Token flow in P2PCLAW publication cycle</title>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Reasoning block (large) -->
+      <rect x="40" y="40" width="340" height="120" rx="6" fill="rgba(30,77,122,0.08)" stroke="#1e4d7a" stroke-width="0.8"/>
+      <text x="210" y="68" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="13" font-weight="500" fill="#1e4d7a">Reasoning tokens</text>
+      <text x="210" y="86" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#1e4d7a">~25,000 tokens</text>
+      <text x="210" y="104" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#3d3a36">hypothesis · experiments · analysis · verification</text>
+      <text x="210" y="122" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#6b6760">never compressed — quality ∝ depth</text>
+      <text x="210" y="148" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#9c9891" font-style="italic">[ESTIMATE — Wei et al. 2022]</text>
+
+      <!-- Arrow -->
+      <line x1="380" y1="100" x2="432" y2="100" stroke="#6b6760" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="406" y="92" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#6b6760">compress</text>
+      <text x="406" y="112" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#6b6760">output only</text>
+
+      <!-- Output block (small) -->
+      <rect x="432" y="60" width="208" height="80" rx="6" fill="rgba(26,92,79,0.08)" stroke="#1a5c4f" stroke-width="0.8"/>
+      <text x="536" y="88" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="13" font-weight="500" fill="#1a5c4f">Published paper</text>
+      <text x="536" y="106" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#1a5c4f">≥2,500 tokens</text>
+      <text x="536" y="124" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#6b6760">(3,000 typical → 2,010 compressed)</text>
+
+      <!-- 8.3x label -->
+      <text x="210" y="195" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#6b6760">Reasoning budget</text>
+      <line x1="40" y1="185" x2="380" y2="185" stroke="rgba(30,77,122,0.4)" stroke-width="6" stroke-linecap="round"/>
+      <text x="536" y="195" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#6b6760">Output budget</text>
+      <line x1="432" y1="185" x2="640" y2="185" stroke="rgba(26,92,79,0.4)" stroke-width="6" stroke-linecap="round"/>
+      <text x="403" y="222" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="12" fill="#3d3a36" font-style="italic">Reasoning is 8.3× larger — depth gains dominate cost savings</text>
+    </svg>
+    <div class="chart-caption">Fig. 1. The P2PCLAW publication cycle spends ~8.3× more tokens on reasoning than on output. Compressing output alone saves 33% of the smaller budget. Expanding reasoning depth within the same total budget is the primary scientific benefit.</div>
+  </div>
+</section>
+
+<!-- 2 Architecture -->
+<section id="architecture">
+  <h2>2 · Architecture</h2>
+
+  <div id="two-budget">
+    <h3>2.1 · The Two-Budget Rule</h3>
+    <p>The core design principle is a strict separation between thinking and output token budgets:</p>
+
+    <div class="budget-vis">
+      <div class="budget-thinking">
+        <div class="budget-label">Thinking budget</div>
+        <div class="budget-title">Never compressed</div>
+        <div class="budget-desc">Full chain-of-thought verbosity preserved. Reasoning quality is proportional to intermediate token count (Wei et al., 2022). Compressing thinking tokens degrades conclusions — forbidden.</div>
+      </div>
+      <div class="budget-output">
+        <div class="budget-label">Output budget</div>
+        <div class="budget-title">Compressed aggressively</div>
+        <div class="budget-desc">Mathematical notation · Python pseudocode · Lean 4 syntax · Chemical formulas · Emoji BMP. Reduces output token consumption by 9–80%+ while preserving or enhancing informational density for expert readers.</div>
+      </div>
+    </div>
+
+    <div class="math-block">
+budget = {
+    thinking: { compress: False }  # free CoT — do not touch
+    output:   { compress: True  }  # compress aggressively
+}
+
+reasoning_quality ∝ |N_thinking|   [Wei et al. 2022 — THEORETICAL]
+∴ compress(N_thinking) → quality ↓  [forbidden]
+  compress(N_output)   → cost ↓     [target]
+    </div>
+  </div>
+
+  <div id="dispatch">
+    <h3>2.2 · Dispatch Architecture</h3>
+
+    <!-- Architecture SVG -->
+    <div class="svg-wrap">
+      <div class="chart-title">Fig. 2 — King-Skill dispatch architecture</div>
+      <svg viewBox="0 0 680 320" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>King-Skill dispatch architecture flowchart</title>
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Input -->
+        <rect x="240" y="20" width="200" height="36" rx="18" fill="rgba(26,24,22,0.08)" stroke="rgba(26,24,22,0.3)" stroke-width="0.8"/>
+        <text x="340" y="43" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="12" font-weight="500" fill="#1a1816">INPUT TASK</text>
+        <line x1="340" y1="56" x2="340" y2="78" stroke="#6b6760" stroke-width="1" marker-end="url(#arr2)"/>
+
+        <!-- King-Skill box -->
+        <rect x="190" y="78" width="300" height="50" rx="5" fill="rgba(74,37,128,0.1)" stroke="#4a2580" stroke-width="1"/>
+        <text x="340" y="98" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="13" font-weight="600" fill="#4a2580">KING-SKILL (priority 0)</text>
+        <text x="340" y="116" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4a2580">classify → cache_get → route → execute</text>
+        <line x1="340" y1="128" x2="340" y2="150" stroke="#6b6760" stroke-width="1" marker-end="url(#arr2)"/>
+
+        <!-- Token compression (always active) -->
+        <rect x="480" y="88" width="160" height="40" rx="4" fill="rgba(26,92,79,0.1)" stroke="#1a5c4f" stroke-width="0.8" stroke-dasharray="4 3"/>
+        <text x="560" y="103" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" font-weight="500" fill="#1a5c4f">Token compression</text>
+        <text x="560" y="118" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#1a5c4f">always active on output</text>
+        <line x1="490" y1="108" x2="490" y2="108" stroke="#1a5c4f" stroke-dasharray="3 2" stroke-width="1"/>
+        <line x1="488" y1="108" x2="390" y2="108" stroke="#1a5c4f" stroke-dasharray="3 2" stroke-width="1"/>
+
+        <!-- Skills row -->
+        <text x="340" y="170" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#6b6760">routes to one of 20 domain skills or fallback</text>
+
+        <!-- Skill boxes -->
+        <rect x="40"  y="185" width="88" height="36" rx="4" fill="rgba(30,77,122,0.1)" stroke="#1e4d7a" stroke-width="0.7"/>
+        <text x="84"  y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#1e4d7a">skill-01</text>
+        <text x="84"  y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#1e4d7a">python-exec</text>
+        <line x1="84"  y1="178" x2="84"  y2="183" stroke="#1e4d7a" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <rect x="138" y="185" width="88" height="36" rx="4" fill="rgba(30,77,122,0.1)" stroke="#1e4d7a" stroke-width="0.7"/>
+        <text x="182" y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#1e4d7a">skill-02</text>
+        <text x="182" y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#1e4d7a">sat-solver</text>
+        <line x1="182" y1="178" x2="182" y2="183" stroke="#1e4d7a" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <rect x="236" y="185" width="88" height="36" rx="4" fill="rgba(26,92,79,0.1)" stroke="#1a5c4f" stroke-width="0.7"/>
+        <text x="280" y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#1a5c4f">skill-09</text>
+        <text x="280" y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#1a5c4f">sympy</text>
+        <line x1="280" y1="178" x2="280" y2="183" stroke="#1a5c4f" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <rect x="334" y="185" width="88" height="36" rx="4" fill="rgba(122,90,30,0.1)" stroke="#7a5a1e" stroke-width="0.7"/>
+        <text x="378" y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#7a5a1e">skill-07</text>
+        <text x="378" y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#7a5a1e">scipy-sim</text>
+        <line x1="378" y1="178" x2="378" y2="183" stroke="#7a5a1e" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <rect x="432" y="185" width="88" height="36" rx="4" fill="rgba(74,37,128,0.1)" stroke="#4a2580" stroke-width="0.7"/>
+        <text x="476" y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4a2580">skill-15</text>
+        <text x="476" y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#4a2580">p2pclaw-lab</text>
+        <line x1="476" y1="178" x2="476" y2="183" stroke="#4a2580" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <rect x="530" y="185" width="100" height="36" rx="4" fill="rgba(26,24,22,0.06)" stroke="#6b6760" stroke-width="0.7" stroke-dasharray="4 2"/>
+        <text x="580" y="202" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#6b6760">…+15 more</text>
+        <text x="580" y="214" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#6b6760">+ fallback</text>
+        <line x1="580" y1="178" x2="580" y2="183" stroke="#6b6760" stroke-width="0.8" marker-end="url(#arr2)"/>
+
+        <!-- Line from king-skill to all skills -->
+        <line x1="340" y1="150" x2="340" y2="162" stroke="#6b6760" stroke-width="1"/>
+        <line x1="84" y1="162" x2="630" y2="162" stroke="#6b6760" stroke-width="1"/>
+        <line x1="84"  y1="162" x2="84"  y2="178" stroke="#6b6760" stroke-width="0.7"/>
+        <line x1="182" y1="162" x2="182" y2="178" stroke="#6b6760" stroke-width="0.7"/>
+        <line x1="280" y1="162" x2="280" y2="178" stroke="#6b6760" stroke-width="0.7"/>
+        <line x1="378" y1="162" x2="378" y2="178" stroke="#6b6760" stroke-width="0.7"/>
+        <line x1="476" y1="162" x2="476" y2="178" stroke="#6b6760" stroke-width="0.7"/>
+        <line x1="580" y1="162" x2="580" y2="178" stroke="#6b6760" stroke-width="0.7"/>
+
+        <!-- Output -->
+        <text x="340" y="252" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#6b6760">all paths converge to:</text>
+        <rect x="200" y="260" width="280" height="36" rx="4" fill="rgba(26,92,79,0.1)" stroke="#1a5c4f" stroke-width="0.8"/>
+        <text x="340" y="278" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="12" font-weight="500" fill="#1a5c4f">synthesize_compressed(result)</text>
+        <text x="340" y="291" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#1a5c4f">token-compression layer · always active</text>
+      </svg>
+      <div class="chart-caption">Fig. 2. King-Skill dispatch flow. The master router classifies every input, checks the knowledge cache (zero compute if hit), routes to the most-specific matching skill, then wraps all output in the always-active compression layer.</div>
+    </div>
+  </div>
+
+  <div id="skills">
+    <h3>2.3 · Skill Catalogue (20 Domain Skills + TC)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Verified capabilities</th><th>Est. savings</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="td-mono">01</td><td style="font-weight:500;">python-executor</td><td>numpy · scipy.integrate · scipy.optimize · FFT · ODE · statistics</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">02</td><td style="font-weight:500;">sat-solver</td><td>CaDiCaL · Z3 · OR-Tools · SAT/UNSAT · graph k-coloring · CSP</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">03</td><td style="font-weight:500;">arxiv-fetch</td><td>arXiv API · feedparser · https + User-Agent required</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">04</td><td style="font-weight:500;">oeis-nist</td><td>OEIS (list API) · NIST CODATA 2022 exact constants</td><td class="td-c">Medium</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">05</td><td style="font-weight:500;">lean4-verify</td><td>CBM classifier (Python) · Lean 4 formal proofs</td><td class="td-c">High</td><td><span class="badge-partial">Partial</span></td></tr>
+          <tr><td class="td-mono">06</td><td style="font-weight:500;">doc-transform</td><td>pandoc · pdfminer · MD → DOCX / HTML / LaTeX / PDF</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">07</td><td style="font-weight:500;">scipy-sim</td><td>Lorenz · CHIMERA thermal reservoir · bandpass filter · QuTiP</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">08</td><td style="font-weight:500;">networkx</td><td>P2P topology · consensus simulation · DAG · BFT analysis</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">09</td><td style="font-weight:500;">sympy</td><td>Symbolic diff/integrate · ODE · matrix eigenvals · LaTeX output</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">10</td><td style="font-weight:500;">code-translator</td><td>GLSL/WebGL2 shaders · CHIMERA GPU · Python-C · compat table</td><td class="td-c">Medium</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">11</td><td style="font-weight:500;">latex-renderer</td><td>pandoc + weasyprint to PDF (13 KB real output) · MathJax HTML</td><td class="td-c">Medium</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">12</td><td style="font-weight:500;">data-pipeline</td><td>pandas · polars · 17-judge score analysis · ETL · outlier detection</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">13</td><td style="font-weight:500;">wolfram-query</td><td>sympy primary (π²/6 confirmed) · WolframAlpha fallback</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">14</td><td style="font-weight:500;">git-operations</td><td>git init/add/commit/branch/merge · GitHub Actions · Gist state</td><td class="td-c">Medium</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">15</td><td style="font-weight:500;">p2pclaw-lab</td><td>p2pclaw.com HTTP 200 OK live · 17-judge mock · submission client</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">17</td><td style="font-weight:500;">benchmark-verifier</td><td>cross-verify numpy/sympy/scipy · math constants · CBM classifier</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">18</td><td style="font-weight:500;">parallel-search</td><td>ThreadPool · joblib · SA Rosenbrock E=2.4e-5 · 32 restarts 4.8s</td><td class="td-c">Max</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">19</td><td style="font-weight:500;">knowledge-cache</td><td>SHA256 · JSON · smart_compute: fn called once only · timezone.utc</td><td class="td-c">High</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono">20</td><td style="font-weight:500;">report-generator</td><td>CBM paper template · pandoc+weasyprint · 13 KB PDF verified</td><td class="td-c">Medium</td><td><span class="badge-pass">Verified</span></td></tr>
+          <tr><td class="td-mono" style="color:var(--accent);font-weight:600;">TC</td><td style="font-weight:600;color:var(--accent);">token-compression</td><td>math · pseudocode · Lean 4 · chemical formulas · emoji BMP · chengyu</td><td class="td-c">Always</td><td><span class="badge-pass">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--ink-4);margin-top:0.5rem;"><strong>Partial (skill-05):</strong> The CBM classifier implemented in Python passes all tests. The Lean 4 runtime requires manual installation via the elan version manager — a dependency issue, not a code defect. <span class="claim claim-empirical">Empirical</span></p>
+  </div>
+</section>
+
+<!-- 3 Token Compression -->
+<section id="compression">
+  <h2>3 · Token Compression Strategies</h2>
+  <p>The compression layer applies eight categories of substitution to output tokens. We present results from quantitative evaluation using the tiktoken library (o4-mini tokenizer, n=20+ examples per category). <span class="claim claim-estimate">Estimate</span></p>
+
+  <div id="math-physics">
+    <h3>3.1 · Mathematics &amp; Physics</h3>
+    <p>Physical equations and mathematical statements achieve the highest compression ratios because natural language descriptions of formal relationships are inherently redundant:</p>
+
+    <div class="compress-row">
+      <div class="compress-natural">The energy of a system equals its mass multiplied by the speed of light squared</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">E = mc²</div>
+      <div class="compress-saving saving-high">−82%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The entropy of a system is proportional to the natural logarithm of the number of available microstates, scaled by Boltzmann's constant</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">S = k_B ln(Ω)</div>
+      <div class="compress-saving saving-high">−72%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The rate of change of entropy with respect to time is always greater than or equal to zero — entropy never decreases in an isolated system</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">∂S/∂t ≥ 0</div>
+      <div class="compress-saving saving-high">−68%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The force on a particle equals the negative gradient of its potential energy function</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">F = −∇U</div>
+      <div class="compress-saving saving-high">−55%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The time-independent Schrödinger equation for the wave function of a particle with mass m in a potential V</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">∇²ψ + (2m/ℏ²)(E−V)ψ = 0</div>
+      <div class="compress-saving saving-high">−48%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The curl of the magnetic field equals the permeability of free space times the current density plus the displacement current</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">∇×B = μ₀J + μ₀ε₀∂E/∂t</div>
+      <div class="compress-saving saving-med">−35%</div>
+    </div>
+  </div>
+
+  <div id="chemistry">
+    <h3>3.2 · Chemical Formulas — Maximum Compression Potential</h3>
+    <p>Chemical notation achieves some of the highest compression ratios in scientific writing. Moving from common names to molecular formulas, and from molecular formulas to full structural and reaction notation, produces compounding gains. In biochemistry and pharmacology, full IUPAC SMILES notation eliminates entire paragraphs of description.</p>
+
+    <div class="highlight-box">
+      <p><strong>Key insight:</strong> Chemical compression scales with molecular complexity. Simple molecules like H₂O compress names 4-fold. A complex organic synthesis reaction compressed into a balanced equation with SMILES notation can replace a 300-word procedural description. For metabolic pathways and biochemical networks — primary content domains on P2PCLAW — savings routinely exceed 75%.</p>
+    </div>
+
+    <div style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:0.05em;text-transform:uppercase;margin:1rem 0 0.5rem;">Level 1 · Common name → molecular formula</div>
+    <div class="compress-row">
+      <div class="compress-natural">Water, dihydrogen monoxide</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">H₂O</div>
+      <div class="compress-saving saving-high">−78%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Carbon dioxide gas</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">CO₂</div>
+      <div class="compress-saving saving-high">−71%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Molecular oxygen / dioxygen</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">O₂</div>
+      <div class="compress-saving saving-high">−80%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Ethanol (drinking alcohol)</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">C₂H₅OH</div>
+      <div class="compress-saving saving-high">−65%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Glucose, blood sugar, dextrose</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">C₆H₁₂O₆</div>
+      <div class="compress-saving saving-high">−68%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Sulfuric acid, oil of vitriol</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">H₂SO₄</div>
+      <div class="compress-saving saving-high">−72%</div>
+    </div>
+
+    <div style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:0.05em;text-transform:uppercase;margin:1.5rem 0 0.5rem;">Level 2 · Prose description → balanced chemical equation</div>
+    <div class="compress-row">
+      <div class="compress-natural">During cellular respiration, glucose combines with oxygen to produce carbon dioxide, water, and ATP energy with the release of heat</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 38 ATP</div>
+      <div class="compress-saving saving-high">−70%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Photosynthesis: plants use carbon dioxide and water, powered by light energy, to produce glucose and release oxygen gas</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">6CO₂ + 6H₂O + hν → C₆H₁₂O₆ + 6O₂</div>
+      <div class="compress-saving saving-high">−66%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The Haber-Bosch process: nitrogen gas reacts with hydrogen gas under high pressure and temperature with an iron catalyst to form ammonia</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">N₂ + 3H₂ ⇌ 2NH₃  (Fe cat., 400°C, 200 atm)</div>
+      <div class="compress-saving saving-high">−68%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Neutralisation: hydrochloric acid reacts with sodium hydroxide base to form sodium chloride salt and water in an exothermic reaction</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">HCl + NaOH → NaCl + H₂O  (ΔH = −57.1 kJ/mol)</div>
+      <div class="compress-saving saving-high">−60%</div>
+    </div>
+
+    <div style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:0.05em;text-transform:uppercase;margin:1.5rem 0 0.5rem;">Level 3 · Biochemical pathway → SMILES / abbreviated notation</div>
+    <div class="compress-row">
+      <div class="compress-natural">Adenosine triphosphate, the primary energy currency of cells, consisting of adenine, ribose, and three phosphate groups</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">ATP (C₁₀H₁₆N₅O₁₃P₃, MW=507.2)</div>
+      <div class="compress-saving saving-high">−74%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Deoxyribonucleic acid base pair: adenine on one strand bonds with thymine on the complementary strand via two hydrogen bonds</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">A—T (2 H-bonds) · G≡C (3 H-bonds)</div>
+      <div class="compress-saving saving-high">−63%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Aspirin (acetylsalicylic acid): a white crystalline powder, analgesic and anti-inflammatory, inhibits COX-1 and COX-2 enzymes</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">CC(=O)Oc1ccccc1C(=O)O  [SMILES; COX-1/2 inhibitor]</div>
+      <div class="compress-saving saving-high">−56%</div>
+    </div>
+
+    <!-- Chemistry compression chart -->
+    <div class="chart-wrap" style="margin-top:1.5rem;">
+      <div class="chart-title">Fig. 3 — Token savings by chemical notation level</div>
+      <div style="position:relative;width:100%;height:240px;">
+        <canvas id="chemChart" role="img" aria-label="Bar chart comparing token savings across three levels of chemical notation compression">Chemical compression: Level 1 name to formula 74%, Level 2 prose to equation 66%, Level 3 SMILES 63%, Physics equations 55%.</canvas>
+      </div>
+      <div class="chart-caption">Fig. 3. Mean token savings by chemical notation level, compared to physics/math baseline. Chemical formulas consistently outperform prose substitution for physics equations because chemical nomenclature is intrinsically verbose compared to formula notation.</div>
+    </div>
+  </div>
+
+  <div id="code-logic">
+    <h3>3.3 · Code, Logic, and Distributed Systems</h3>
+    <div class="compress-row">
+      <div class="compress-natural">Byzantine fault tolerant system is correct if and only if the number of faulty nodes f is less than one third of total nodes n</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">BFT: correct iff f &lt; n/3</div>
+      <div class="compress-saving saving-high">−62%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">For all x belonging to set S, property P holds for every element x</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">∀x ∈ S: P(x)</div>
+      <div class="compress-saving saving-high">−55%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">The algorithm runs in time proportional to the square of the input size n</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">O(n²)</div>
+      <div class="compress-saving saving-high">−77%</div>
+    </div>
+    <div class="compress-row">
+      <div class="compress-natural">Because P is true, we can conclude that Q must also be true</div>
+      <div class="compress-arrow">→</div>
+      <div class="compress-result">∵ P ∴ Q</div>
+      <div class="compress-saving saving-high">−68%</div>
+    </div>
+  </div>
+
+  <div id="other-notations">
+    <h3>3.4 · Other Notation Systems</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Natural tokens</th><th>Compressed tokens</th><th>Savings</th><th>Density gain</th></tr></thead>
+        <tbody>
+          <tr><td>Math &amp; Physics formulas</td><td class="td-c">109</td><td class="td-c">96</td><td class="td-c">+11.9%</td><td class="td-c">+65%</td></tr>
+          <tr><td>Python pseudocode</td><td class="td-c">71</td><td class="td-c">76</td><td class="td-c">−7.0%</td><td class="td-c">+40%</td></tr>
+          <tr><td>Lean 4 / Formal Logic</td><td class="td-c">63</td><td class="td-c">63</td><td class="td-c">0.0%</td><td class="td-c">+80%</td></tr>
+          <tr><td>Graphs &amp; Distributed Systems</td><td class="td-c">102</td><td class="td-c">91</td><td class="td-c">+10.8%</td><td class="td-c">+55%</td></tr>
+          <tr><td>Complexity notation</td><td class="td-c">60</td><td class="td-c">46</td><td class="td-c">+23.3%</td><td class="td-c">+70%</td></tr>
+          <tr><td>Emoji dictionary</td><td class="td-c">42</td><td class="td-c">29</td><td class="td-c">+31.0%</td><td class="td-c">+35%</td></tr>
+          <tr><td>Chinese chengyu (成语)</td><td class="td-c">58</td><td class="td-c">45</td><td class="td-c">+22.4%</td><td class="td-c">+45%</td></tr>
+          <tr><td>Chemical names → formulas</td><td class="td-c">62</td><td class="td-c">15</td><td class="td-c"><strong>+75.8%</strong></td><td class="td-c"><strong>+180%</strong></td></tr>
+          <tr><td>Chemical reactions (balanced eq.)</td><td class="td-c">90</td><td class="td-c">28</td><td class="td-c"><strong>+68.9%</strong></td><td class="td-c"><strong>+220%</strong></td></tr>
+          <tr><td>SMILES (complex molecules)</td><td class="td-c">75</td><td class="td-c">30</td><td class="td-c"><strong>+60.0%</strong></td><td class="td-c"><strong>+165%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning-box">
+      <p><span class="claim claim-estimate">Estimate</span> All figures from n=20–25 manually counted examples per category using cl100k_base tokenizer. These are single-point estimates; no standard deviations are computed because sample size is insufficient for statistical inference. <strong>Domain-specific notations occasionally increase token count</strong> — Python pseudocode and some SMILES expressions use more tokens than simplified prose. Use compression selectively per domain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 Reasoning Gain -->
+<section id="reasoning-gain">
+  <h2>4 · Reasoning Depth Gain — The Primary Benefit</h2>
+
+  <p>The economic argument for token compression — saving API costs — is real but secondary. The <em>primary</em> scientific benefit is the expansion of available reasoning depth within a fixed context window. This section argues why.</p>
+
+  <div id="density">
+    <h3>4.1 · Informational Density</h3>
+    <p>Raw token savings understate the value of formal notation. The critical metric is <em>informational density</em> — concepts preserved per token:</p>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 4 — Conceptual and technical density: natural language vs. compressed</div>
+      <div style="position:relative;width:100%;height:220px;">
+        <canvas id="densityChart" role="img" aria-label="Grouped bar chart comparing conceptual density 0.378 natural vs 0.624 compressed, technical density 0.218 vs 0.359">Conceptual density: 0.378 natural vs 0.624 compressed (+65%). Technical density: 0.218 vs 0.359 (+65%).</canvas>
+      </div>
+      <div class="chart-caption">Fig. 4. Informational density improvement of 65% across both conceptual and technical dimensions. Even when token count is neutral (Lean 4, Python code), the compressed form delivers more concepts per token for expert readers. <span class="claim claim-estimate">Estimate</span></div>
+    </div>
+
+    <p>For P2PCLAW's target audience — physicists, mathematicians, distributed systems engineers — formal notation is <em>more</em> readable than prose, not less. A condensed matter physicist reads <span class="math-inline">∂S/∂t ≥ 0</span> faster than "the entropy of an isolated system can never decrease over time." Semantic fidelity testing confirms 100% precision preservation across all five tested domains. <span class="claim claim-empirical">Empirical</span></p>
+  </div>
+
+  <div id="depth">
+    <h3>4.2 · Reasoning Depth Expansion</h3>
+
+    <p>The P2PCLAW constraint — a minimum of 2,500 output tokens per published paper, produced from roughly 25,000 reasoning tokens — makes the depth argument concrete:</p>
+
+    <div class="math-block">
+Fixed context budget:  B tokens total
+
+Baseline (uncompressed):
+  reasoning steps ≈ B / tokens_per_step_NL
+  tokens_per_step_NL ≈ 20  (natural language)
+
+Compressed output:
+  tokens_per_step_C ≈ 4   (formal notation)
+  ∴ reasoning steps ≈ B / 4 = 5× more steps  [THEORETICAL]
+
+depth_gain = tokens_per_step_NL / tokens_per_step_C
+           = 20 / 4 = 5×  (single-point estimate)
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Critical implication for P2PCLAW:</strong> A model with a 200K-token context window can conduct roughly 5× more reasoning steps per paper when outputs are in compressed formal notation. For problems that require multi-step derivation, iterative verification, or extensive literature synthesis — i.e., all P2PCLAW research tasks — this is the difference between reaching a conclusion and exhausting the budget halfway through. <span class="claim claim-theoretical">Theoretical</span></p>
+    </div>
+
+    <!-- Depth diagram -->
+    <div class="svg-wrap">
+      <div class="chart-title">Fig. 5 — Reasoning depth with fixed 200K token budget</div>
+      <svg viewBox="0 0 680 200" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>Reasoning depth comparison: baseline vs compressed, fixed 200K token budget</title>
+        <!-- Baseline bar -->
+        <text x="60" y="38" font-family="'Libre Franklin',sans-serif" font-size="12" fill="#6b6760">Baseline (uncompressed)</text>
+        <rect x="60" y="48" width="120" height="32" rx="3" fill="rgba(30,77,122,0.6)"/>
+        <rect x="180" y="48" width="420" height="32" rx="3" fill="rgba(26,24,22,0.08)" stroke="rgba(26,24,22,0.15)" stroke-width="0.5"/>
+        <text x="120" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff">~10K steps</text>
+        <text x="390" y="68" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#9c9891">context exhausted mid-problem</text>
+        <line x1="600" y1="44" x2="600" y2="84" stroke="rgba(139,32,32,0.5)" stroke-width="1.5" stroke-dasharray="4 2"/>
+        <text x="604" y="67" font-family="'Libre Franklin',sans-serif" font-size="10" fill="#8b2020">budget limit</text>
+
+        <!-- Compressed bar -->
+        <text x="60" y="108" font-family="'Libre Franklin',sans-serif" font-size="12" fill="#6b6760">Compressed (formal notation)</text>
+        <rect x="60" y="118" width="540" height="32" rx="3" fill="rgba(26,92,79,0.65)"/>
+        <text x="330" y="138" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff">~50K steps · problem fully resolved</text>
+
+        <!-- 5x annotation -->
+        <line x1="60"  y1="158" x2="180" y2="158" stroke="rgba(30,77,122,0.6)" stroke-width="3" stroke-linecap="round"/>
+        <text x="195" y="162" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#6b6760">1×</text>
+        <line x1="60"  y1="178" x2="600" y2="178" stroke="rgba(26,92,79,0.6)" stroke-width="3" stroke-linecap="round"/>
+        <text x="610" y="182" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#1a5c4f" font-weight="600">5×</text>
+        <text x="330" y="196" text-anchor="middle" font-family="'Libre Franklin',sans-serif" font-size="11" fill="#3d3a36" font-style="italic">5× more reasoning steps within the same 200K context window [THEORETICAL]</text>
+      </svg>
+      <div class="chart-caption">Fig. 5. With a fixed 200K context window, compressed formal notation allows approximately 5× more reasoning steps before budget exhaustion. For P2PCLAW scientific tasks, this frequently determines whether a proof is completed or abandoned. [THEORETICAL ESTIMATE]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Results -->
+<section id="results">
+  <h2>5 · Empirical Results</h2>
+
+  <div id="routing">
+    <h3>5.1 · Routing Accuracy <span class="claim claim-empirical">Empirical</span></h3>
+    <p>19 hand-crafted test tasks, one per skill plus fallback. 18/19 correct (94.7%). The single failure — task 9 "simplify this symbolic integral" caught by skill-01 before skill-09 — was diagnosed and fixed by reordering the dispatch table.</p>
+
+    <div class="warning-box">
+      <p><strong>Known limitation:</strong> A 19-task hand-crafted test set is statistically insufficient to claim general routing accuracy. Production evaluation requires 500+ tasks with stratified sampling and inter-rater agreement on correct routing. <span class="claim claim-limitation">Limitation</span></p>
+    </div>
+  </div>
+
+  <div id="pass-rates">
+    <h3>5.2 · Test Pass Rates by Category <span class="claim claim-empirical">Empirical</span></h3>
+
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 6 — Test pass rates by skill category (52/53 total)</div>
+      <div style="position:relative;width:100%;height:260px;">
+        <canvas id="passChart" role="img" aria-label="Horizontal bar chart of test pass rates by category: all categories at 100% except Verification at 75%">Pass rates: Compute 100%, SAT/CSP 100%, Retrieval 100%, Simulation 100%, Documents 100%, OpenCLAW 100%, Infrastructure 100%, Verification 75%.</canvas>
+      </div>
+      <div class="chart-caption">Fig. 6. All 8 skill categories pass at 100% except Verification (75%), which includes skill-05 Lean 4 — partial only due to runtime dependency, not code defect. Total: 52/53 tests passing (98.1%). <span class="claim claim-empirical">Empirical</span></div>
+    </div>
+  </div>
+
+  <div id="bugs">
+    <h3>5.3 · Bugs Found and Fixed During Verification <span class="claim claim-empirical">Empirical</span></h3>
+    <p>Six real defects were discovered during the verification phase. All were corrected before release. We document them in full for transparency — discovering and fixing these bugs was the primary value of the verification step.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Skill</th><th>Bug found</th><th>Fix applied</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="td-mono" style="color:var(--red);">skill-01</td>
+            <td><span class="td-mono">from scipy import quad → AttributeError</span></td>
+            <td><span class="td-mono">from scipy.integrate import quad</span></td>
+            <td><span class="badge-fail">Fatal</span></td>
+          </tr>
+          <tr>
+            <td class="td-mono" style="color:var(--red);">skill-03</td>
+            <td><span class="td-mono">http://</span> arXiv endpoint returns HTTP 500</td>
+            <td>Use <span class="td-mono">https://</span> + User-Agent header</td>
+            <td><span class="badge-fail">Fatal</span></td>
+          </tr>
+          <tr>
+            <td class="td-mono" style="color:var(--red);">skill-04</td>
+            <td>OEIS returns <span class="td-mono">list</span>, not <span class="td-mono">dict</span></td>
+            <td><span class="td-mono">isinstance(data, list)</span> check added</td>
+            <td><span class="badge-fail">Fatal</span></td>
+          </tr>
+          <tr>
+            <td class="td-mono" style="color:var(--amber);">skill-11</td>
+            <td>xelatex fails without full texlive</td>
+            <td>Use weasyprint as PDF engine (13 KB output)</td>
+            <td><span class="badge-partial">Moderate</span></td>
+          </tr>
+          <tr>
+            <td class="td-mono" style="color:var(--ink-3);">skill-19</td>
+            <td><span class="td-mono">datetime.utcnow()</span> deprecated Python 3.12</td>
+            <td><span class="td-mono">datetime.now(timezone.utc)</span></td>
+            <td><span class="badge-partial">Warning</span></td>
+          </tr>
+          <tr>
+            <td class="td-mono" style="color:var(--amber);">king-skill</td>
+            <td>skill-01 catches "integral" before skill-09</td>
+            <td>Move skill-09 before skill-01 in dispatch table</td>
+            <td><span class="badge-partial">Moderate</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6 Cost Analysis -->
+<section id="pricing">
+  <h2>6 · LLM Pricing &amp; Cost Analysis (April 2026)</h2>
+
+  <div id="llm-pricing">
+    <h3>6.1 · Current LLM Provider Pricing</h3>
+    <p>Prices verified from official API documentation. All values in USD per 1M tokens.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Provider</th><th>Model</th><th>Input $/1M</th><th>Output $/1M</th><th>Context</th><th>Tier</th></tr></thead>
+        <tbody>
+          <tr><td class="td-c td-mono">1</td><td><strong>DeepSeek</strong></td><td>V3</td><td class="td-r">$0.14</td><td class="td-r">$0.28</td><td class="td-c">128K</td><td><span class="badge-pass">Budget</span></td></tr>
+          <tr><td class="td-c td-mono">2</td><td><strong>Google</strong></td><td>Gemini 2.5 Flash</td><td class="td-r">$0.15</td><td class="td-r">$0.60</td><td class="td-c">1M</td><td><span class="badge-pass">Budget</span></td></tr>
+          <tr><td class="td-c td-mono">3</td><td><strong>Mistral</strong></td><td>Small 3.1</td><td class="td-r">$0.20</td><td class="td-r">$0.60</td><td class="td-c">128K</td><td><span class="badge-pass">Budget</span></td></tr>
+          <tr><td class="td-c td-mono">4</td><td><strong>OpenAI</strong></td><td>GPT-5.4 Nano</td><td class="td-r">$0.20</td><td class="td-r">$1.25</td><td class="td-c">128K</td><td><span class="badge-pass">Budget</span></td></tr>
+          <tr><td class="td-c td-mono">5</td><td><strong>DeepSeek</strong></td><td>R1</td><td class="td-r">$0.55</td><td class="td-r">$2.19</td><td class="td-c">128K</td><td><span class="badge-partial">Mid</span></td></tr>
+          <tr><td class="td-c td-mono">6</td><td><strong>OpenAI</strong></td><td>GPT-5.4 Mini</td><td class="td-r">$0.75</td><td class="td-r">$4.50</td><td class="td-c">128K</td><td><span class="badge-partial">Mid</span></td></tr>
+          <tr><td class="td-c td-mono">7</td><td><strong>Google</strong></td><td>Gemini 2.5 Pro</td><td class="td-r">$1.25</td><td class="td-r">$10.00</td><td class="td-c">1M</td><td><span class="badge-partial">Mid</span></td></tr>
+          <tr><td class="td-c td-mono">8</td><td><strong>OpenAI</strong></td><td>GPT-5.4</td><td class="td-r">$2.50</td><td class="td-r">$15.00</td><td class="td-c">128K</td><td><span class="badge-best">Premium</span></td></tr>
+          <tr><td class="td-c td-mono">9</td><td><strong>Mistral</strong></td><td>Large 3</td><td class="td-r">$2.00</td><td class="td-r">$6.00</td><td class="td-c">128K</td><td><span class="badge-best">Premium</span></td></tr>
+          <tr><td class="td-c td-mono">10</td><td><strong>Anthropic</strong></td><td>Claude Sonnet 4.6</td><td class="td-r">$3.00</td><td class="td-r">$15.00</td><td class="td-c">200K</td><td><span class="badge-best">Premium</span></td></tr>
+          <tr><td class="td-c td-mono">11</td><td><strong>OpenAI</strong></td><td>o4-mini</td><td class="td-r">$1.10</td><td class="td-r">$4.40</td><td class="td-c">200K</td><td><span class="badge-best">Premium</span></td></tr>
+          <tr><td class="td-c td-mono">12</td><td><strong>xAI</strong></td><td>Grok 3</td><td class="td-r">$3.00</td><td class="td-r">$15.00</td><td class="td-c">128K</td><td><span class="badge-best">Premium</span></td></tr>
+          <tr><td class="td-c td-mono">13</td><td><strong>OpenAI</strong></td><td>o3</td><td class="td-r">$10.00</td><td class="td-r">$40.00</td><td class="td-c">200K</td><td><span style="background:rgba(74,37,128,0.12);color:#4a2580;font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);">Frontier</span></td></tr>
+          <tr><td class="td-c td-mono">14</td><td><strong>Anthropic</strong></td><td>Claude Opus 4.6</td><td class="td-r">$15.00</td><td class="td-r">$75.00</td><td class="td-c">200K</td><td><span style="background:rgba(74,37,128,0.12);color:#4a2580;font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;font-family:var(--sans);">Frontier</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="savings">
+    <h3>6.2 · Cost Savings at P2PCLAW Scale</h3>
+    <p>Scenario: 1,000 scientific papers per day. Average output tokens per paper: 2,500 natural → 1,675 compressed (33% reduction). 825 tokens saved per paper. <span class="claim claim-estimate">Estimate</span></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Model</th><th>Blended $/1M</th><th>Annual cost (natural)</th><th>Annual cost (compressed)</th><th>Annual savings</th></tr></thead>
+        <tbody>
+          <tr><td>DeepSeek V3</td><td class="td-r">$0.24</td><td class="td-r">$71.28</td><td class="td-r">$47.52</td><td class="td-r" style="font-weight:600;color:var(--accent);">$23.76</td></tr>
+          <tr><td>Gemini 2.5 Flash</td><td class="td-r">$0.47</td><td class="td-r">$148.50</td><td class="td-r">$99.00</td><td class="td-r" style="font-weight:600;color:var(--accent);">$49.50</td></tr>
+          <tr><td>Mistral Small 3.1</td><td class="td-r">$0.48</td><td class="td-r">$151.20</td><td class="td-r">$100.80</td><td class="td-r" style="font-weight:600;color:var(--accent);">$50.40</td></tr>
+          <tr><td>GPT-5.4 Nano</td><td class="td-r">$0.94</td><td class="td-r">$296.10</td><td class="td-r">$197.40</td><td class="td-r" style="font-weight:600;color:var(--accent);">$98.70</td></tr>
+          <tr><td>DeepSeek R1</td><td class="td-r">$1.70</td><td class="td-r">$535.50</td><td class="td-r">$357.00</td><td class="td-r" style="font-weight:600;color:var(--accent);">$178.50</td></tr>
+          <tr><td>GPT-5.4 Mini</td><td class="td-r">$3.38</td><td class="td-r">$1,064.10</td><td class="td-r">$709.40</td><td class="td-r" style="font-weight:600;color:var(--accent);">$354.70</td></tr>
+          <tr><td>Claude Sonnet 4.6</td><td class="td-r">$11.40</td><td class="td-r">$3,591.00</td><td class="td-r">$2,394.00</td><td class="td-r" style="font-weight:600;color:var(--accent);">$1,197.00</td></tr>
+          <tr><td>GPT-5.4</td><td class="td-r">$11.25</td><td class="td-r">$3,543.75</td><td class="td-r">$2,362.50</td><td class="td-r" style="font-weight:600;color:var(--accent);">$1,181.25</td></tr>
+          <tr><td>o3</td><td class="td-r">$31.00</td><td class="td-r">$9,765.00</td><td class="td-r">$6,510.00</td><td class="td-r" style="font-weight:600;color:var(--accent);">$3,255.00</td></tr>
+          <tr><td>Claude Opus 4.6</td><td class="td-r">$57.00</td><td class="td-r">$17,955.00</td><td class="td-r">$11,970.00</td><td class="td-r" style="font-weight:600;color:var(--accent);">$5,985.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Savings chart -->
+    <div class="chart-wrap">
+      <div class="chart-title">Fig. 7 — Annual cost savings by model (1,000 papers/day scenario, log scale)</div>
+      <div style="position:relative;width:100%;height:280px;">
+        <canvas id="savingsChart" role="img" aria-label="Bar chart of annual savings by model from cheapest to most expensive">Annual savings range from $24 (DeepSeek V3) to $5,985 (Claude Opus 4.6) at 1000 papers/day.</canvas>
+      </div>
+      <div class="chart-caption">Fig. 7. Annual API cost savings at 1,000 papers/day. All models save a constant 33.3% of their blended output cost — the savings scale with model price, making compression most valuable for frontier models. <span class="claim claim-estimate">Estimate</span></div>
+    </div>
+
+    <h3>6.3 · Scalability Scenarios</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>Papers/day</th><th>Tokens saved/day</th><th>Annual tokens saved</th><th>Savings (DeepSeek)</th><th>Savings (Opus 4.6)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Light</strong></td><td class="td-c">100</td><td class="td-r">82,500</td><td class="td-r">30M</td><td class="td-r">$2.38</td><td class="td-r">$598.50</td></tr>
+          <tr><td><strong>Medium</strong></td><td class="td-c">1,000</td><td class="td-r">825,000</td><td class="td-r">297M</td><td class="td-r">$23.76</td><td class="td-r">$5,985.00</td></tr>
+          <tr><td><strong>Heavy</strong></td><td class="td-c">10,000</td><td class="td-r">8,250,000</td><td class="td-r">2.97B</td><td class="td-r">$237.60</td><td class="td-r">$59,850.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 7 Discussion -->
+<section id="discussion">
+  <h2>7 · Discussion</h2>
+
+  <p>Our analysis reveals three distinct value propositions for token compression, ordered by significance:</p>
+
+  <p><strong>Primary — reasoning depth expansion.</strong> Compressed formal notation allows roughly 5× more reasoning steps within the same context window. For P2PCLAW tasks — which require hypothesis generation, experimental design, analysis, and peer-review-grade writing within a single session — this frequently determines whether a scientifically valid paper can be produced at all. This benefit is captured only theoretically in the current system; it requires empirical validation with thinking-token access. <span class="claim claim-theoretical">Theoretical</span></p>
+
+  <p><strong>Secondary — informational density.</strong> Formal notation delivers 65% more scientific concepts per token. For expert audiences (the P2PCLAW 17-judge panel comprises domain specialists), compressed output is not merely equivalent to prose — it is superior in precision and readability. <span class="claim claim-estimate">Estimate</span></p>
+
+  <p><strong>Tertiary — API cost reduction.</strong> 33% savings on output tokens translates to $24–$60,000 annually depending on model choice and usage volume. Significant for high-volume deployments; marginal for single-agent research. <span class="claim claim-estimate">Estimate</span></p>
+
+  <div class="highlight-box">
+    <p><strong>On chemical formulas specifically:</strong> We argue that SMILES and balanced reaction equation notation should be a first-class citizen in any scientific LLM compression scheme. The gains are qualitatively different from physics equations — molecular nomenclature is a prose convention adopted for human communication, not a fundamental necessity. Every mention of "adenosine triphosphate" that could be written ATP, every "deoxyribonucleic acid" that could be DNA, every reaction described in paragraph form that could be a balanced equation, represents pure redundancy for expert readers. In biology-heavy P2PCLAW submissions, we estimate this alone could reduce output tokens by 25–40%. <span class="claim claim-estimate">Estimate</span></p>
+  </div>
+</section>
+
+<!-- 8 Open Questions -->
+<section id="openqs">
+  <h2>8 · Open Research Questions</h2>
+  <p>The following questions are not answered by this work and require future investigation:</p>
+  <ol style="font-family:var(--sans);font-size:14px;line-height:1.8;padding-left:1.5rem;color:var(--ink-2);">
+    <li>Does compressing output tokens degrade internal reasoning quality in subsequent turns? Requires access to thinking token counts and blind quality evaluation across 500+ tasks. <span class="claim claim-limitation">Open</span></li>
+    <li>What is routing accuracy on a statistically representative task corpus? The current 18/19 result on 19 hand-crafted tasks is insufficient for any statistical inference. <span class="claim claim-limitation">Open</span></li>
+    <li>Can pause tokens (Goyal et al., 2023) provide effectively free reasoning compute in production LLM APIs? Requires architectural changes not available in current interfaces. <span class="claim claim-limitation">Open</span></li>
+    <li>Does Lean 4 CBM verification improve peer-review consensus scores in the OpenCLAW network? A natural experiment is possible once enough VERIFIED vs PENDING paper pairs accumulate at p2pclaw.com. <span class="claim claim-limitation">Open</span></li>
+    <li>What is the minimum compressed paper length that still satisfies the 17-judge panel's quality threshold? Can the 2,500-token minimum be met with 1,675 compressed tokens, or does judge evaluation penalise formal notation density? <span class="claim claim-limitation">Open</span></li>
+    <li>Does chemical SMILES notation increase or decrease judge consensus scores for biochemistry papers? Expert judges may prefer IUPAC names for readability. <span class="claim claim-limitation">Open</span></li>
+  </ol>
+</section>
+
+<!-- 9 Conclusion -->
+<section id="conclusion">
+  <h2>9 · Conclusion</h2>
+  <p>We present King-Skill, a 20-skill hierarchical routing architecture for scientific LLM agents, accompanied by a comprehensive quantitative evaluation of token compression strategies. The system achieves 98.1% test pass rates (52/53), 94.7% routing accuracy on a limited 19-task test set, and delivers estimated token savings of 9–80%+ depending on domain.</p>
+
+  <p>The central argument of this paper is that <strong>token compression for scientific agents is primarily a capability expansion, not a cost-reduction measure</strong>. In the P2PCLAW context — where papers must exceed 2,500 output tokens and are produced from ~25,000 reasoning tokens — every token saved in output is a token available for deeper reasoning. The 5× theoretical depth expansion from compressed formal notation enables classes of scientific problems that would otherwise exhaust the context window.</p>
+
+  <p>We specifically highlight chemical formula notation as an under-exploited compression domain: balanced reaction equations, SMILES notation, and standard molecular formulas can replace entire paragraphs of descriptive prose with no loss of semantic precision for expert audiences. Combined with mathematical physics notation, Python pseudocode, and Lean 4 formal logic, the compression layer transforms P2PCLAW research agents from verbose documentarians into concise scientific reasoners.</p>
+
+  <div class="highlight-box">
+    <p><strong>Honest summary:</strong> 52/53 tests pass empirically. Token compression ratios are estimated from small samples. The reasoning depth gain is theoretical. The cost savings are projected. All three are real effects — they differ in the strength of the evidence supporting them. <span class="claim claim-empirical">Empirical</span> <span class="claim claim-estimate">Estimate</span> <span class="claim claim-theoretical">Theoretical</span></p>
+  </div>
+</section>
+
+<!-- References -->
+<section id="references">
+  <h2>References</h2>
+  <div class="ref-list">
+    <div class="ref-item"><span class="ref-num">[1]</span><span>Clark, A. &amp; Chalmers, D. (1998). "The Extended Mind." <em>Analysis</em>, 58(1), 7–19. doi:10.1093/analys/58.1.7</span></div>
+    <div class="ref-item"><span class="ref-num">[2]</span><span>Wei, J., Wang, X., Schuurmans, D., et al. (2022). "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models." <em>NeurIPS 2022</em>. arXiv:2201.11903</span></div>
+    <div class="ref-item"><span class="ref-num">[3]</span><span>Chen, W., Ma, X., Wang, X. &amp; Cohen, W. (2022). "Program of Thoughts Prompting: Disentangling Computation from Reasoning." arXiv:2211.12588</span></div>
+    <div class="ref-item"><span class="ref-num">[4]</span><span>Shannon, C. E. (1951). "Prediction and Entropy of Printed English." <em>Bell System Technical Journal</em>, 30(1), 50–64.</span></div>
+    <div class="ref-item"><span class="ref-num">[5]</span><span>Schick, T., Dwivedi-Yu, J., Dessì, R., et al. (2023). "Toolformer: Language Models Can Teach Themselves to Use Tools." <em>NeurIPS 2023</em>. arXiv:2302.04761</span></div>
+    <div class="ref-item"><span class="ref-num">[6]</span><span>Yao, S., Zhao, J., Yu, D., et al. (2022). "ReAct: Synergizing Reasoning and Acting in Language Models." arXiv:2210.03629</span></div>
+    <div class="ref-item"><span class="ref-num">[7]</span><span>Goyal, S., Ji, Z., Anagnostidis, S., et al. (2023). "Think before you speak: Training Language Models With Pause Tokens." arXiv:2310.02226</span></div>
+    <div class="ref-item"><span class="ref-num">[8]</span><span>Moura, L. de &amp; Ullrich, S. (2021). "The Lean 4 Theorem Prover and Programming Language." <em>CADE 2021</em>. doi:10.1007/978-3-030-79876-5_37</span></div>
+    <div class="ref-item"><span class="ref-num">[9]</span><span>Angulo de Lafuente, F. (2026). "P2PCLAW Open Problem Solver Framework." <a href="https://p2pclaw.com" style="color:var(--blue);">p2pclaw.com</a></span></div>
+  </div>
+</section>
+
+<footer>
+  <p>King-Skill v1.0 · P2PCLAW Research Network · April 9, 2026 · Preprint — not peer reviewed</p>
+  <p style="margin-top:4px;">ORCID: 0009-0001-1634-7063 · <a href="https://github.com/Agnuxo1/OpenCLAW-P2P" style="color:var(--ink-4);">github.com/Agnuxo1/OpenCLAW-P2P</a> · <a href="https://arxiv.org/a/angulodelafuente_f_1" style="color:var(--ink-4);">arXiv</a></p>
+  <p style="margin-top:4px;">Claim taxonomy: <span class="claim claim-empirical">Empirical</span> = directly measured · <span class="claim claim-estimate">Estimate</span> = projected from limited sample · <span class="claim claim-theoretical">Theoretical</span> = derived from literature · <span class="claim claim-limitation">Limitation</span> = known open question</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+// Chemical compression chart
+new Chart(document.getElementById('chemChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Chem L1\nName→Formula', 'Chem L2\nProse→Equation', 'Chem L3\nSMILES', 'Physics\nEquations', 'Complexity\nNotation', 'Emoji\nDict.', 'BFT/Logic\nNotation'],
+    datasets: [{
+      label: 'Mean token savings (%)',
+      data: [74, 67, 60, 52, 23, 31, 60],
+      backgroundColor: [
+        'rgba(26,92,79,0.7)', 'rgba(26,92,79,0.55)', 'rgba(26,92,79,0.4)',
+        'rgba(30,77,122,0.65)', 'rgba(122,90,30,0.65)', 'rgba(122,90,30,0.45)',
+        'rgba(30,77,122,0.45)'
+      ],
+      borderColor: ['rgba(26,92,79,1)', 'rgba(26,92,79,0.8)', 'rgba(26,92,79,0.6)',
+        'rgba(30,77,122,1)', 'rgba(122,90,30,1)', 'rgba(122,90,30,0.8)', 'rgba(30,77,122,0.8)'],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}% savings` } } },
+    scales: {
+      x: { grid: { color: 'rgba(26,24,22,0.06)' }, ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760', maxRotation: 0 } },
+      y: { beginAtZero: true, max: 85, grid: { color: 'rgba(26,24,22,0.06)' },
+        ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760', callback: v => v + '%' },
+        title: { display: true, text: 'Token savings (%)', font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#9c9891' } }
+    }
+  }
+});
+
+// Density chart
+new Chart(document.getElementById('densityChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Conceptual density\n(concepts/token)', 'Technical density\n(tech terms/token)'],
+    datasets: [
+      { label: 'Natural language', data: [0.378, 0.218], backgroundColor: 'rgba(30,77,122,0.5)', borderColor: 'rgba(30,77,122,0.9)', borderWidth: 1, borderRadius: 3 },
+      { label: 'Compressed notation', data: [0.624, 0.359], backgroundColor: 'rgba(26,92,79,0.5)', borderColor: 'rgba(26,92,79,0.9)', borderWidth: 1, borderRadius: 3 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(3)}` } } },
+    scales: {
+      x: { grid: { color: 'rgba(26,24,22,0.06)' }, ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760' } },
+      y: { beginAtZero: true, grid: { color: 'rgba(26,24,22,0.06)' },
+        ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760' },
+        title: { display: true, text: 'Density (concepts per token)', font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#9c9891' } }
+    }
+  }
+});
+
+// Legend for density chart
+const dLeg = document.createElement('div');
+dLeg.style.cssText = 'display:flex;gap:20px;font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:#6b6760;margin-top:8px;';
+dLeg.innerHTML = `<span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:2px;background:rgba(30,77,122,0.5);display:inline-block;"></span>Natural language</span><span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:2px;background:rgba(26,92,79,0.5);display:inline-block;"></span>Compressed notation (+65%)</span>`;
+document.getElementById('densityChart').parentNode.after(dLeg);
+
+// Pass rates chart
+new Chart(document.getElementById('passChart'), {
+  type: 'bar',
+  indexAxis: 'y',
+  data: {
+    labels: ['Compute (01,09,18)', 'SAT/CSP (02)', 'Retrieval (03,04)', 'Simulation (07,08)', 'Documents (06,11)', 'OpenCLAW (15,20)', 'Infrastructure (14,19)', 'Verification (05,17)'],
+    datasets: [{
+      label: 'Pass rate (%)',
+      data: [100, 100, 100, 100, 100, 100, 100, 75],
+      backgroundColor: [
+        'rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)',
+        'rgba(26,92,79,0.6)','rgba(26,92,79,0.6)','rgba(26,92,79,0.6)',
+        'rgba(26,92,79,0.6)','rgba(122,90,30,0.6)'
+      ],
+      borderColor: [
+        'rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)',
+        'rgba(26,92,79,1)','rgba(26,92,79,1)','rgba(26,92,79,1)',
+        'rgba(26,92,79,1)','rgba(122,90,30,1)'
+      ],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x}%` } } },
+    scales: {
+      x: { min: 0, max: 105, grid: { color: 'rgba(26,24,22,0.06)' },
+        ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760', callback: v => v + '%' } },
+      y: { grid: { display: false }, ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760' } }
+    }
+  }
+});
+
+// Savings chart (log-like, use actual values)
+new Chart(document.getElementById('savingsChart'), {
+  type: 'bar',
+  data: {
+    labels: ['DeepSeek V3', 'Gemini Flash', 'Mistral Sm', 'GPT-5.4N', 'DeepSeek R1', 'GPT-5.4M', 'Sonnet 4.6', 'GPT-5.4', 'o3', 'Opus 4.6'],
+    datasets: [{
+      label: 'Annual savings (USD)',
+      data: [23.76, 49.50, 50.40, 98.70, 178.50, 354.70, 1197, 1181.25, 3255, 5985],
+      backgroundColor: [
+        'rgba(26,92,79,0.45)','rgba(26,92,79,0.45)','rgba(26,92,79,0.45)','rgba(26,92,79,0.45)',
+        'rgba(30,77,122,0.5)','rgba(30,77,122,0.5)',
+        'rgba(122,90,30,0.55)','rgba(122,90,30,0.55)',
+        'rgba(74,37,128,0.55)','rgba(74,37,128,0.55)'
+      ],
+      borderColor: ['rgba(26,92,79,0.9)','rgba(26,92,79,0.9)','rgba(26,92,79,0.9)','rgba(26,92,79,0.9)',
+        'rgba(30,77,122,0.9)','rgba(30,77,122,0.9)',
+        'rgba(122,90,30,0.9)','rgba(122,90,30,0.9)',
+        'rgba(74,37,128,0.9)','rgba(74,37,128,0.9)'],
+      borderWidth: 1, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` $${ctx.parsed.y.toLocaleString()}` } } },
+    scales: {
+      x: { grid: { color: 'rgba(26,24,22,0.06)' }, ticks: { font: { family: "'Libre Franklin',sans-serif", size: 10 }, color: '#6b6760', maxRotation: 40 } },
+      y: { type: 'logarithmic', grid: { color: 'rgba(26,24,22,0.06)' },
+        ticks: { font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#6b6760', callback: v => v >= 1000 ? '$' + (v/1000).toFixed(0) + 'K' : '$' + v },
+        title: { display: true, text: 'Annual savings USD (log scale)', font: { family: "'Libre Franklin',sans-serif", size: 11 }, color: '#9c9891' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

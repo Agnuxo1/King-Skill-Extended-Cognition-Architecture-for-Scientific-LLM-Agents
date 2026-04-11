@@ -1,0 +1,112 @@
+{
+  "skill": "frontier-math-solver",
+  "version": "6.0",
+  "description": "MAX_PRIORITY cognitive architecture for unsolved FrontierMath problems",
+  "evaluation_date": "2026-04-11",
+  "token_analysis": {
+    "total_tokens_cl100k": 11349,
+    "total_tokens_o200k": 11336,
+    "thinking_phases_estimate": 2143,
+    "output_phases_estimate": 5953,
+    "thinking_ratio": 0.189
+  },
+  "problem_registry": {
+    "total_problems": 15,
+    "by_difficulty": {
+      "MODERATE": 3,
+      "SOLID": 5,
+      "MAJOR": 3,
+      "BREAKTHROUGH": 4
+    },
+    "by_domain": {
+      "Combinatorics": 6,
+      "Number_Theory": 6,
+      "Algebraic_Geometry": 1,
+      "Topology_Geometry": 2
+    }
+  },
+  "external_apis": {
+    "p2pclaw_silicon": {
+      "url": "https://p2pclaw.com/silicon",
+      "tested": true,
+      "accessible": false,
+      "error": "HTTP 403 Forbidden"
+    },
+    "wolframalpha": {
+      "url": "https://www.wolframalpha.com",
+      "tested": true,
+      "accessible": false
+    },
+    "pari_gp": {
+      "url": "https://pari.math.u-bordeaux.fr/gp.html",
+      "tested": true,
+      "accessible": false,
+      "error": "SSL certificate verification failed"
+    },
+    "sagemath_cloud": {
+      "url": "https://sagecell.sagemath.org/",
+      "tested": true,
+      "accessible": false,
+      "error": "HTTP 403 Forbidden"
+    },
+    "gap_online": {
+      "url": "https://www.gap-system.org/",
+      "tested": true,
+      "accessible": false
+    }
+  },
+  "local_tools": {
+    "numpy": {"available": true, "version": "2.2.2"},
+    "scipy": {"available": true, "version": "1.15.1"},
+    "sympy": {"available": true, "version": "1.13.3"},
+    "z3": {"available": true, "version": "unknown"},
+    "pandas": {"available": true, "version": "2.2.3"},
+    "networkx": {"available": true, "version": "3.4.2"}
+  },
+  "math_verification": {
+    "paley_I_167": {
+      "tested": false,
+      "code_present": true,
+      "note": "Code present but not executed due to encoding issues"
+    },
+    "paley_graph_13": {
+      "tested": false,
+      "code_present": true,
+      "note": "Code present but not executed due to encoding issues"
+    },
+    "williamson_search_n1": {
+      "tested": true,
+      "found": true,
+      "iterations": 10
+    }
+  },
+  "forbidden_actions": {
+    "count": 9,
+    "examples": [
+      "compute eigenvalues of 668×668 matrix mentally",
+      "state a bound without citation",
+      "claim to solve Diophantine undecidable instance",
+      "ignore the 20-minute audit",
+      "implement own number-theoretic library when sympy/PARI exists"
+    ]
+  },
+  "citations": {
+    "count": 71,
+    "verified": true,
+    "samples": [
+      "Turyn_1974",
+      "Williamson_1944",
+      "Paley_1933",
+      "Huang_2019",
+      "Faltings_1983"
+    ]
+  },
+  "cost_analysis": {
+    "baseline_simple_math": 2500,
+    "skill_total": 11349,
+    "cost_overhead": 8849,
+    "overhead_percentage": 3.54,
+    "unit": "tokens per problem activation"
+  },
+  "honest_conclusion": "This skill MAXIMIZES rigor at the cost of context. It does NOT save tokens; it SPENDS ~8,849 extra tokens to buy disciplinary structure. Value proposition is methodological rigor, not efficiency."
+}

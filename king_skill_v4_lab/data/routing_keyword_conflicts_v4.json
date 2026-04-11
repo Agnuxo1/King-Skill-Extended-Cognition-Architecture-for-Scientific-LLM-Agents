@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": [
+      "integral",
+      "\u222b"
+    ],
+    "skills": [
+      "skill-09-sympy",
+      "skill-01-python-executor"
+    ],
+    "resolution": "If 'numerically' or 'numpy' or 'finite difference' \u2192 01 else \u2192 09"
+  },
+  {
+    "keywords": [
+      "simulate",
+      "ode",
+      "differential"
+    ],
+    "skills": [
+      "skill-07-scipy-sim",
+      "skill-09-sympy",
+      "skill-01-python-executor"
+    ],
+    "resolution": "If closed-form/symbolic \u2192 09; if scipy/solve_ivp/Lorenz \u2192 07; numpy fft \u2192 01"
+  },
+  {
+    "keywords": [
+      "graph",
+      "coloring",
+      "CNF",
+      "SAT"
+    ],
+    "skills": [
+      "skill-02-sat-solver",
+      "skill-08-networkx"
+    ],
+    "resolution": "CNF/SAT wording \u2192 02 before graph metrics \u2192 08"
+  },
+  {
+    "keywords": [
+      "p2p",
+      "topology",
+      "p2pclaw"
+    ],
+    "skills": [
+      "skill-15-p2pclaw-lab",
+      "skill-08-networkx"
+    ],
+    "resolution": "p2pclaw/gun.js/openclaw gateway \u2192 15; p2p overlay + PageRank/path \u2192 08"
+  },
+  {
+    "keywords": [
+      "prove",
+      "lean"
+    ],
+    "skills": [
+      "skill-05-lean4-verify",
+      "fallback"
+    ],
+    "resolution": "Lean4 explicit \u2192 05; vague 'prove theorem' without Lean \u2192 fallback"
+  }
+]

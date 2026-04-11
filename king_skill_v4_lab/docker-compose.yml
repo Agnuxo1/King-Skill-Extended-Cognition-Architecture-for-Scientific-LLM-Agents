@@ -1,0 +1,8 @@
+services:
+  king-skill-v4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: king-skill-v4:lab
+    volumes:
+      - ./outputs:/app/outputs
