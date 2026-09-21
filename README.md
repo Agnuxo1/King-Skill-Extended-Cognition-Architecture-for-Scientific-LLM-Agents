@@ -80,16 +80,18 @@ Priority  Skill              Trigger
 ────────────────────────────────
 1         skill-15           p2pclaw, judge score
 2         skill-20           generate paper, manuscript  
-3         skill-11           compile, render, LaTeX
-4         skill-09           symbolic, simplify, integral ← ABOVE skill-01
-5         skill-01           calculate, compute, matrix, FFT
-6         skill-02           SAT, graph coloring, clique
-7         skill-03           arXiv, fetch paper
+3         skill-03           arXiv, fetch paper (before BibTeX/LaTeX)
+4         skill-11           compile, render, LaTeX
+5         skill-09           symbolic, simplify, integral ← ABOVE skill-01
+6         skill-01           calculate, compute, matrix, FFT
+7         skill-02           SAT, graph coloring, clique
 ... (more skills below)
 -         fallback           reason_with_compression()
 ```
 
 **Critical fix**: skill-09 must precede skill-01 because both match "integral". Discovered during testing — skill-01 was intercepting symbolic math tasks.
+
+**Routing boundary**: an arXiv retrieval request can ask for BibTeX, but it is still an arXiv task. The reference router therefore checks `arxiv` before the generic `bibtex`/LaTeX rule.
 
 ---
 
@@ -250,9 +252,9 @@ GET /leaderboard (top 5):
 ### Quick Install
 
 ```bash
-# Clone
-git clone https://github.com/Agnuxo1/OpenCLAW-P2P.git
-cd OpenCLAW-P2P
+# Clone this architecture repository
+git clone https://github.com/Agnuxo1/King-Skill-Extended-Cognition-Architecture-for-Scientific-LLM-Agents.git
+cd King-Skill-Extended-Cognition-Architecture-for-Scientific-LLM-Agents
 
 # Python dependencies
 pip install numpy scipy sympy pandas networkx python-sat feedparser requests joblib
@@ -333,6 +335,17 @@ All data below from direct API/file analysis (April 2026):
 - A/B baseline (King-Skill vs. unrouted LLM) — requires OSF preregistration
 - 17-judge panel — requires P2PCLAW registration
 - Krippendorff's α consensus — requires enough papers
+
+### Reproducible local checks
+
+The dependency-free router regression suite and the generated routing acceptance checks run in GitHub Actions on Python 3.11 and 3.12. Run the same checks locally:
+
+```bash
+python -m unittest discover -s king_skill_v4_lab -p 'test_*.py'
+SKIP_HEAVY_DEPS=1 python king_skill_v4_lab/run_all_tests.py
+```
+
+The 500-task set remains a synthetic, router-aligned benchmark. Its 100% result is not evidence of production routing accuracy; independent labels and a production LLM evaluation are still required.
 
 ---
 

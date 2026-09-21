@@ -1,0 +1,28 @@
+name: Reproducibility
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-router:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile lab scripts
+        run: python -m compileall -q king_skill_v4_lab
+      - name: Run router regression tests
+        run: python -m unittest discover -s king_skill_v4_lab -p 'test_*.py'
+      - name: Run deterministic routing acceptance checks
+        env:
+          SKIP_HEAVY_DEPS: "1"
+        run: python king_skill_v4_lab/run_all_tests.py
