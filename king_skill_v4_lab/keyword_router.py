@@ -42,6 +42,11 @@ def route_task(user_input: str) -> str:
     if anyw("generate the full paper", "publication-ready", "report generator", "write the entire paper"):
         return "skill-20-report-generator"
 
+    # skill-03 arxiv — bibliography output (BibTeX) is still an arXiv task
+    # when the request is explicitly about fetching an arXiv record.
+    if anyw("arxiv", "arxiv.org"):
+        return "skill-03-arxiv-fetch"
+
     # skill-11 latex
     if anyw("latex", "pdflatex", "tikz", "bibtex"):
         return "skill-11-latex-renderer"
@@ -74,10 +79,6 @@ def route_task(user_input: str) -> str:
     # skill-02 SAT
     if anyw("sat solver", "cnf", "boolean satisfiability", "cadical", "z3 python-sat"):
         return "skill-02-sat-solver"
-
-    # skill-03 arxiv
-    if anyw("arxiv", "arxiv.org"):
-        return "skill-03-arxiv-fetch"
 
     # skill-04 oeis / constants
     if anyw("oeis", "integer sequence", "fibonacci", "euler totient", "nist codata"):
